@@ -1,89 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-X92KKS8ZJP");
-  </script>
+<html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-X92KKS8ZJP");
+    </script>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>weirdfriends</title>
+    <title>weirdfriends — thanks!</title>
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
     />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffed47;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+      }
+
+      .lettermark {
+        font-family: "Cherry Bomb One", cursive;
+      }
+
+      .neo-card {
+        background: #fff;
+        border: 3px solid #0d0d0d;
+        box-shadow: 6px 6px 0px #0d0d0d;
+        border-radius: 16px;
+        padding: 40px 32px;
+        text-align: center;
+        max-width: 380px;
+        width: 100%;
+      }
+
+      .neo-btn {
+        border: 3px solid #0d0d0d;
+        box-shadow: 4px 4px 0px #0d0d0d;
+        border-radius: 12px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        padding: 12px 28px;
+        font-size: 0.95rem;
+        background: #0d0d0d;
+        color: #ffed47;
+        margin-top: 20px;
+      }
+
+      .neo-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #0d0d0d;
+      }
+
+      footer {
+        margin-top: 32px;
+      }
+
+      footer p {
+        font-size: 0.72rem;
+        color: #0d0d0d;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.8;
+      }
+
+      footer a {
+        font-weight: 700;
+        color: #0d0d0d;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      footer a:hover {
+        color: #ff3b47;
+      }
+    </style>
   </head>
-  <body
-    class="w-full h-full bg-slate-50 font-mono text-neutral-900 overflow-auto min-h-80 px-8"
-    style="
-      font-family: 'Noto Serif', serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: 'wdth' 100;
-    "
-  >
-    <div
-      class="w-full h-full flex flex-col items-center justify-center min-w-80"
-    >
+  <body>
+
+    <div class="neo-card">
       <h1
-        class="text-2xl font-light leading-relaxed mb-2 tracking-wide text-center"
+        class="lettermark"
+        style="
+          font-size: 3.5rem;
+          color: #0d0d0d;
+          text-shadow: 4px 4px 0px #ff3b47;
+          line-height: 1;
+          margin-bottom: 16px;
+        "
       >
         thanks!
       </h1>
-      <p class="text-sm tracking-widest font-sans text-center">
+      <p
+        style="
+          font-size: 1rem;
+          font-weight: 600;
+          color: #0d0d0d;
+          margin-bottom: 4px;
+        "
+      >
+        you're on the list 🎉
+      </p>
+      <p style="font-size: 0.85rem; color: #555; font-weight: 500;">
         we'll be in touch soon
       </p>
-      <a href="https://weirdfriends.app/">
-        <button
-          class="text-sm border border-slate-300 rounded-md p-2 hover:bg-slate-100 px-4 text-center mt-4"
-        >
-          back to the homepage
-        </button></a
-      >
-      <div
-        class="m-2 mt-8 [@media(min-height:800px)]:fixed [@media(min-height:800px)]:bottom-2 [@media(min-height:800px)]:left-0 [@media(min-height:800px)]:w-full"
-      >
-        <p class="text-xs tracking-wide text-center">
-          🏗️ with ❤ in berlin by
-          <a
-            href="https://c0n0.com"
-            target="_blank"
-            class="underline hover:text-lime-600"
-            >conor</a
-          >
-          &middot;
-          <a
-            href="/privacy.html"
-            class="underline hover:text-lime-600"
-            >privacy</a
-          >
-          &middot;
-          <a
-            href="/account-deletion-request.html"
-            class="underline hover:text-lime-600"
-            >account deletion</a
-          >
-        </p>
-      </div>
+      <a href="https://weirdfriends.app/" class="neo-btn">
+        ← back home
+      </a>
     </div>
+
+    <footer>
+      <p>
+        🏗️ with ❤ in berlin by
+        <a href="https://c0n0.com" target="_blank">conor</a>
+        &middot;
+        <a href="/privacy.html">privacy</a>
+        &middot;
+        <a href="/account-deletion-request.html">account deletion</a>
+      </p>
+    </footer>
+
   </body>
 </html>

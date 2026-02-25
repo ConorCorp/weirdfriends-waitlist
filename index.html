@@ -12,137 +12,300 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-X92KKS8ZJP");
     </script>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>weirdfriends</title>
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
     />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffed47;
+        min-height: 100vh;
+      }
+
+      .lettermark {
+        font-family: "Cherry Bomb One", cursive;
+      }
+
+      .neo-card {
+        background: #fff;
+        border: 3px solid #0d0d0d;
+        box-shadow: 6px 6px 0px #0d0d0d;
+        border-radius: 16px;
+      }
+
+      .neo-btn {
+        border: 3px solid #0d0d0d;
+        box-shadow: 4px 4px 0px #0d0d0d;
+        border-radius: 12px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+      }
+
+      .neo-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #0d0d0d;
+      }
+
+      .neo-btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0px #0d0d0d;
+      }
+
+      .neo-input {
+        border: 3px solid #0d0d0d;
+        border-radius: 10px;
+        font-family: "Poppins", sans-serif;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        width: 100%;
+        background: #fffdf0;
+        outline: none;
+        color: #0d0d0d;
+      }
+
+      .neo-input:focus {
+        border-color: #ff3b47;
+        box-shadow: 3px 3px 0px #ff3b47;
+      }
+
+      .neo-input::placeholder {
+        color: #888;
+      }
+
+      .page-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 40px 20px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        min-height: 100vh;
+        justify-content: center;
+      }
+
+      .app-image-wrap {
+        width: 100%;
+        max-width: 340px;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 3px solid #0d0d0d;
+        box-shadow: 8px 8px 0px #0d0d0d;
+        background: #fff;
+      }
+
+      .app-image-wrap img {
+        width: 100%;
+        display: block;
+      }
+
+      .download-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .download-buttons a {
+        flex: 1;
+        min-width: 148px;
+        padding: 14px 16px;
+        font-size: 0.9rem;
+      }
+
+      .btn-ios {
+        background: #0d0d0d;
+        color: #ffed47;
+      }
+
+      .btn-android {
+        background: #4caf50;
+        color: #0d0d0d;
+      }
+
+      .waitlist-card {
+        width: 100%;
+        max-width: 380px;
+        padding: 28px 24px;
+      }
+
+      footer p {
+        font-size: 0.72rem;
+        color: #0d0d0d;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.8;
+      }
+
+      footer a {
+        font-weight: 700;
+        color: #0d0d0d;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      footer a:hover {
+        color: #ff3b47;
+      }
+    </style>
   </head>
-  <body
-    class="w-full h-full bg-slate-50 font-mono text-neutral-900 overflow-auto"
-    style="
-      font-family: 'Noto Serif', serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: 'wdth' 100;
-    "
-  >
-    <div
-      class="w-full h-full flex flex-col items-center justify-center min-w-80"
-    >
-      <pre class="text-sm mt-2">
-                       .--.
-                       |  |
-                       |  |
-                       |  |
-                       |  |
-      _.-----------._  |  |
-   .-'      __       `-.  |
- .'       .'  `.        `.|
-;         :    :          ;
-|         `.__.'          |
-|   ___                   |
-|  (_M_) weirdfriends     |
-| .---------------------. |
-| |                     | |
-| |   hallo             | |
-| |   hello             | |
-| |   hola              | |
-| |   ni hao            | |
-| |   bonjour           | |
-| |                     | |
-| `---------------------' |
-|                         |
-|                __       |
-|  ________  .-~~__~~-.   |
-| |___C___/ /  .'  `.  \  |
-|  ______  ;   : OK :   ; |
-| |__A___| |  _`.__.'_  | |
-|  _______ ; \< |  | >/ ; |
-      </pre>
+  <body>
+    <div class="page-wrap">
+
+      <!-- Lettermark -->
       <h1
-        class="text-2xl font-light leading-relaxed mb-2 tracking-wide text-center"
+        class="lettermark"
+        style="
+          font-size: clamp(2.6rem, 10vw, 4.2rem);
+          color: #0d0d0d;
+          text-align: center;
+          line-height: 1;
+          text-shadow: 4px 4px 0px #ff3b47;
+        "
       >
-        weirdfriends app
+        weirdfriends
       </h1>
+
+      <!-- Tagline -->
       <p
-        class="text-sm tracking-wide font-sans text-center max-w-52 text-neutral-500"
+        style="
+          font-size: 1rem;
+          font-weight: 600;
+          text-align: center;
+          color: #0d0d0d;
+          max-width: 280px;
+          line-height: 1.5;
+        "
       >
-        text weird AI characters and learn a foreign language
+        text weird AI characters &amp; learn a foreign language
       </p>
-      <form
-        action="https://api.web3forms.com/submit"
-        method="POST"
-        class="flex flex-col gap-3 items-center justify-center py-2 mt-8 min-w-72"
-      >
-        <input
-          type="hidden"
-          name="access_key"
-          value="e2d1a37f-145d-4f94-9778-d65b0259cf43"
-        />
-        <input
-          type="hidden"
-          name="redirect"
-          value="https://weirdfriends.app/thanks.html"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          required
-          class="text-center border-b border-slate-300 focus:outline-none focus:ring-0 focus:border-slate-400 w-full"
-        />
-        <button
-          class="text-sm border border-slate-300 rounded-md p-2 hover:bg-slate-100 px-4 text-center"
-          type="submit"
+
+      <!-- App Image — Center Point -->
+      <div class="app-image-wrap">
+        <img src="app.png" alt="weirdfriends app" />
+      </div>
+
+      <!-- Download Buttons -->
+      <div class="download-buttons">
+        <!-- iOS App Store -->
+        <a href="#" class="neo-btn btn-ios">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          App Store
+        </a>
+        <!-- Android Google Play -->
+        <a href="#" class="neo-btn btn-android">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;">
+            <path d="M3.18 23.76c.37.21.8.24 1.2.07l12.11-6.99-2.62-2.62-10.69 9.54zm-1.5-20.4c-.15.27-.25.6-.25.98v19.32c0 .38.1.71.25.98l.08.08 10.82-10.82v-.25L1.76 3.28l-.08.08zM20.57 10.94l-2.87-1.66-2.94 2.94 2.94 2.94 2.89-1.67c.82-.47.82-1.25-.02-1.55zM4.38.24C3.98.07 3.55.1 3.18.31L13.95 11.08 16.57 8.46 4.46.31l-.08-.07z"/>
+          </svg>
+          Google Play
+        </a>
+      </div>
+
+      <!-- Waitlist Form -->
+      <div class="neo-card waitlist-card">
+        <p
+          style="
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 4px;
+            color: #0d0d0d;
+          "
         >
           join the waitlist
-        </button>
-        <p
-          class="text-xs tracking-wide text-center max-w-52 font-light text-neutral-500 mt-2"
-        >
-          get an email when we launch and get it for FREE 🤑
         </p>
-      </form>
-    </div>
-    <div
-      class="m-2 mt-8 [@media(min-height:900px)]:fixed [@media(min-height:900px)]:bottom-2 [@media(min-height:900px)]:left-0 [@media(min-height:900px)]:w-full"
-    >
-      <p class="text-xs tracking-wide text-center">
-        🏗️ with ❤ in berlin by
-        <a
-          href="https://c0n0.com"
-          target="_blank"
-          class="underline hover:text-lime-600"
-          >conor</a
+        <p
+          style="
+            font-size: 0.8rem;
+            text-align: center;
+            color: #555;
+            margin-bottom: 18px;
+            font-weight: 500;
+          "
         >
-        &middot;
-        <a
-          href="/privacy.html"
-          class="underline hover:text-lime-600"
-          >privacy</a
+          get an email when we launch &amp; get it for <strong>FREE</strong> 🤑
+        </p>
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          style="display: flex; flex-direction: column; gap: 12px;"
         >
-        &middot;
-        <a
-          href="/account-deletion-request.html"
-          class="underline hover:text-lime-600"
-          >account deletion</a
-        >
-      </p>
+          <input
+            type="hidden"
+            name="access_key"
+            value="e2d1a37f-145d-4f94-9778-d65b0259cf43"
+          />
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://weirdfriends.app/thanks.html"
+          />
+          <input
+            type="email"
+            placeholder="your email"
+            name="email"
+            required
+            class="neo-input"
+          />
+          <button
+            type="submit"
+            class="neo-btn"
+            style="
+              background: #ff3b47;
+              color: #fff;
+              padding: 14px 24px;
+              font-size: 1rem;
+              width: 100%;
+            "
+          >
+            get early access →
+          </button>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          🏗️ with ❤ in berlin by
+          <a href="https://c0n0.com" target="_blank">conor</a>
+          &middot;
+          <a href="/privacy.html">privacy</a>
+          &middot;
+          <a href="/account-deletion-request.html">account deletion</a>
+        </p>
+      </footer>
+
     </div>
   </body>
 </html>
