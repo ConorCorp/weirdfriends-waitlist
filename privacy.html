@@ -3,196 +3,222 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>weirdfriends - Privacy Policy</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
-    />
-  </head>
-  <body
-    class="w-full min-h-screen bg-slate-50 font-mono text-neutral-900"
-    style="
-      font-family: 'Noto Serif', serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: 'wdth' 100;
-    "
-  >
-    <div class="max-w-2xl mx-auto px-6 py-12">
-      <a
-        href="/"
-        class="text-sm text-neutral-500 hover:text-neutral-900 underline"
-        >&larr; back</a
-      >
-      <h1 class="text-2xl font-light leading-relaxed mb-1 tracking-wide mt-6">
-        Privacy Policy
-      </h1>
-      <p class="text-sm text-neutral-500 mb-8">
-        Effective date: February 17, 2026
-      </p>
+    <title>weirdfriends — Privacy Policy</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      <div class="space-y-6 text-sm leading-relaxed text-neutral-700">
+      :root {
+        --cream:    #F5EBDC;
+        --mint:     #C5EDE8;
+        --lavender: #EDE0F0;
+        --white:    #FFFFFF;
+        --dark:     #1A1A1A;
+        --mid:      #6B6565;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        min-height: 100vh;
+      }
+
+      .lettermark { font-family: "Cherry Bomb One", cursive; }
+
+      .page-wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--dark);
+        text-decoration: none;
+        border: 2px solid var(--dark);
+        box-shadow: 3px 3px 0 var(--dark);
+        border-radius: 8px;
+        padding: 7px 14px;
+        background: var(--white);
+        transition: transform 0.08s ease, box-shadow 0.08s ease;
+      }
+      .back-link:hover  { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--dark); }
+      .back-link:active { transform: translate(3px, 3px); box-shadow: 0   0   0 var(--dark); }
+
+      h1 {
+        font-family: "Cherry Bomb One", cursive;
+        font-size: 2.4rem;
+        line-height: 1.1;
+        margin-top: 28px;
+        text-shadow: 4px 4px 0 var(--mint);
+      }
+
+      .effective-date {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--mid);
+        margin-top: 6px;
+        margin-bottom: 32px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      section {
+        background: var(--white);
+        border: 2px solid var(--dark);
+        box-shadow: 4px 4px 0 var(--dark);
+        border-radius: 12px;
+        padding: 20px 22px;
+      }
+
+      h2 {
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: var(--dark);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      p, li {
+        font-size: 0.88rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      ul {
+        list-style: disc;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      a {
+        font-weight: 600;
+        color: var(--dark);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      a:hover { color: var(--mid); }
+
+      .footer-rule {
+        margin-top: 48px;
+        padding-top: 20px;
+        border-top: 2px solid var(--dark);
+        text-align: center;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--mid);
+        line-height: 2;
+      }
+      .footer-rule a {
+        font-weight: 700;
+        color: var(--dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrap">
+
+      <a href="/" class="back-link">← back</a>
+
+      <h1>Privacy Policy</h1>
+      <p class="effective-date">Effective date: February 17, 2026</p>
+
+      <div class="content">
+
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Introduction
-          </h2>
+          <h2>Introduction</h2>
           <p>
-            weirdfriends ("we", "us", or "our") is a language learning app that
-            lets you practice a foreign language by chatting with AI characters.
-            This Privacy Policy explains how we collect, use, and protect your
-            information when you use the weirdfriends app and website
-            (collectively, the "Service").
+            weirdfriends ("we", "us", or "our") is a language learning app that lets you practice a foreign language by chatting with AI characters. This Privacy Policy explains how we collect, use, and protect your information when you use the weirdfriends app and website (collectively, the "Service").
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Information We Collect
-          </h2>
-          <p class="mb-2">We may collect the following types of information:</p>
-          <ul class="list-disc list-inside space-y-1 ml-2">
-            <li>
-              <strong>Account information</strong> &mdash; If you choose to
-              create an account, we collect your email address and any profile
-              information you provide. You can use parts of the Service without
-              creating an account.
-            </li>
-            <li>
-              <strong>Conversation data</strong> &mdash; The messages you
-              exchange with AI characters within the app.
-            </li>
-            <li>
-              <strong>Usage data</strong> &mdash; Basic information about how
-              you interact with the Service, such as features used and session
-              duration.
-            </li>
-            <li>
-              <strong>Device information</strong> &mdash; Device type, operating
-              system version, and app version.
-            </li>
+          <h2>Information We Collect</h2>
+          <p style="margin-bottom: 10px;">We may collect the following types of information:</p>
+          <ul>
+            <li><strong>Account information</strong> — If you choose to create an account, we collect your email address and any profile information you provide. You can use parts of the Service without creating an account.</li>
+            <li><strong>Conversation data</strong> — The messages you exchange with AI characters within the app.</li>
+            <li><strong>Usage data</strong> — Basic information about how you interact with the Service, such as features used and session duration.</li>
+            <li><strong>Device information</strong> — Device type, operating system version, and app version.</li>
           </ul>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            How We Use Your Information
-          </h2>
-          <ul class="list-disc list-inside space-y-1 ml-2">
+          <h2>How We Use Your Information</h2>
+          <ul>
             <li>To provide, maintain, and improve the Service.</li>
-            <li>
-              To generate AI responses in your conversations and personalize
-              your learning experience.
-            </li>
+            <li>To generate AI responses in your conversations and personalize your learning experience.</li>
             <li>To respond to your requests or support inquiries.</li>
             <li>To monitor usage and fix bugs.</li>
           </ul>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Data Sharing and Selling
-          </h2>
+          <h2>Data Sharing and Selling</h2>
           <p>
-            <strong>We do not sell your personal information.</strong> We do not
-            display advertisements in the app. Your data may be accessible to
-            our small team solely for the purpose of operating and improving the
-            Service. We do not share your personal information with third
-            parties except when required by law or as needed to operate the
-            Service (for example, cloud hosting providers that process data on
-            our behalf).
+            <strong>We do not sell your personal information.</strong> We do not display advertisements in the app. Your data may be accessible to our small team solely for the purpose of operating and improving the Service. We do not share your personal information with third parties except when required by law or as needed to operate the Service (for example, cloud hosting providers that process data on our behalf).
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Data Retention
-          </h2>
+          <h2>Data Retention</h2>
           <p>
-            We retain your information for as long as your account is active or
-            as needed to provide the Service. If you request deletion of your
-            account and data, we will remove it within a reasonable timeframe.
-            You can delete your account in the app or more details
-            <a
-              href="/account-deletion-request.html"
-              class="underline hover:text-lime-600"
-              >here</a
-            >.
+            We retain your information for as long as your account is active or as needed to provide the Service. If you request deletion of your account and data, we will remove it within a reasonable timeframe. You can delete your account in the app or find more details <a href="/account-deletion-request.html">here</a>.
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Data Security
-          </h2>
+          <h2>Data Security</h2>
           <p>
-            We take reasonable measures to protect your information from
-            unauthorized access, loss, or misuse. However, no method of
-            electronic transmission or storage is 100% secure, and we cannot
-            guarantee absolute security.
+            We take reasonable measures to protect your information from unauthorized access, loss, or misuse. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Children's Privacy
-          </h2>
+          <h2>Children's Privacy</h2>
           <p>
-            The Service is available to users of all ages. We do not knowingly
-            collect more personal information from children than is necessary to
-            provide the Service. If you are a parent or guardian and believe
-            your child has provided us with personal information that you would
-            like removed, please contact us and we will promptly delete it.
+            The Service is available to users of all ages. We do not knowingly collect more personal information from children than is necessary to provide the Service. If you are a parent or guardian and believe your child has provided us with personal information that you would like removed, please contact us and we will promptly delete it.
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Changes to This Policy
-          </h2>
+          <h2>Changes to This Policy</h2>
           <p>
-            We may update this Privacy Policy from time to time. If we make
-            material changes, we will notify you by updating the effective date
-            at the top of this page. Your continued use of the Service after
-            changes are posted constitutes your acceptance of the updated
-            policy.
+            We may update this Privacy Policy from time to time. If we make material changes, we will notify you by updating the effective date at the top of this page. Your continued use of the Service after changes are posted constitutes your acceptance of the updated policy.
           </p>
         </section>
 
         <section>
-          <h2 class="text-base font-medium text-neutral-900 mb-2">
-            Contact Us
-          </h2>
+          <h2>Contact Us</h2>
           <p>
-            If you have any questions about this Privacy Policy or wish to
-            request deletion of your data, please contact us at:<br />
-            <a
-              href="mailto:hey@weirdfriends.app"
-              class="underline hover:text-lime-600"
-              >hey@weirdfriends.app</a
-            >
+            If you have any questions about this Privacy Policy or wish to request deletion of your data, please contact us at:<br /><br />
+            <a href="mailto:hey@weirdfriends.app">hey@weirdfriends.app</a>
           </p>
         </section>
+
       </div>
 
-      <div class="mt-12 pt-6 border-t border-slate-200">
-        <p class="text-xs tracking-wide text-center text-neutral-500">
-          &copy; 2026 weirdfriends &middot;
-          <a
-            href="/account-deletion-request.html"
-            class="underline hover:text-lime-600"
-            >account deletion</a
-          >
-        </p>
+      <div class="footer-rule">
+        &copy; 2026 weirdfriends &middot;
+        <a href="/account-deletion-request.html">account deletion</a>
       </div>
+
     </div>
   </body>
 </html>
