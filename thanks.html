@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
   <!-- Google tag (gtag.js) -->
   <script
     async
@@ -11,7 +11,6 @@
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
-
     gtag("config", "G-X92KKS8ZJP");
   </script>
   <head>
@@ -28,62 +27,111 @@
     <link
       rel="icon"
       type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>"
     />
+    <style>
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-1 { animation: fadeInUp 0.6s ease both; }
+      .fade-2 { animation: fadeInUp 0.6s ease 0.12s both; }
+      .fade-3 { animation: fadeInUp 0.6s ease 0.24s both; }
+      .back-link { color: rgba(255,255,255,0.3); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; font-size: 0.8rem; }
+      .back-link:hover { color: rgba(255,255,255,0.6); }
+      a.footer-link { color: rgba(255,255,255,0.3); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+      a.footer-link:hover { color: rgba(255,255,255,0.6); }
+    </style>
   </head>
   <body
-    class="w-full h-full bg-slate-50 font-mono text-neutral-900 overflow-auto min-h-80 px-8"
     style="
+      margin: 0;
+      min-height: 100vh;
+      background: #080808;
+      color: #f0ebe2;
       font-family: 'Noto Serif', serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: 'wdth' 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     "
   >
+    <!-- Background glow -->
     <div
-      class="w-full h-full flex flex-col items-center justify-center min-w-80"
+      style="
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120,180,50,0.07) 0%, transparent 65%);
+        pointer-events: none;
+        z-index: 0;
+      "
+    ></div>
+
+    <main
+      style="
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+      "
     >
+      <a href="/" class="fade-1 back-link" style="margin-bottom: 0.5rem;">&larr; back</a>
+
       <h1
-        class="text-2xl font-light leading-relaxed mb-2 tracking-wide text-center"
+        class="fade-1"
+        style="font-size: 1.75rem; font-style: italic; font-weight: 300; margin: 0;"
       >
         thanks!
       </h1>
-      <p class="text-sm tracking-widest font-sans text-center">
-        we'll be in touch soon
+      <p
+        class="fade-2"
+        style="font-size: 0.85rem; color: rgba(240,235,226,0.45); margin: 0; font-style: italic;"
+      >
+        we'll be in touch
       </p>
-      <a href="https://weirdfriends.app/">
+      <a href="https://weirdfriends.app/" class="fade-3">
         <button
-          class="text-sm border border-slate-300 rounded-md p-2 hover:bg-slate-100 px-4 text-center mt-4"
-        >
-          back to the homepage
-        </button></a
-      >
-      <div
-        class="m-2 mt-8 [@media(min-height:800px)]:fixed [@media(min-height:800px)]:bottom-2 [@media(min-height:800px)]:left-0 [@media(min-height:800px)]:w-full"
-      >
-        <p class="text-xs tracking-wide text-center">
-          🏗️ with ❤ in berlin by
-          <a
-            href="https://c0n0.com"
-            target="_blank"
-            class="underline hover:text-lime-600"
-            >conor</a
-          >
-          &middot;
-          <a
-            href="/privacy.html"
-            class="underline hover:text-lime-600"
-            >privacy</a
-          >
-          &middot;
-          <a
-            href="/account-deletion-request.html"
-            class="underline hover:text-lime-600"
-            >account deletion</a
-          >
-        </p>
-      </div>
-    </div>
+          style="
+            margin-top: 0.5rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            padding: 9px 20px;
+            color: #f0ebe2;
+            font-size: 0.8rem;
+            font-family: 'Noto Serif', serif;
+            cursor: pointer;
+            transition: background 0.2s;
+          "
+          onmouseover="this.style.background='rgba(255,255,255,0.1)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.06)'"
+        >back to the homepage</button>
+      </a>
+    </main>
+
+    <footer
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1.25rem 1.5rem;
+        z-index: 1;
+      "
+    >
+      <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.04em; margin: 0;">
+        built with ❤ in berlin by
+        <a href="https://c0n0.com" target="_blank" class="footer-link">conor</a>
+        &nbsp;&middot;&nbsp;
+        <a href="/privacy.html" class="footer-link">privacy</a>
+        &nbsp;&middot;&nbsp;
+        <a href="/account-deletion-request.html" class="footer-link">account deletion</a>
+      </p>
+    </footer>
   </body>
 </html>
