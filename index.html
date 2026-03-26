@@ -163,6 +163,31 @@
         color: var(--mid);
       }
 
+      /* ── TOAST ── */
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: var(--white);
+        color: var(--dark);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: 2.5px solid var(--dark);
+        border-radius: 10px;
+        box-shadow: 4px 4px 0 var(--dark);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10000;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
       /* ── STAGGERED ENTRANCE ── */
       @keyframes fade-in-up {
         from {
@@ -420,8 +445,12 @@
           <a href="https://c0n0.com" target="_blank">conor</a> &middot;
           <a href="/privacy.html">privacy</a> &middot;
           <a href="/account-deletion-request.html">account deletion</a>
+          &middot;
+          <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
         </p>
       </footer>
+
+      <div class="toast" id="toast"></div>
     </div>
 
     <script>
@@ -561,6 +590,18 @@
           setTimeout(() => requestAnimationFrame(tick), Math.random() * 120);
         }
         setTimeout(() => wrap.remove(), 3500);
+      }
+
+      /* CONTACT COPY (bot-proof assembly) */
+      function copyEmail(e) {
+        e.preventDefault();
+        var addr = ['hello', 'weirdfriends', 'app'].join('@').replace('@app', '.app');
+        navigator.clipboard.writeText(addr).then(function () {
+          var t = document.getElementById('toast');
+          t.textContent = '"' + addr + '" copied!';
+          t.classList.add('show');
+          setTimeout(function () { t.classList.remove('show'); }, 2200);
+        });
       }
 
       document
