@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>weirdfriends — Download</title>
+  <script>
+    // ── CONFIG ──────────────────────────────────────
+    var CONFIG = {
+      ios:      "https://apps.apple.com/app/id6756412362",
+      android:  "https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends",
+      fallback: "/",
+      ga_measurement_id: "G-X92KKS8ZJP",
+      ga_api_secret:     "7BtefpdCTn60-OuAm4ItuQ",
+    };
+    // ────────────────────────────────────────────────
+
+    (function () {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var platform, dest;
+
+      if (/android/i.test(ua)) {
+        platform = "android"; dest = CONFIG.android;
+      } else if (/iphone|ipad|ipod/i.test(ua)) {
+        platform = "ios"; dest = CONFIG.ios;
+      } else {
+        platform = "desktop"; dest = CONFIG.fallback;
+      }
+
+      // Fire analytics event via Measurement Protocol — no delay
+      navigator.sendBeacon(
+        "https://www.google-analytics.com/mp/collect?measurement_id="
+          + CONFIG.ga_measurement_id + "&api_secret=" + CONFIG.ga_api_secret,
+        JSON.stringify({
+          client_id: Math.random().toString(36).slice(2) + Date.now().toString(36),
+          events: [{ name: "onelink_redirect", params: { platform: platform } }]
+        })
+      );
+
+      window.location.replace(dest);
+    })();
+  </script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #1a1a2e;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <p>Redirecting&hellip;</p>
+  <noscript>
+    <p>
+      <a href="https://apps.apple.com/app/id6756412362">Download on the App Store</a> |
+      <a href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends">Get it on Google Play</a> |
+      <a href="/">Visit website</a>
+    </p>
+  </noscript>
+</body>
+</html>
