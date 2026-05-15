@@ -407,14 +407,9 @@
         </p>
         <form
           id="waitlist-form"
-          action="https://api.web3forms.com/submit"
+          action="https://app.loops.so/api/newsletter-form/cmoertgej2ftj0i0pxqb6b265"
           method="POST"
         >
-          <input
-            type="hidden"
-            name="access_key"
-            value="e2d1a37f-145d-4f94-9778-d65b0259cf43"
-          />
           <input
             type="email"
             name="email"
@@ -605,42 +600,64 @@
         });
       }
 
+      function showToast(message) {
+        const t = document.getElementById("toast");
+        t.textContent = message;
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 3000);
+      }
+
+      function resetSubmitBtn() {
+        btn.disabled = false;
+        btn.textContent = "join →";
+        btn.style.opacity = "";
+        btn.style.cursor = "";
+      }
+
       document
         .getElementById("waitlist-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
-          const formData = new FormData(e.target);
-          const json = JSON.stringify(Object.fromEntries(formData));
+          const form = e.target;
+          const emailInput = form.querySelector('input[name="email"]');
 
           btn.disabled = true;
           btn.textContent = "sending... ✉️";
           btn.style.opacity = "0.7";
           btn.style.cursor = "not-allowed";
 
-          launchConfetti(btn);
           gtag('event', 'email_signup');
 
-          fetch("https://api.web3forms.com/submit", {
+          const body = "email=" + encodeURIComponent(emailInput.value);
+
+          fetch(form.action, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
+              "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: json,
+            body: body,
           })
             .then(async (response) => {
-              const data = await response.json();
-              if (response.status === 200) {
-                window.location.href = "/thanks.html";
+              if (response.status === 429) {
+                showToast("too many signups, try again in a bit");
+                resetSubmitBtn();
+                return;
+              }
+              const data = await response.json().catch(() => ({}));
+              if (response.ok && data.success) {
+                launchConfetti(btn);
+                form.reset();
+                setTimeout(() => {
+                  window.location.href = "/thanks.html";
+                }, 600);
               } else {
-                console.error(data.message);
+                showToast(data.message || "something went wrong, try again");
+                resetSubmitBtn();
               }
             })
-            .catch((error) => {
-              console.error(error);
-            })
-            .then(() => {
-              e.target.reset();
+            .catch(() => {
+              showToast("network error, try again");
+              resetSubmitBtn();
             });
         });
     </script>
