@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-X92KKS8ZJP");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weirdfriends × berlin</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --cream: #fef1e7;
+        --mint: #dbf5f0;
+        --lavender: #fce0ff;
+        --white: #ffffff;
+        --dark: #1a1a1a;
+        --mid: #6b6565;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        min-height: 100vh;
+      }
+
+      .lettermark {
+        font-family: "Cherry Bomb One", cursive;
+      }
+
+      .neo-card {
+        background: var(--white);
+        border: 2.5px solid var(--dark);
+        box-shadow: 5px 5px 0 var(--dark);
+        border-radius: 16px;
+      }
+
+      .neo-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        border: 2.5px solid var(--dark);
+        box-shadow: 4px 4px 0 var(--dark);
+        border-radius: 10px;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
+      }
+      .neo-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+      .neo-btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 var(--dark);
+      }
+
+      .page-wrap {
+        max-width: 440px;
+        margin: 0 auto;
+        padding: 48px 20px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hallo-pill {
+        font-family: "Poppins", sans-serif;
+        color: var(--dark);
+        background: var(--lavender);
+        border: 2.5px solid var(--dark);
+        box-shadow: 3px 3px 0 var(--dark);
+        border-radius: 100px;
+        padding: 7px 18px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        transform: rotate(-2deg);
+        cursor: pointer;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
+      }
+      .hallo-pill:hover {
+        transform: rotate(-2deg) translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+      .hallo-pill:active {
+        transform: rotate(-2deg) translate(3px, 3px);
+        box-shadow: 0 0 0 var(--dark);
+      }
+
+      .app-image {
+        width: 100%;
+        max-width: 300px;
+      }
+      .app-image img {
+        width: 100%;
+        display: block;
+        border-radius: 40px;
+        filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.15));
+        transition: filter 0.15s ease;
+      }
+
+      .berlin-card {
+        width: 100%;
+        max-width: 360px;
+        padding: 24px 22px;
+      }
+      .berlin-card ul {
+        list-style: none;
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .berlin-card li {
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.45;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .berlin-card li span:first-child {
+        flex-shrink: 0;
+      }
+
+      footer {
+        padding-top: 4px;
+      }
+      footer p {
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-align: center;
+        line-height: 2;
+        color: var(--dark);
+      }
+      footer a {
+        font-weight: 700;
+        color: var(--dark);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      footer a:hover {
+        color: var(--mid);
+      }
+
+      /* ── STAGGERED ENTRANCE ── */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .anim-in {
+        opacity: 0;
+        animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      /* ── GRAIN OVERLAY ── */
+      .grain {
+        position: fixed;
+        inset: -200px;
+        width: calc(100% + 400px);
+        height: calc(100% + 400px);
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 9999;
+        filter: url(#grain-filter);
+        background: #fff;
+        animation: grain-shift 0.3s steps(3) infinite;
+      }
+      @keyframes grain-shift {
+        0% {
+          transform: translate(0, 0);
+        }
+        33% {
+          transform: translate(-22px, -12px);
+        }
+        66% {
+          transform: translate(12px, 18px);
+        }
+        100% {
+          transform: translate(-8px, 6px);
+        }
+      }
+
+      /* ── FLOATING BUBBLES ── */
+      @keyframes bubble-float {
+        0% {
+          transform: translateY(110vh) rotate(-2deg);
+          opacity: 0;
+        }
+        5% {
+          opacity: 0.65;
+        }
+        90% {
+          opacity: 0.45;
+        }
+        100% {
+          transform: translateY(-15vh) rotate(2deg);
+          opacity: 0;
+        }
+      }
+      .bubbles-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .bubble {
+        position: absolute;
+        bottom: -80px;
+        padding: 6px 14px;
+        border: 2px solid var(--dark);
+        border-radius: 100px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        animation: bubble-float linear infinite;
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+
+      /* ── APP TILT WRAPPER ── */
+      .app-tilt-wrapper {
+        transition: transform 0.15s ease;
+        will-change: transform;
+      }
+
+      /* ── FERNSEHTURM RAIN (welcome moment) ── */
+      @keyframes turm-fall {
+        0% {
+          transform: translateY(-18vh) rotate(var(--sway-start)) ;
+          opacity: 0;
+        }
+        8% {
+          opacity: 0.9;
+        }
+        85% {
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(115vh) rotate(var(--sway-end));
+          opacity: 0;
+        }
+      }
+      .turm-rain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9997;
+        overflow: hidden;
+      }
+      .turm {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        animation: turm-fall linear forwards;
+        filter: drop-shadow(2px 2px 0 rgba(26, 26, 26, 0.18));
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .turm-rain {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SVG filter for film grain -->
+    <svg style="display: none" aria-hidden="true">
+      <defs>
+        <filter id="grain-filter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.65"
+            numOctaves="3"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+      </defs>
+    </svg>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="bubbles-bg" aria-hidden="true"></div>
+
+    <div class="page-wrap">
+      <button
+        type="button"
+        id="hallo-pill"
+        class="hallo-pill anim-in"
+        style="animation-delay: 0ms"
+        aria-label="make it rain fernsehturms"
+      >
+        na, berlin? 👋 congrats on finding our flyer
+      </button>
+
+      <h1
+        class="lettermark anim-in"
+        style="
+          font-size: clamp(2.8rem, 10vw, 4.4rem);
+          line-height: 1;
+          text-align: center;
+          text-shadow: 5px 5px 0 var(--mint);
+          animation-delay: 100ms;
+        "
+      >
+        weirdfriends
+      </h1>
+
+      <p
+        class="anim-in"
+        style="
+          font-size: 0.95rem;
+          font-weight: 600;
+          text-align: center;
+          max-width: 300px;
+          line-height: 1.5;
+          color: var(--dark);
+          animation-delay: 200ms;
+        "
+      >
+        learn 24+ languages for free while you coast the u8 🏄
+      </p>
+
+      <div class="app-image anim-in" style="animation-delay: 320ms">
+        <div class="app-tilt-wrapper" id="app-tilt">
+          <img src="/app.png" alt="weirdfriends app" />
+        </div>
+      </div>
+
+      <div
+        class="store-buttons anim-in"
+        style="
+          animation-delay: 420ms;
+          display: flex;
+          gap: 12px;
+          width: 100%;
+          max-width: 360px;
+          justify-content: center;
+        "
+      >
+        <a
+          href="https://apps.apple.com/app/id6756412362"
+          target="_blank"
+          onclick="gtag('event', 'store_click', { store: 'app_store', page: 'berlin' })"
+          class="neo-btn"
+          style="
+            background: var(--mint);
+            color: var(--dark);
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            flex: 1;
+            text-align: center;
+          "
+        >
+          <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor">
+            <path
+              d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-62.1 24-72.5-24 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+            />
+          </svg>
+          App Store
+        </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends"
+          target="_blank"
+          onclick="gtag('event', 'store_click', { store: 'play_store', page: 'berlin' })"
+          class="neo-btn"
+          style="
+            background: var(--lavender);
+            color: var(--dark);
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            flex: 1;
+            text-align: center;
+          "
+        >
+          <svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor">
+            <path
+              d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
+            />
+          </svg>
+          Play Store
+        </a>
+      </div>
+
+      <div class="neo-card berlin-card anim-in" style="animation-delay: 560ms">
+        <p style="font-weight: 800; font-size: 1.05rem; text-align: center">
+          make your own ais to practice…
+        </p>
+        <ul>
+          <li>
+            <span>🏪</span>
+            <span>chatting with your späti guy beyond "eine sterni, bitte"</span>
+          </li>
+          <li>
+            <span>📋</span>
+            <span>surviving small talk at the ausländerbehörde (viel glück)</span>
+          </li>
+          <li>
+            <span>🥨</span>
+            <span>answering "na?" correctly on the first try</span>
+          </li>
+          <li>
+            <span>📝</span>
+            <span>skip the translator for your anmeldung appointment</span>
+          </li>
+        </ul>
+      </div>
+
+      <a
+        href="/"
+        class="neo-btn anim-in"
+        onclick="gtag('event', 'back_home_click', { page: 'berlin' })"
+        style="
+          animation-delay: 640ms;
+          background: var(--white);
+          color: var(--dark);
+          padding: 11px 22px;
+          font-size: 0.85rem;
+        "
+      >
+        ← back to home
+      </a>
+
+      <footer class="anim-in" style="animation-delay: 720ms">
+        <p>🏗️ with ❤ in berlin (like, actually here)</p>
+      </footer>
+    </div>
+
+    <script>
+      /* FLOATING BERLIN BUBBLES */
+      const GREETINGS = [
+        { text: "Na? 👋", bg: "#dbf5f0" },
+        { text: "Moin", bg: "#fce0ff" },
+        { text: "Alles klar?", bg: "#fef1e7" },
+        { text: "Ick liebe dir 💘", bg: "#dbf5f0" },
+        { text: "Jut.", bg: "#fce0ff" },
+        { text: "Digga", bg: "#fef1e7" },
+        { text: "Späti o'clock 🍺", bg: "#dbf5f0" },
+        { text: "Genau.", bg: "#fce0ff" },
+        { text: "Hä?", bg: "#fef1e7" },
+        { text: "Tschüssi ✌️", bg: "#dbf5f0" },
+        { text: "Doch!", bg: "#fce0ff" },
+        { text: "Wie geht's?", bg: "#fef1e7" },
+        { text: "Krass 😳", bg: "#dbf5f0" },
+        { text: "Feierabend 🎉", bg: "#fce0ff" },
+        { text: "Nächster Halt…", bg: "#fef1e7" },
+      ];
+
+      const bubblesEl = document.querySelector(".bubbles-bg");
+      GREETINGS.forEach((g) => {
+        const el = document.createElement("div");
+        el.className = "bubble";
+        el.textContent = g.text;
+        el.style.background = g.bg;
+        el.style.left = 4 + Math.random() * 88 + "%";
+        const dur = 22 + Math.random() * 18;
+        el.style.animationDuration = dur + "s";
+        el.style.animationDelay = -(Math.random() * dur) + "s";
+        bubblesEl.appendChild(el);
+      });
+
+      /* APP MOCKUP 3D TILT */
+      const appTilt = document.getElementById("app-tilt");
+      const appWrap = appTilt.closest(".app-image");
+      const appImg = appTilt.querySelector("img");
+
+      appWrap.addEventListener("mousemove", (e) => {
+        const r = appTilt.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+        const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        appTilt.style.transition = "transform 0.1s ease";
+        appTilt.style.transform = `perspective(500px) rotateY(${
+          dx * 14
+        }deg) rotateX(${-dy * 10}deg) scale(1.03)`;
+        appImg.style.filter = `drop-shadow(${-dx * 10}px ${
+          dy * 10
+        }px 0px rgba(0,0,0,0.2))`;
+      });
+      appWrap.addEventListener("mouseleave", () => {
+        appTilt.style.transition = "transform 0.55s ease";
+        appTilt.style.transform = "";
+        appImg.style.filter = "drop-shadow(8px 8px 0px rgba(0,0,0,0.15))";
+      });
+
+      /* FERNSEHTURM RAIN — shower on arrival, again on pill click */
+      function fernsehturmRain() {
+        const wrap = document.createElement("div");
+        wrap.className = "turm-rain";
+        document.body.appendChild(wrap);
+
+        const COUNT = 16;
+        let longest = 0;
+        for (let i = 0; i < COUNT; i++) {
+          const el = document.createElement("img");
+          el.src = "fernsehturm.png";
+          el.alt = "";
+          el.className = "turm";
+          const size = 20 + Math.random() * 22;
+          el.style.width = size + "px";
+          el.style.left = 2 + Math.random() * 94 + "%";
+          const dir = Math.random() > 0.5 ? 1 : -1;
+          if (Math.random() < 0.4) {
+            // spinner: one to two full rotations on the way down
+            const start = -dir * (10 + Math.random() * 20);
+            el.style.setProperty("--sway-start", start + "deg");
+            el.style.setProperty(
+              "--sway-end",
+              start + dir * (360 + Math.random() * 360) + "deg",
+            );
+          } else {
+            const sway = 6 + Math.random() * 14;
+            el.style.setProperty("--sway-start", -dir * sway + "deg");
+            el.style.setProperty("--sway-end", dir * sway + "deg");
+          }
+          const dur = 2.6 + Math.random() * 2.2;
+          const delay = Math.random() * 2;
+          el.style.animationDuration = dur + "s";
+          el.style.animationDelay = delay + "s";
+          longest = Math.max(longest, dur + delay);
+          wrap.appendChild(el);
+        }
+        setTimeout(() => wrap.remove(), longest * 1000 + 300);
+      }
+
+      fernsehturmRain();
+
+      document.getElementById("hallo-pill").addEventListener("click", () => {
+        fernsehturmRain();
+        gtag("event", "rain_click", { page: "berlin" });
+      });
+    </script>
+  </body>
+</html>
