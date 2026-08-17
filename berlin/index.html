@@ -13,6 +13,16 @@
       }
       gtag("js", new Date());
       gtag("config", "G-X92KKS8ZJP");
+
+      /* flyer attribution: /berlin/?f=1 → remember which QR was scanned,
+         report it, then strip the query string so the URL stays clean */
+      var flyerParam = new URLSearchParams(location.search).get("f");
+      window.FLYER = flyerParam || sessionStorage.getItem("wf_flyer") || "none";
+      if (flyerParam) {
+        sessionStorage.setItem("wf_flyer", flyerParam);
+        gtag("event", "flyer_scan", { page: "berlin", flyer: flyerParam });
+        history.replaceState(null, "", location.pathname);
+      }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -387,7 +397,7 @@
         <a
           href="https://apps.apple.com/app/id6756412362"
           target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'app_store', page: 'berlin' })"
+          onclick="gtag('event', 'store_click', { store: 'app_store', page: 'berlin', flyer: window.FLYER })"
           class="neo-btn"
           style="
             background: var(--mint);
@@ -408,7 +418,7 @@
         <a
           href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends"
           target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'play_store', page: 'berlin' })"
+          onclick="gtag('event', 'store_click', { store: 'play_store', page: 'berlin', flyer: window.FLYER })"
           class="neo-btn"
           style="
             background: var(--lavender);
@@ -455,7 +465,7 @@
       <a
         href="/"
         class="neo-btn anim-in"
-        onclick="gtag('event', 'back_home_click', { page: 'berlin' })"
+        onclick="gtag('event', 'back_home_click', { page: 'berlin', flyer: window.FLYER })"
         style="
           animation-delay: 640ms;
           background: var(--white);
@@ -572,7 +582,7 @@
 
       document.getElementById("hallo-pill").addEventListener("click", () => {
         fernsehturmRain();
-        gtag("event", "rain_click", { page: "berlin" });
+        gtag("event", "rain_click", { page: "berlin", flyer: window.FLYER });
       });
     </script>
   </body>
