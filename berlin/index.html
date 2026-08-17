@@ -61,6 +61,9 @@
         background: var(--cream);
         color: var(--dark);
         min-height: 100vh;
+        /* small-viewport height: don't manufacture scrollable overflow while
+           the mobile URL bar is still expanded */
+        min-height: 100svh;
       }
 
       .lettermark {
@@ -208,18 +211,27 @@
         animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       }
 
-      /* ── GRAIN OVERLAY ── */
+      /* ── GRAIN OVERLAY ──
+         The noise is a pre-rasterised background image, NOT a live
+         `filter: url(#grain-filter)`. A filtered full-screen fixed layer has to
+         be re-filtered every frame, which knocks mobile off compositor-driven
+         scrolling and leaves freshly-revealed content at the bottom of the page
+         unpainted until the scroll settles.
+         Height is pinned to the *large* viewport so the layer doesn't get
+         resized (and re-rasterised) mid-scroll when the URL bar collapses. */
       .grain {
         position: fixed;
         inset: -200px;
         width: calc(100% + 400px);
-        height: calc(100% + 400px);
+        height: calc(100vh + 400px);
+        height: calc(100lvh + 400px);
         opacity: 0.04;
         pointer-events: none;
         z-index: 9999;
-        filter: url(#grain-filter);
-        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
         animation: grain-shift 0.3s steps(3) infinite;
+        will-change: transform;
+        contain: strict;
       }
       @keyframes grain-shift {
         0% {
@@ -255,14 +267,22 @@
       }
       .bubbles-bg {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* large-viewport height so the layer isn't resized while the URL bar
+           collapses on scroll */
+        height: 100vh;
+        height: 100lvh;
         pointer-events: none;
         z-index: 0;
         overflow: hidden;
+        contain: strict;
       }
       .bubble {
         position: absolute;
         bottom: -80px;
+        will-change: transform;
         padding: 6px 14px;
         border: 2px solid var(--dark);
         border-radius: 100px;
@@ -300,15 +320,21 @@
       }
       .turm-rain {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100lvh;
         pointer-events: none;
         z-index: 9997;
         overflow: hidden;
+        contain: strict;
       }
       .turm {
         position: absolute;
         top: 0;
         opacity: 0;
+        will-change: transform;
         animation: turm-fall linear forwards;
         filter: drop-shadow(2px 2px 0 rgba(26, 26, 26, 0.18));
       }
@@ -320,21 +346,6 @@
     </style>
   </head>
   <body>
-    <!-- SVG filter for film grain -->
-    <svg style="display: none" aria-hidden="true">
-      <defs>
-        <filter id="grain-filter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.65"
-            numOctaves="3"
-            stitchTiles="stitch"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </defs>
-    </svg>
-
     <div class="grain" aria-hidden="true"></div>
     <div class="bubbles-bg" aria-hidden="true"></div>
 
