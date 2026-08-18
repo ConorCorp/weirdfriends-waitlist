@@ -184,7 +184,9 @@
         opacity: 0;
         pointer-events: none;
         z-index: 10000;
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
       }
       .toast.show {
         opacity: 1;
@@ -251,10 +253,12 @@
           opacity: 0;
         }
         5% {
-          opacity: 0.65;
+          opacity: 1;
         }
-        90% {
-          opacity: 0.45;
+        /* bubbles enter the viewport ~88% in — stay solid for the first
+           stretch of the visible rise, then fade out near the top */
+        94% {
+          opacity: 1;
         }
         100% {
           transform: translateY(-15vh) rotate(2deg);
@@ -289,6 +293,26 @@
         opacity: 0;
         animation: bubble-float linear infinite;
         box-shadow: 2px 2px 0 var(--dark);
+      }
+      /* phones: let the bubbles rise much higher up the screen */
+      @media (max-width: 767px) {
+        @keyframes bubble-float {
+          0% {
+            transform: translateY(110vh) rotate(-2deg);
+            opacity: 0;
+          }
+          5% {
+            opacity: 1;
+          }
+          /* longer travel on phones: viewport entry is ~65% in */
+          80% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-60vh) rotate(2deg);
+            opacity: 0;
+          }
+        }
       }
 
       /* ── APP TILT WRAPPER ── */
@@ -328,7 +352,7 @@
           animation-delay: 160ms;
         "
       >
-        be the person who gets the joke, learn 24+ languages with strange ais
+        be the person who gets the joke, learn 24+ languages with ais you create
       </p>
 
       <div class="app-image anim-in" style="animation-delay: 320ms">
@@ -443,8 +467,8 @@
         <p>
           🏗️ with ❤ in berlin by
           <a href="https://c0n0.com" target="_blank">conor</a> &middot;
-          <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a> &middot;
-          <a href="/privacy.html">privacy</a> &middot;
+          <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a>
+          &middot; <a href="/privacy.html">privacy</a> &middot;
           <a href="/account-deletion-request.html">account deletion</a>
           &middot;
           <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
@@ -472,10 +496,27 @@
         { text: "שלום", bg: "#dbf5f0" },
         { text: "Salut", bg: "#fce0ff" },
         { text: "Ahoj", bg: "#fef1e7" },
+        { text: "Hej 👋", bg: "#dbf5f0" },
+        { text: "Cześć", bg: "#fce0ff" },
+        { text: "Γεια σου", bg: "#fef1e7" },
+        { text: "Xin chào", bg: "#dbf5f0" },
+        { text: "Sawubona", bg: "#fce0ff" },
+        { text: "Halo", bg: "#fef1e7" },
+        { text: "Kamusta", bg: "#dbf5f0" },
+        { text: "สวัสดี 🙏", bg: "#fce0ff" },
+        { text: "Jambo", bg: "#fef1e7" },
+        { text: "Szia", bg: "#dbf5f0" },
+        { text: "Hei", bg: "#fce0ff" },
+        { text: "Sveiki", bg: "#fef1e7" },
+        { text: "Aloha 🌺", bg: "#dbf5f0" },
+        { text: "سلام", bg: "#fce0ff" },
+        { text: "Dia dhuit", bg: "#fef1e7" },
       ];
 
       const bubblesEl = document.querySelector(".bubbles-bg");
-      GREETINGS.forEach((g) => {
+      const shuffled = [...GREETINGS].sort(() => Math.random() - 0.5);
+      const bubbleSet = shuffled.slice(0, 15);
+      bubbleSet.forEach((g) => {
         const el = document.createElement("div");
         el.className = "bubble";
         el.textContent = g.text;
@@ -596,12 +637,16 @@
       /* CONTACT COPY (bot-proof assembly) */
       function copyEmail(e) {
         e.preventDefault();
-        var addr = ['hello', 'weirdfriends', 'app'].join('@').replace('@app', '.app');
+        var addr = ["hello", "weirdfriends", "app"]
+          .join("@")
+          .replace("@app", ".app");
         navigator.clipboard.writeText(addr).then(function () {
-          var t = document.getElementById('toast');
+          var t = document.getElementById("toast");
           t.textContent = '"' + addr + '" copied!';
-          t.classList.add('show');
-          setTimeout(function () { t.classList.remove('show'); }, 2200);
+          t.classList.add("show");
+          setTimeout(function () {
+            t.classList.remove("show");
+          }, 2200);
         });
       }
 
@@ -631,7 +676,7 @@
           btn.style.opacity = "0.7";
           btn.style.cursor = "not-allowed";
 
-          gtag('event', 'email_signup');
+          gtag("event", "email_signup");
 
           const body = "email=" + encodeURIComponent(emailInput.value);
 

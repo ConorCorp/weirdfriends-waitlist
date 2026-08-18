@@ -255,10 +255,12 @@
           opacity: 0;
         }
         5% {
-          opacity: 0.65;
+          opacity: 1;
         }
-        90% {
-          opacity: 0.45;
+        /* bubbles enter the viewport ~88% in — stay solid for the first
+           stretch of the visible rise, then fade out near the top */
+        94% {
+          opacity: 1;
         }
         100% {
           transform: translateY(-15vh) rotate(2deg);
@@ -293,6 +295,26 @@
         opacity: 0;
         animation: bubble-float linear infinite;
         box-shadow: 2px 2px 0 var(--dark);
+      }
+      /* phones: let the bubbles rise much higher up the screen */
+      @media (max-width: 767px) {
+        @keyframes bubble-float {
+          0% {
+            transform: translateY(110vh) rotate(-2deg);
+            opacity: 0;
+          }
+          5% {
+            opacity: 1;
+          }
+          /* longer travel on phones: viewport entry is ~65% in */
+          80% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-60vh) rotate(2deg);
+            opacity: 0;
+          }
+        }
       }
 
       /* ── APP TILT WRAPPER ── */
@@ -511,10 +533,27 @@
         { text: "Krass 😳", bg: "#dbf5f0" },
         { text: "Feierabend 🎉", bg: "#fce0ff" },
         { text: "Nächster Halt…", bg: "#fef1e7" },
+        { text: "Servus", bg: "#dbf5f0" },
+        { text: "Mahlzeit!", bg: "#fce0ff" },
+        { text: "Na du? 😏", bg: "#fef1e7" },
+        { text: "Wat is?", bg: "#dbf5f0" },
+        { text: "Läuft bei dir 😎", bg: "#fce0ff" },
+        { text: "Bock drauf?", bg: "#fef1e7" },
+        { text: "Kiezliebe 💛", bg: "#dbf5f0" },
+        { text: "Achso!", bg: "#fce0ff" },
+        { text: "Ne, oder?", bg: "#fef1e7" },
+        { text: "Passt schon.", bg: "#dbf5f0" },
+        { text: "Bis später ✌️", bg: "#fce0ff" },
+        { text: "Hallöchen", bg: "#fef1e7" },
+        { text: "Geht klar 👍", bg: "#dbf5f0" },
+        { text: "Ick sach ma…", bg: "#fce0ff" },
+        { text: "Wa?", bg: "#fef1e7" },
       ];
 
       const bubblesEl = document.querySelector(".bubbles-bg");
-      GREETINGS.forEach((g) => {
+      const shuffled = [...GREETINGS].sort(() => Math.random() - 0.5);
+      const bubbleSet = shuffled.slice(0, 15);
+      bubbleSet.forEach((g) => {
         const el = document.createElement("div");
         el.className = "bubble";
         el.textContent = g.text;
