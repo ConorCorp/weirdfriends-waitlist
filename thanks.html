@@ -1,31 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X92KKS8ZJP');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-X92KKS8ZJP");
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weirdfriends — thanks!</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
+    />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       :root {
-        --cream:    #F5EBDC;
-        --mint:     #C5EDE8;
-        --lavender: #EDE0F0;
-        --white:    #FFFFFF;
-        --dark:     #1A1A1A;
-        --mid:      #6B6565;
+        --cream: #f5ebdc;
+        --mint: #c5ede8;
+        --lavender: #ede0f0;
+        --white: #ffffff;
+        --dark: #1a1a1a;
+        --mid: #6b6565;
       }
 
       body {
@@ -41,7 +59,9 @@
         gap: 28px;
       }
 
-      .lettermark { font-family: "Cherry Bomb One", cursive; }
+      .lettermark {
+        font-family: "Cherry Bomb One", cursive;
+      }
 
       .neo-card {
         background: var(--white);
@@ -70,10 +90,18 @@
         background: var(--dark);
         color: var(--cream);
         margin-top: 22px;
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
       }
-      .neo-btn:hover  { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--dark); }
-      .neo-btn:active { transform: translate(4px, 4px); box-shadow: 0   0   0 var(--dark); }
+      .neo-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+      .neo-btn:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 var(--dark);
+      }
 
       footer p {
         font-size: 0.7rem;
@@ -88,7 +116,9 @@
         text-decoration: underline;
         text-underline-offset: 3px;
       }
-      footer a:hover { color: var(--mid); }
+      footer a:hover {
+        color: var(--mid);
+      }
 
       .toast {
         position: fixed;
@@ -107,7 +137,9 @@
         opacity: 0;
         pointer-events: none;
         z-index: 10000;
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
       }
       .toast.show {
         opacity: 1;
@@ -116,15 +148,28 @@
     </style>
   </head>
   <body>
-
     <div class="neo-card">
-      <p class="lettermark" style="font-size: 3.8rem; line-height: 1; text-shadow: 5px 5px 0 var(--mint);">
+      <p
+        class="lettermark"
+        style="
+          font-size: 3.8rem;
+          line-height: 1;
+          text-shadow: 5px 5px 0 var(--mint);
+        "
+      >
         thanks!
       </p>
-      <p style="font-weight: 700; font-size: 1rem; margin-top: 14px;">
+      <p style="font-weight: 700; font-size: 1rem; margin-top: 14px">
         you're on the list 🎉
       </p>
-      <p style="font-size: 0.85rem; font-weight: 500; color: var(--mid); margin-top: 6px;">
+      <p
+        style="
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: var(--mid);
+          margin-top: 6px;
+        "
+      >
         we'll be in touch soon
       </p>
       <a href="https://weirdfriends.app/" class="neo-btn">← back home</a>
@@ -132,11 +177,11 @@
 
     <footer>
       <p>
-        🏗️ with ❤ in berlin by <a href="https://c0n0.com" target="_blank">conor</a>
-        &middot; <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a>
-        &middot; <a href="/privacy.html">privacy</a>
-        &middot; <a href="/account-deletion-request.html">account deletion</a>
-        &middot; <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
+        🏗️ with ❤ in berlin &middot;
+        <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a>
+        &middot; <a href="/privacy.html">privacy</a> &middot;
+        <a href="/account-deletion-request.html">account deletion</a> &middot;
+        <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
       </p>
     </footer>
 
@@ -145,47 +190,66 @@
     <script>
       /* Auto-confetti on arrival */
       function launchConfetti() {
-        const palette = ['#dbf5f0','#fce0ff','#fef1e7','#1a1a1a','#ffffff','#ffd166'];
-        const wrap = document.createElement('div');
-        wrap.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden';
+        const palette = [
+          "#dbf5f0",
+          "#fce0ff",
+          "#fef1e7",
+          "#1a1a1a",
+          "#ffffff",
+          "#ffd166",
+        ];
+        const wrap = document.createElement("div");
+        wrap.style.cssText =
+          "position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden";
         document.body.appendChild(wrap);
 
         for (let i = 0; i < 90; i++) {
-          const el    = document.createElement('div');
-          const size  = 6 + Math.random() * 9;
+          const el = document.createElement("div");
+          const size = 6 + Math.random() * 9;
           const color = palette[Math.floor(Math.random() * palette.length)];
           const round = Math.random() > 0.55;
-          let x = 20 + Math.random() * 60, y = -5;
-          let vx = (Math.random() - 0.5) * 6, vy = 2 + Math.random() * 4;
+          let x = 20 + Math.random() * 60,
+            y = -5;
+          let vx = (Math.random() - 0.5) * 6,
+            vy = 2 + Math.random() * 4;
           let rot = Math.random() * 360;
           const rotSpd = (Math.random() - 0.5) * 10;
-          el.style.cssText = `position:absolute;width:${size}px;height:${round ? size : size * 0.5}px;background:${color};border:1.5px solid #1a1a1a;border-radius:${round ? '50%' : '2px'};left:${x}%;top:${y}%;transform-origin:center;`;
+          el.style.cssText = `position:absolute;width:${size}px;height:${round ? size : size * 0.5}px;background:${color};border:1.5px solid #1a1a1a;border-radius:${round ? "50%" : "2px"};left:${x}%;top:${y}%;transform-origin:center;`;
           wrap.appendChild(el);
 
           let f = 0;
           const delay = Math.random() * 600;
           const tick = () => {
-            vy += 0.25; vx *= 0.99;
-            x += vx * 0.15; y += vy * 0.15; rot += rotSpd;
-            el.style.left = x + '%'; el.style.top = y + '%';
+            vy += 0.25;
+            vx *= 0.99;
+            x += vx * 0.15;
+            y += vy * 0.15;
+            rot += rotSpd;
+            el.style.left = x + "%";
+            el.style.top = y + "%";
             el.style.transform = `rotate(${rot}deg)`;
             el.style.opacity = f < 60 ? 1 : Math.max(0, 1 - (f - 60) / 60);
-            if (f++ < 120) requestAnimationFrame(tick); else el.remove();
+            if (f++ < 120) requestAnimationFrame(tick);
+            else el.remove();
           };
           setTimeout(() => requestAnimationFrame(tick), delay);
         }
         setTimeout(() => wrap.remove(), 4000);
       }
-      window.addEventListener('load', () => setTimeout(launchConfetti, 200));
+      window.addEventListener("load", () => setTimeout(launchConfetti, 200));
 
       function copyEmail(e) {
         e.preventDefault();
-        var addr = ['hello', 'weirdfriends', 'app'].join('@').replace('@app', '.app');
+        var addr = ["hello", "weirdfriends", "app"]
+          .join("@")
+          .replace("@app", ".app");
         navigator.clipboard.writeText(addr).then(function () {
-          var t = document.getElementById('toast');
+          var t = document.getElementById("toast");
           t.textContent = '"' + addr + '" copied!';
-          t.classList.add('show');
-          setTimeout(function () { t.classList.remove('show'); }, 2200);
+          t.classList.add("show");
+          setTimeout(function () {
+            t.classList.remove("show");
+          }, 2200);
         });
       }
     </script>

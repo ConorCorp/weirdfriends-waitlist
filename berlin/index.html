@@ -326,7 +326,7 @@
       /* ── FERNSEHTURM RAIN (welcome moment) ── */
       @keyframes turm-fall {
         0% {
-          transform: translateY(-18vh) rotate(var(--sway-start)) ;
+          transform: translateY(-18vh) rotate(var(--sway-start));
           opacity: 0;
         }
         8% {
@@ -430,7 +430,13 @@
         <a
           href="https://apps.apple.com/app/id6756412362"
           target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'app_store', page: 'berlin', flyer: window.FLYER })"
+          onclick="
+            gtag('event', 'store_click', {
+              store: 'app_store',
+              page: 'berlin',
+              flyer: window.FLYER,
+            })
+          "
           class="neo-btn"
           style="
             background: var(--mint);
@@ -451,7 +457,13 @@
         <a
           href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends"
           target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'play_store', page: 'berlin', flyer: window.FLYER })"
+          onclick="
+            gtag('event', 'store_click', {
+              store: 'play_store',
+              page: 'berlin',
+              flyer: window.FLYER,
+            })
+          "
           class="neo-btn"
           style="
             background: var(--lavender);
@@ -478,11 +490,15 @@
         <ul>
           <li>
             <span>🏪</span>
-            <span>chatting with your späti guy beyond "eine sterni, bitte"</span>
+            <span
+              >chatting with your späti guy beyond "eine sterni, bitte"</span
+            >
           </li>
           <li>
             <span>📋</span>
-            <span>surviving small talk at the ausländerbehörde (viel glück)</span>
+            <span
+              >surviving small talk at the ausländerbehörde (viel glück)</span
+            >
           </li>
           <li>
             <span>🥨</span>
@@ -498,7 +514,12 @@
       <a
         href="/"
         class="neo-btn anim-in"
-        onclick="gtag('event', 'back_home_click', { page: 'berlin', flyer: window.FLYER })"
+        onclick="
+          gtag('event', 'back_home_click', {
+            page: 'berlin',
+            flyer: window.FLYER,
+          })
+        "
         style="
           animation-delay: 640ms;
           background: var(--white);
@@ -511,7 +532,7 @@
       </a>
 
       <footer class="anim-in" style="animation-delay: 720ms">
-        <p>🏗️ with ❤ in berlin (like, actually here)</p>
+        <p>🏗️ with ❤ in berlin (actually, in Fhain)</p>
       </footer>
     </div>
 

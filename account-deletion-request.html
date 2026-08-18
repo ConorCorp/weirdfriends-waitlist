@@ -1,23 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weirdfriends — Account Deletion</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
+    />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       :root {
-        --cream:    #F5EBDC;
-        --mint:     #C5EDE8;
-        --lavender: #EDE0F0;
-        --white:    #FFFFFF;
-        --dark:     #1A1A1A;
-        --mid:      #6B6565;
+        --cream: #f5ebdc;
+        --mint: #c5ede8;
+        --lavender: #ede0f0;
+        --white: #ffffff;
+        --dark: #1a1a1a;
+        --mid: #6b6565;
       }
 
       body {
@@ -27,7 +40,9 @@
         min-height: 100vh;
       }
 
-      .lettermark { font-family: "Cherry Bomb One", cursive; }
+      .lettermark {
+        font-family: "Cherry Bomb One", cursive;
+      }
 
       .page-wrap {
         max-width: 640px;
@@ -48,10 +63,18 @@
         border-radius: 8px;
         padding: 7px 14px;
         background: var(--white);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
       }
-      .back-link:hover  { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--dark); }
-      .back-link:active { transform: translate(3px, 3px); box-shadow: 0   0   0 var(--dark); }
+      .back-link:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+      .back-link:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 var(--dark);
+      }
 
       h1 {
         font-family: "Cherry Bomb One", cursive;
@@ -104,10 +127,18 @@
         border-radius: 8px;
         padding: 10px 18px;
         background: var(--mint);
-        transition: transform 0.08s ease, box-shadow 0.08s ease;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
       }
-      .email-link:hover  { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--dark); }
-      .email-link:active { transform: translate(3px, 3px); box-shadow: 0   0   0 var(--dark); }
+      .email-link:hover {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 var(--dark);
+      }
+      .email-link:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 var(--dark);
+      }
 
       a {
         font-weight: 600;
@@ -115,7 +146,9 @@
         text-decoration: underline;
         text-underline-offset: 3px;
       }
-      a:hover { color: var(--mid); }
+      a:hover {
+        color: var(--mid);
+      }
 
       .footer-rule {
         margin-top: 48px;
@@ -149,7 +182,9 @@
         opacity: 0;
         pointer-events: none;
         z-index: 10000;
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
       }
       .toast.show {
         opacity: 1;
@@ -159,24 +194,30 @@
   </head>
   <body>
     <div class="page-wrap">
-
       <a href="/" class="back-link">← back</a>
 
       <h1>Account Deletion</h1>
 
       <div class="content">
-
         <section>
           <h2>Delete in the app</h2>
           <p>
-            The easiest way is directly in the app: go to <strong>Settings → Delete Account</strong>. Your account and all associated data will be removed immediately.
+            The easiest way is directly in the app: go to
+            <strong>Settings → Delete Account</strong>. Your account and all
+            associated data will be removed immediately.
           </p>
         </section>
 
         <section>
           <h2>Request by email</h2>
           <p>
-            You can also request deletion by emailing us. The request <strong>must come from the email address associated with your account</strong> so we can locate and remove your data. We'll process it within a reasonable timeframe.
+            You can also request deletion by emailing us. The request
+            <strong
+              >must come from the email address associated with your
+              account</strong
+            >
+            so we can locate and remove your data. We'll process it within a
+            reasonable timeframe.
           </p>
           <a
             href="mailto:hey@weirdfriends.app?subject=Account%20Deletion&body=Please%20delete%20the%20account%20associated%20with%20this%20email."
@@ -185,30 +226,32 @@
             hey@weirdfriends.app
           </a>
         </section>
-
       </div>
 
       <div class="footer-rule">
-        🏗️ with ❤ in berlin by <a href="https://c0n0.com" target="_blank">conor</a>
-        &middot; <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a>
-        &middot; <a href="/privacy.html">privacy</a>
-        &middot; <a href="/account-deletion-request.html">account deletion</a>
-        &middot; <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
+        🏗️ with ❤ in berlin &middot;
+        <a href="https://c0n0.com/tags/weirdfriends/" target="_blank">blog</a>
+        &middot; <a href="/privacy.html">privacy</a> &middot;
+        <a href="/account-deletion-request.html">account deletion</a> &middot;
+        <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
       </div>
 
       <div class="toast" id="toast"></div>
-
     </div>
 
     <script>
       function copyEmail(e) {
         e.preventDefault();
-        var addr = ['hello', 'weirdfriends', 'app'].join('@').replace('@app', '.app');
+        var addr = ["hello", "weirdfriends", "app"]
+          .join("@")
+          .replace("@app", ".app");
         navigator.clipboard.writeText(addr).then(function () {
-          var t = document.getElementById('toast');
+          var t = document.getElementById("toast");
           t.textContent = '"' + addr + '" copied!';
-          t.classList.add('show');
-          setTimeout(function () { t.classList.remove('show'); }, 2200);
+          t.classList.add("show");
+          setTimeout(function () {
+            t.classList.remove("show");
+          }, 2200);
         });
       }
     </script>
