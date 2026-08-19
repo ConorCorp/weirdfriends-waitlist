@@ -249,19 +249,18 @@
       /* ── FLOATING BUBBLES ── */
       @keyframes bubble-float {
         0% {
-          transform: translateY(110vh) rotate(-2deg);
+          transform: translate(-50%, 0) rotate(-2deg);
           opacity: 0;
         }
-        5% {
+        6% {
           opacity: 1;
         }
-        /* bubbles enter the viewport ~88% in — stay solid for the first
-           stretch of the visible rise, then fade out near the top */
-        94% {
+        /* solid for most of the rise, fade out near the top */
+        90% {
           opacity: 1;
         }
         100% {
-          transform: translateY(-15vh) rotate(2deg);
+          transform: translate(-50%, -115vh) rotate(2deg);
           opacity: 0;
         }
       }
@@ -291,28 +290,8 @@
         font-weight: 600;
         white-space: nowrap;
         opacity: 0;
-        animation: bubble-float linear infinite;
+        animation: bubble-float linear forwards;
         box-shadow: 2px 2px 0 var(--dark);
-      }
-      /* phones: let the bubbles rise much higher up the screen */
-      @media (max-width: 767px) {
-        @keyframes bubble-float {
-          0% {
-            transform: translateY(110vh) rotate(-2deg);
-            opacity: 0;
-          }
-          5% {
-            opacity: 1;
-          }
-          /* longer travel on phones: viewport entry is ~65% in */
-          80% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(-60vh) rotate(2deg);
-            opacity: 0;
-          }
-        }
       }
 
       /* ── APP TILT WRAPPER ── */
@@ -513,19 +492,24 @@
       ];
 
       const bubblesEl = document.querySelector(".bubbles-bg");
-      const shuffled = [...GREETINGS].sort(() => Math.random() - 0.5);
-      const bubbleSet = shuffled.slice(0, 15);
-      bubbleSet.forEach((g) => {
+      function spawnBubble() {
+        const g = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
         const el = document.createElement("div");
         el.className = "bubble";
         el.textContent = g.text;
         el.style.background = g.bg;
-        el.style.left = 4 + Math.random() * 88 + "%";
-        const dur = 22 + Math.random() * 18;
-        el.style.animationDuration = dur + "s";
-        el.style.animationDelay = -(Math.random() * dur) + "s";
+        el.style.left = Math.random() * 100 + "%";
+        el.style.animationDuration = 10 + Math.random() * 4 + "s";
+        el.addEventListener("animationend", () => el.remove());
         bubblesEl.appendChild(el);
-      });
+      }
+      /* 0–2 new bubbles every half second on desktop, 0–1 on phones */
+      const phoneQuery = window.matchMedia("(max-width: 767px)");
+      setInterval(() => {
+        const max = phoneQuery.matches ? 2 : 3;
+        const count = Math.floor(Math.random() * max);
+        for (let i = 0; i < count; i++) spawnBubble();
+      }, 500);
 
       /* 2. APP MOCKUP 3D TILT */
       const appTilt = document.getElementById("app-tilt");
