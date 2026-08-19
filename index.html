@@ -503,9 +503,12 @@
         el.addEventListener("animationend", () => el.remove());
         bubblesEl.appendChild(el);
       }
-      /* 0–2 new bubbles every half second on desktop, 0–1 on phones */
+      /* 0–2 new bubbles every half second on desktop, 0–1 on phones.
+         Skip hidden tabs — throttled intervals would pile up bubbles
+         that all rise at once when the tab regains focus. */
       const phoneQuery = window.matchMedia("(max-width: 767px)");
       setInterval(() => {
+        if (document.hidden) return;
         const max = phoneQuery.matches ? 2 : 3;
         const count = Math.floor(Math.random() * max);
         for (let i = 0; i < count; i++) spawnBubble();
