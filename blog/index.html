@@ -1,3 +1,6 @@
+---
+title: blog
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +12,7 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weirdfriends — Account Deletion</title>
+    <title>weirdfriends — blog</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -25,9 +28,9 @@
       }
 
       :root {
-        --cream: #f5ebdc;
-        --mint: #c5ede8;
-        --lavender: #ede0f0;
+        --cream: #fef1e7;
+        --mint: #dbf5f0;
+        --lavender: #fce0ff;
         --white: #ffffff;
         --dark: #1a1a1a;
         --mid: #6b6565;
@@ -38,10 +41,6 @@
         background: var(--cream);
         color: var(--dark);
         min-height: 100vh;
-      }
-
-      .lettermark {
-        font-family: "Cherry Bomb One", cursive;
       }
 
       .page-wrap {
@@ -82,71 +81,70 @@
         line-height: 1.1;
         margin-top: 28px;
         margin-bottom: 32px;
-        text-shadow: 4px 4px 0 var(--lavender);
+        text-shadow: 4px 4px 0 var(--mint);
       }
 
-      .content {
+      .posts {
+        list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
       }
 
-      section {
+      .post-card {
+        display: block;
+        text-decoration: none;
+        color: var(--dark);
         background: var(--white);
         border: 2px solid var(--dark);
         box-shadow: 4px 4px 0 var(--dark);
         border-radius: 12px;
-        padding: 20px 22px;
-      }
-
-      h2 {
-        font-size: 0.9rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-        color: var(--dark);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-
-      p {
-        font-size: 0.88rem;
-        font-weight: 400;
-        line-height: 1.7;
-        color: #333;
-      }
-
-      .email-link {
-        display: inline-block;
-        margin-top: 12px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: var(--dark);
-        text-decoration: none;
-        border: 2px solid var(--dark);
-        box-shadow: 3px 3px 0 var(--dark);
-        border-radius: 8px;
-        padding: 10px 18px;
-        background: var(--mint);
+        padding: 18px 22px;
         transition:
           transform 0.08s ease,
           box-shadow 0.08s ease;
       }
-      .email-link:hover {
+      .post-card:hover {
         transform: translate(1px, 1px);
-        box-shadow: 2px 2px 0 var(--dark);
+        box-shadow: 3px 3px 0 var(--dark);
       }
-      .email-link:active {
-        transform: translate(3px, 3px);
+      .post-card:active {
+        transform: translate(4px, 4px);
         box-shadow: 0 0 0 var(--dark);
       }
 
-      a {
-        font-weight: 600;
-        color: var(--dark);
-        text-decoration: underline;
-        text-underline-offset: 3px;
+      .post-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+        object-fit: cover;
+        border: 2px solid var(--dark);
+        border-radius: 10px;
+        margin-bottom: 14px;
       }
-      a:hover {
+
+      .post-card h2 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        line-height: 1.3;
+      }
+      .post-card time {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--mid);
+        margin-top: 4px;
+      }
+      .post-card p {
+        font-size: 0.86rem;
+        line-height: 1.6;
+        color: #333;
+        margin-top: 10px;
+      }
+
+      .empty {
+        font-size: 0.9rem;
         color: var(--mid);
       }
 
@@ -164,7 +162,6 @@
         font-weight: 700;
         color: var(--dark);
       }
-
       .toast {
         position: fixed;
         bottom: 28px;
@@ -196,37 +193,28 @@
     <div class="page-wrap">
       <a href="/" class="back-link">← back</a>
 
-      <h1>Account Deletion</h1>
+      <h1>blog</h1>
 
-      <div class="content">
-        <section>
-          <h2>Delete in the app</h2>
-          <p>
-            The easiest way is directly in the app: go to
-            <strong>Settings → Delete Account</strong>. Your account and all
-            associated data will be removed immediately.
-          </p>
-        </section>
-
-        <section>
-          <h2>Request by email</h2>
-          <p>
-            You can also request deletion by emailing us. The request
-            <strong
-              >must come from the email address associated with your
-              account</strong
-            >
-            so we can locate and remove your data. We'll process it within a
-            reasonable timeframe.
-          </p>
-          <a
-            href="mailto:hey@weirdfriends.app?subject=Account%20Deletion&body=Please%20delete%20the%20account%20associated%20with%20this%20email."
-            class="email-link"
-          >
-            hey@weirdfriends.app
+      {% assign posts = site.blog | sort: "date" | reverse %}
+      {% if posts.size > 0 %}
+      <ul class="posts">
+        {% for post in posts %}
+        {% if post.date > site.time and site.future != true %}{% continue %}{% endif %}
+        {% assign url = post.url | replace: "index.html", "" %}
+        {% if post.image contains "/" %}{% assign img = post.image %}{% else %}{% assign img = url | append: post.image %}{% endif %}
+        <li>
+          <a class="post-card" href="{{ url }}">
+            {% if post.image and post.image != "" %}<img src="{{ img }}" alt="" loading="lazy" />{% endif %}
+            <h2>{{ post.title }}</h2>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+            {% if post.description %}<p>{{ post.description }}</p>{% endif %}
           </a>
-        </section>
-      </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="empty">nothing here yet.</p>
+      {% endif %}
 
       <div class="footer-rule">
         🏗️ with ❤ in berlin &middot;
@@ -238,7 +226,6 @@
 
       <div class="toast" id="toast"></div>
     </div>
-
     <script>
       function copyEmail(e) {
         e.preventDefault();

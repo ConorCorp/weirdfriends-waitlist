@@ -1,0 +1,29 @@
+title: weirdfriends
+url: https://weirdfriends.app
+
+# Each post is a folder: _blog/<slug>/index.md plus any images next to it.
+# Served at /blog/<slug>/ with images at /blog/<slug>/<file>.
+collections:
+  blog:
+    output: true
+    permalink: /blog/:path:output_ext
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Files Jekyll should leave out of the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .claude
+
+# Every post uses the post layout unless it says otherwise
+defaults:
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: post

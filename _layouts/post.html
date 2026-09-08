@@ -1,3 +1,5 @@
+{% assign url = page.url | replace: "index.html", "" %}
+{% if page.image contains "/" %}{% assign img = page.image %}{% else %}{% assign img = url | append: page.image %}{% endif %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +11,11 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weirdfriends — Account Deletion</title>
+    <title>{{ page.title }} — weirdfriends</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+    <meta property="og:title" content="{{ page.title }}" />
+    {% if page.description %}<meta property="og:description" content="{{ page.description }}" />{% endif %}
+    {% if page.image and page.image != "" %}<meta property="og:image" content="{{ img | absolute_url }}" />{% endif %}
     <link
       rel="icon"
       type="image/svg+xml"
@@ -25,9 +31,9 @@
       }
 
       :root {
-        --cream: #f5ebdc;
-        --mint: #c5ede8;
-        --lavender: #ede0f0;
+        --cream: #fef1e7;
+        --mint: #dbf5f0;
+        --lavender: #fce0ff;
         --white: #ffffff;
         --dark: #1a1a1a;
         --mid: #6b6565;
@@ -38,10 +44,6 @@
         background: var(--cream);
         color: var(--dark);
         min-height: 100vh;
-      }
-
-      .lettermark {
-        font-family: "Cherry Bomb One", cursive;
       }
 
       .page-wrap {
@@ -81,73 +83,161 @@
         font-size: 2.4rem;
         line-height: 1.1;
         margin-top: 28px;
+        text-shadow: 4px 4px 0 var(--mint);
+      }
+
+      .post-date {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--mid);
+        margin-top: 6px;
         margin-bottom: 32px;
-        text-shadow: 4px 4px 0 var(--lavender);
       }
 
-      .content {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+      .post-hero {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 2px solid var(--dark);
+        border-radius: 12px;
+        box-shadow: 4px 4px 0 var(--dark);
+        margin-bottom: 24px;
+        background: var(--white);
       }
 
-      section {
+      /* ── POST BODY (markdown output) ── */
+      .post-body {
         background: var(--white);
         border: 2px solid var(--dark);
         box-shadow: 4px 4px 0 var(--dark);
         border-radius: 12px;
-        padding: 20px 22px;
+        padding: 24px 22px;
+      }
+      .post-body > * + * {
+        margin-top: 16px;
       }
 
-      h2 {
-        font-size: 0.9rem;
+      .post-body h2,
+      .post-body h3,
+      .post-body h4 {
         font-weight: 800;
-        margin-bottom: 10px;
         color: var(--dark);
+        line-height: 1.3;
+      }
+      .post-body h2 {
+        font-size: 1.2rem;
+        margin-top: 28px;
+      }
+      .post-body h3 {
+        font-size: 1rem;
+        margin-top: 24px;
+      }
+      .post-body h4 {
+        font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.04em;
       }
 
-      p {
-        font-size: 0.88rem;
+      .post-body p,
+      .post-body li {
+        font-size: 0.92rem;
         font-weight: 400;
-        line-height: 1.7;
+        line-height: 1.75;
         color: #333;
       }
 
-      .email-link {
-        display: inline-block;
-        margin-top: 12px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: var(--dark);
-        text-decoration: none;
-        border: 2px solid var(--dark);
-        box-shadow: 3px 3px 0 var(--dark);
-        border-radius: 8px;
-        padding: 10px 18px;
-        background: var(--mint);
-        transition:
-          transform 0.08s ease,
-          box-shadow 0.08s ease;
+      .post-body ul,
+      .post-body ol {
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
       }
-      .email-link:hover {
-        transform: translate(1px, 1px);
-        box-shadow: 2px 2px 0 var(--dark);
+      .post-body ul {
+        list-style: disc;
       }
-      .email-link:active {
-        transform: translate(3px, 3px);
-        box-shadow: 0 0 0 var(--dark);
+      .post-body ol {
+        list-style: decimal;
       }
 
-      a {
+      .post-body a {
         font-weight: 600;
         color: var(--dark);
         text-decoration: underline;
         text-underline-offset: 3px;
       }
-      a:hover {
+      .post-body a:hover {
         color: var(--mid);
+      }
+
+      .post-body strong {
+        font-weight: 700;
+      }
+
+      .post-body img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid var(--dark);
+        border-radius: 10px;
+        box-shadow: 4px 4px 0 var(--dark);
+        display: block;
+      }
+
+      .post-body blockquote {
+        border-left: 4px solid var(--dark);
+        background: var(--lavender);
+        padding: 12px 16px;
+        border-radius: 0 10px 10px 0;
+        font-style: italic;
+      }
+
+      .post-body code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.84em;
+        background: var(--cream);
+        border: 1px solid var(--dark);
+        border-radius: 5px;
+        padding: 1px 5px;
+      }
+      .post-body pre {
+        background: var(--dark);
+        color: var(--cream);
+        border-radius: 10px;
+        padding: 14px 16px;
+        overflow-x: auto;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+      .post-body pre code {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: inherit;
+        color: inherit;
+      }
+
+      .post-body hr {
+        border: none;
+        border-top: 2px solid var(--dark);
+        margin: 28px 0;
+      }
+
+      .post-body table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        display: block;
+        overflow-x: auto;
+      }
+      .post-body th,
+      .post-body td {
+        border: 2px solid var(--dark);
+        padding: 8px 10px;
+        text-align: left;
+      }
+      .post-body th {
+        background: var(--mint);
+        font-weight: 700;
       }
 
       .footer-rule {
@@ -164,7 +254,6 @@
         font-weight: 700;
         color: var(--dark);
       }
-
       .toast {
         position: fixed;
         bottom: 28px;
@@ -194,39 +283,18 @@
   </head>
   <body>
     <div class="page-wrap">
-      <a href="/" class="back-link">← back</a>
+      <a href="/blog/" class="back-link">← all posts</a>
 
-      <h1>Account Deletion</h1>
+      <h1>{{ page.title }}</h1>
+      <p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p>
 
-      <div class="content">
-        <section>
-          <h2>Delete in the app</h2>
-          <p>
-            The easiest way is directly in the app: go to
-            <strong>Settings → Delete Account</strong>. Your account and all
-            associated data will be removed immediately.
-          </p>
-        </section>
+      {% if page.image and page.image != "" %}
+      <img class="post-hero" src="{{ img }}" alt="{{ page.image_alt | default: page.title }}" />
+      {% endif %}
 
-        <section>
-          <h2>Request by email</h2>
-          <p>
-            You can also request deletion by emailing us. The request
-            <strong
-              >must come from the email address associated with your
-              account</strong
-            >
-            so we can locate and remove your data. We'll process it within a
-            reasonable timeframe.
-          </p>
-          <a
-            href="mailto:hey@weirdfriends.app?subject=Account%20Deletion&body=Please%20delete%20the%20account%20associated%20with%20this%20email."
-            class="email-link"
-          >
-            hey@weirdfriends.app
-          </a>
-        </section>
-      </div>
+      <article class="post-body">
+        {{ content }}
+      </article>
 
       <div class="footer-rule">
         🏗️ with ❤ in berlin &middot;
@@ -238,7 +306,6 @@
 
       <div class="toast" id="toast"></div>
     </div>
-
     <script>
       function copyEmail(e) {
         e.preventDefault();
