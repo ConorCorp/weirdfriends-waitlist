@@ -1,7 +1,7 @@
 ---
 title: "v1.3.0 - fancy new corrections, points, and stats 📈"
 date: 2026-05-15
-image: /blog/2026-05-15/stats.PNG
+image: /blog/2026-05-15/stats.png
 ---
 
 *Copy of an email update from mailing list: [weirdfriends](weirdfriends.app)*
@@ -23,7 +23,7 @@ I spent my 2 days off basically just coding. The wife isn't the happiest about i
 ## New Stats Page 📈
 - My buddy Fillip coded us up a classy new stats page for yas as well
 
-![stats](/blog/2026-05-15/stats.PNG)
+![stats](/blog/2026-05-15/stats.png)
 
 Be back soon, all the best,
 
