@@ -20,3 +20,5 @@ I'm not sure yet, but I want to make the app more fun, not require typing always
 I've been toying around with a few options, and I built a demo of a very interesting idea I can't share yet, but keep an eye out for it!
 
 I'd ideally like to add message streaming with a web socket/sse connection to the backend as well so messages stream quicker.
+
+P.S I'd also like to thank Duncan for the kind email about the app!
