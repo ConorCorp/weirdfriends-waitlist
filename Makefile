@@ -16,7 +16,7 @@ install:
 #   make new-post                     -> _blog/YYYY-MM-DD/index.md, titled with the date
 #   make new-post title="my post"     -> _blog/my-post/index.md
 # Drop images in the same folder and reference them by filename.
-new-post:
+new:
 	@today=$$(date +%Y-%m-%d); \
 	if [ -n "$$title" ]; then \
 	  slug=$$(printf '%s' "$$title" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$$//g'); \

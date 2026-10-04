@@ -1,6 +1,7 @@
 ---
 title: "captain's log: star date 1"
 date: 2026-05-15
+author: Conor
 description: "a link to my first post"
 ---
 

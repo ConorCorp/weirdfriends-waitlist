@@ -1,6 +1,7 @@
 ---
 title: "plan for the blog"
 date: 2026-09-08
+author: Conor
 description: "a place for my thoughts"
 image: /blog/2026-09-08/giphy.gif
 ---

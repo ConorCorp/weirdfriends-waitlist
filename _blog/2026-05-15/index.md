@@ -1,6 +1,7 @@
 ---
 title: "v1.3.0 - fancy new corrections, points, and stats 📈"
 date: 2026-05-15
+author: Conor
 image: /blog/2026-05-15/stats.png
 ---
 
