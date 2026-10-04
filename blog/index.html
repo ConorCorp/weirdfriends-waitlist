@@ -201,7 +201,7 @@ title: blog
         {% for post in posts %}
         {% if post.date > site.time and site.future != true %}{% continue %}{% endif %}
         {% assign url = post.url | replace: "index.html", "" %}
-        {% if post.image contains "/" %}{% assign img = post.image %}{% else %}{% assign img = url | append: post.image %}{% endif %}
+        {% assign first = post.image | slice: 0 %}{% if first == "/" or post.image contains "://" %}{% assign img = post.image %}{% else %}{% assign img = url | append: post.image | replace: "/./", "/" %}{% endif %}
         <li>
           <a class="post-card" href="{{ url }}">
             {% if post.image and post.image != "" %}<img src="{{ img }}" alt="" loading="lazy" />{% endif %}

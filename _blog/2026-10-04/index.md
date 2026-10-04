@@ -3,7 +3,7 @@ title: "app update v1.8.0"
 date: 2026-10-04
 author: Conor
 description: ""
-image: "./dark.png"
+image: dark.png
 ---
 
 Have a new update out for yas containing 2 big changes.
