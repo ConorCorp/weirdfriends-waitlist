@@ -118,6 +118,18 @@
         io.observe(el);
       });
     }
+    /* safety net: after a reload that restores a mid-page scroll position, the
+       observer can miss elements already in view, so reveal those directly */
+    function revealVisible() {
+      revealEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("in");
+      });
+    }
+    window.addEventListener("load", function () {
+      setTimeout(revealVisible, 50);
+    });
+    window.addEventListener("pageshow", revealVisible);
 
     /* ── 3D TILT on hover (phones, cards) ── */
     if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
