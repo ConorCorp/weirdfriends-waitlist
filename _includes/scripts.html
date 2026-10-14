@@ -1,0 +1,176 @@
+<script>
+  /* ── TOAST + CONTACT (bot-proof email assembly) ── */
+  function showToast(message) {
+    var t = document.getElementById("toast");
+    if (!t) return;
+    t.textContent = message;
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function () {
+      t.classList.remove("show");
+    }, 2600);
+  }
+  function copyEmail(e) {
+    if (e) e.preventDefault();
+    var addr = ["hello", "weirdfriends", "app"].join("@").replace("@app", ".app");
+    navigator.clipboard.writeText(addr).then(function () {
+      showToast('"' + addr + '" copied!');
+    });
+  }
+
+  (function () {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ── THEME TOGGLE ── */
+    var root = document.documentElement;
+    var toggle = document.getElementById("theme-toggle");
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    function currentTheme() {
+      var t = root.getAttribute("data-theme");
+      if (t === "dark" || t === "light") return t;
+      return mq.matches ? "dark" : "light";
+    }
+    function paintToggle() {
+      if (!toggle) return;
+      var dark = currentTheme() === "dark";
+      toggle.querySelector("span").textContent = dark ? "☀️" : "🌙";
+      toggle.setAttribute("aria-label", dark ? "switch to light mode" : "switch to dark mode");
+      var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = "theme-color";
+        document.head.appendChild(meta);
+      }
+      meta.content = dark ? "#1f202e" : "#fef1e7";
+    }
+    window.setTheme = function (t) {
+      root.setAttribute("data-theme", t);
+      try {
+        localStorage.setItem("wf-theme", t);
+      } catch (e) {}
+      paintToggle();
+      if (toggle) {
+        toggle.classList.remove("spin");
+        void toggle.offsetWidth;
+        toggle.classList.add("spin");
+      }
+    };
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        window.setTheme(next);
+        if (typeof gtag === "function") gtag("event", "theme_toggle", { theme: next });
+      });
+    }
+    mq.addEventListener && mq.addEventListener("change", paintToggle);
+    paintToggle();
+
+    /* ── NAV ── */
+    var nav = document.getElementById("site-nav");
+    var burger = document.getElementById("nav-burger");
+    if (burger && nav) {
+      burger.addEventListener("click", function () {
+        var open = nav.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        burger.textContent = open ? "✕" : "☰";
+      });
+    }
+    if (nav) {
+      var onScroll = function () {
+        nav.classList.toggle("scrolled", window.scrollY > 8);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+    /* on phones, "get the app" goes straight to the right store */
+    if (/android|iphone|ipad|ipod/i.test(navigator.userAgent)) {
+      document.querySelectorAll("[data-app-link]").forEach(function (a) {
+        a.setAttribute("href", "/onelink/");
+      });
+    }
+
+    /* ── STORE CLICK EVENTS ── */
+    document.querySelectorAll("[data-store]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        if (typeof gtag === "function") gtag("event", "store_click", { store: a.getAttribute("data-store"), page: location.pathname });
+      });
+    });
+
+    /* ── SCROLL REVEAL ── */
+    var revealEls = document.querySelectorAll(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealEls.forEach(function (el) {
+        el.classList.add("in");
+      });
+    } else {
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              en.target.classList.add("in");
+              io.unobserve(en.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+      revealEls.forEach(function (el) {
+        io.observe(el);
+      });
+    }
+
+    /* ── 3D TILT on hover (phones, cards) ── */
+    if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+      document.querySelectorAll(".tilt").forEach(function (el) {
+        el.addEventListener("mousemove", function (e) {
+          var r = el.getBoundingClientRect();
+          var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+          var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+          el.style.transition = "transform 0.1s ease";
+          el.style.transform = "perspective(700px) rotateY(" + dx * 10 + "deg) rotateX(" + -dy * 8 + "deg) scale(1.02)";
+          /* phones: the shadow swings opposite the tilt, like the original hero */
+          if (el.classList.contains("phone")) el.style.boxShadow = -dx * 10 + "px " + dy * 10 + "px 0 var(--phone-shadow)";
+        });
+        el.addEventListener("mouseleave", function () {
+          el.style.transition = "transform 0.55s ease";
+          el.style.transform = "";
+          el.style.boxShadow = "";
+        });
+      });
+    }
+
+    /* ── FLOATING GREETING BUBBLES ──
+       body[data-bubbles="off"] disables them; body[data-bubble-only="Hola"] shows one greeting. */
+    var bubblesEl = document.querySelector(".bubbles-bg");
+    var mode = document.body.getAttribute("data-bubbles") || "on";
+    if (bubblesEl && mode !== "off" && !reduceMotion) {
+      var GREETINGS = [
+        "Hola 👋", "こんにちは", "Bonjour", "Ciao 🤌", "안녕하세요", "Olá", "Привет", "你好", "Hallo", "Namaste 🙏",
+        "Merhaba", "Salut", "Hej 👋", "Cześć", "Γεια σου", "Xin chào", "Halo", "สวัสดี 🙏", "Hei", "Привіт", "Bună",
+        "Hoi", "Hai", "Hello", "Servus", "Moin", "Ahoj", "Szia", "Aloha 🌺", "Dia dhuit",
+      ];
+      var only = document.body.getAttribute("data-bubble-only");
+      if (only) GREETINGS = [only, only + " 👋", only + "!", only + "?", only + " 🙃"];
+      var tones = ["b-mint", "b-lav", "b-cream"];
+      function spawnBubble() {
+        var el = document.createElement("div");
+        el.className = "bubble " + tones[Math.floor(Math.random() * tones.length)];
+        el.textContent = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+        el.style.left = Math.random() * 100 + "%";
+        el.style.animationDuration = 10 + Math.random() * 4 + "s";
+        el.addEventListener("animationend", function () {
+          el.remove();
+        });
+        bubblesEl.appendChild(el);
+      }
+      var phoneQuery = window.matchMedia("(max-width: 767px)");
+      var rate = mode === "low" ? 0.5 : 1;
+      setInterval(function () {
+        if (document.hidden) return;
+        var max = (phoneQuery.matches ? 2 : 3) * rate;
+        var count = Math.floor(Math.random() * max);
+        for (var i = 0; i < count; i++) spawnBubble();
+      }, 500);
+    }
+  })();
+</script>

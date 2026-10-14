@@ -1,0 +1,133 @@
+---
+layout: default
+title: "learn 24 languages by texting weird AI friends"
+title_tag: "24 languages to learn by texting — weirdfriends"
+description: "Learn Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese and 16 more languages by texting quirky AI characters who correct your mistakes and text you first. Free on iOS & Android."
+bubbles: low
+---
+<style>
+  .langs-hero {
+    padding: 40px 0 36px;
+  }
+  .langs-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    margin-top: 10px;
+    max-width: 680px;
+  }
+  .lang-cards {
+    display: grid;
+    gap: 18px;
+  }
+  @media (min-width: 640px) {
+    .lang-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 980px) {
+    .lang-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .lang-card {
+    display: block;
+    text-decoration: none;
+    padding: 20px 20px 22px;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  }
+  .lang-card:hover {
+    transform: translate(-3px, -3px) rotate(-0.6deg);
+    box-shadow: 8px 8px 0 var(--line);
+  }
+  .lang-card .top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .lang-card .flag {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .lang-card h2 {
+    font-size: 1.25rem;
+  }
+  .lang-card h2 small {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .lang-card .greet-pill {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border: 2px solid var(--line);
+    border-radius: 100px;
+    background: var(--lavender);
+    color: var(--on-accent);
+    transform: rotate(-3deg);
+  }
+  .lang-card p {
+    margin-top: 12px;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--muted);
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .lang-card .who {
+    margin-top: 12px;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+</style>
+
+<section class="langs-hero">
+  <div class="wrap">
+    <nav class="crumbs anim-in" aria-label="breadcrumb" style="font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 14px"><a href="/" style="color: var(--ink); text-decoration: none">weirdfriends</a> › languages</nav>
+    <span class="eyebrow anim-in" style="animation-delay: 60ms">24 languages, one app</span>
+    <h1 class="anim-in" style="animation-delay: 120ms">pick a language. <span class="hl">we'll find you someone weird to text.</span></h1>
+    <p class="lead anim-in" style="animation-delay: 200ms; max-width: 620px">Every language below gets the full weirdfriends treatment: hand-picked characters, friends you create yourself, scenes to play out, corrections with explanations, tap-to-translate, and optional notifications so they text you first. All free.</p>
+  </div>
+</section>
+
+<section style="padding-top: 0">
+  <div class="wrap">
+    <div class="lang-cards">
+      {% for l in site.data.languages %}
+      <a class="neo-card lang-card reveal" href="/learn/{{ l.slug }}/">
+        <div class="top">
+          <span class="flag">{{ l.flag }}</span>
+          <h2>{{ l.name | downcase }}<small lang="{{ l.code }}">{{ l.native }}</small></h2>
+          <span class="greet-pill" lang="{{ l.code }}">{{ l.greeting }}</span>
+        </div>
+        <p>{{ l.intro }}</p>
+        <div class="who">text with {{ l.character }} →</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap reveal">
+    <h2>24+ languages. infinite weird. zero judgment.</h2>
+    {% include store-buttons.html center=true %}
+    <p class="store-note">free on iOS and Android</p>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Languages you can learn with weirdfriends",
+  "itemListElement": [
+    {% for l in site.data.languages %}{ "@type": "ListItem", "position": {{ forloop.index }}, "name": "{{ l.name }}", "url": "https://weirdfriends.app/learn/{{ l.slug }}/" }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>

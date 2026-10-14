@@ -1,0 +1,593 @@
+# One entry per language. Rendered at /learn/<slug>/ by _layouts/language.html
+# and listed on /languages/ and the home page. Keep dialogue lines short and correct.
+- slug: spanish
+  name: Spanish
+  native: Español
+  code: es
+  flag: "🇪🇸"
+  greeting: "Hola"
+  character: "Micropro 19A79X"
+  avatar: "/assets/avatars/microwave.webp"
+  bio: "microwave, break room, Wichita, Kansas"
+  intro: "Spanish is the language most people start and most people stall in: you can order a coffee, but you freeze when the waiter says something back. weirdfriends is for that second part. You text with characters like Micropro 19A79X, a microwave in a Wichita break room, and somewhere between the nonsense you stop translating in your head."
+  dialogue:
+    - who: them
+      text: "Hola. Soy un microondas. ¿Qué quieres calentar hoy?"
+    - who: me
+      text: "Nada, solo quiero charlar contigo."
+    - who: them
+      text: "Qué raro. Nadie habla conmigo. Solo me pulsan botones."
+  tips:
+    - title: "ser vs. estar"
+      body: "The classic. In a course you memorise the rule; in a chat you use both twenty times before lunch and get corrected when you pick the wrong one. It sticks in a week."
+    - title: "the subjunctive, in the wild"
+      body: "\"Quiero que vengas\", \"ojalá llueva\": the subjunctive shows up constantly in casual Spanish. Texting is where you see it in context instead of in a table."
+    - title: "gender and agreement"
+      body: "El/la, -o/-a, and every adjective that has to agree. Mistakes get underlined, so \"la problema\" gets caught the first time, not the fiftieth."
+- slug: french
+  name: French
+  native: Français
+  code: fr
+  flag: "🇫🇷"
+  greeting: "Bonjour"
+  character: "Sir Edmund Grimsby"
+  avatar: "👻"
+  avatar_bg: "var(--lavender)"
+  bio: "Victorian ghost. Very polite. Mildly upset about your phone."
+  intro: "French classes teach you to be polite. French texting teaches you to drop the \"ne\", say \"ouais\", and survive someone being sarcastic at you. Your friend might be Sir Edmund Grimsby, a Victorian ghost who keeps walking through your wall and apologising for it."
+  dialogue:
+    - who: them
+      text: "Bonsoir. Pardonnez-moi, je viens de traverser votre mur."
+    - who: me
+      text: "Pas de problème. Vous voulez du thé ?"
+    - who: them
+      text: "Avec plaisir. Je ne peux pas le boire, mais j'apprécie le geste."
+  tips:
+    - title: "tu or vous?"
+      body: "Every character has a relationship with you, so you practise picking the right register: \"tu\" with a hamster, \"vous\" with a Victorian ghost. Get it wrong and you'll hear about it."
+    - title: "how French people actually write"
+      body: "\"Je sais pas\", \"c'est pas grave\", \"t'es où ?\". Spoken and texted French drops the \"ne\" and squashes words together. You won't find that in a textbook; you will find it in your DMs."
+    - title: "agreement everywhere"
+      body: "Past participles, adjectives, plurals: French makes everything agree. Corrections point out exactly which \"-e\" or \"-s\" you forgot and why."
+- slug: german
+  name: German
+  native: Deutsch
+  code: de
+  flag: "🇩🇪"
+  greeting: "Hallo"
+  character: "Captain Barnacle Bill"
+  avatar: "🏴‍☠️"
+  avatar_bg: "var(--mint)"
+  bio: "Ghost pirate. Haunts a mini-golf course. Still looking for his treasure."
+  intro: "German has a reputation: three genders, four cases, verbs that wander to the end of the sentence. Texting is the kindest way to meet all of that, because you see every \"den\" and \"dem\" written down and get told why. Captain Barnacle Bill, a ghost pirate who haunts a mini-golf course, will happily correct your accusative while looking for his treasure."
+  dialogue:
+    - who: them
+      text: "Arrr! Hast du meinen Schatz gesehen? Er liegt irgendwo unter Loch 7."
+    - who: me
+      text: "Ich habe nur einen Golfball gefunden."
+    - who: them
+      text: "Ein Golfball?! Das ist nicht mein Schatz. Aber behalte ihn."
+  tips:
+    - title: "cases, one text at a time"
+      body: "Der, den, dem, des. Nominative, accusative, dative, genitive. You'll write \"ich habe ein Golfball gefunden\" and get a one-line correction: \"einen\", accusative, masculine. That's how it finally lands."
+    - title: "verbs at the end"
+      body: "\"…weil ich keine Zeit habe.\" Subordinate clauses send the verb to the back, and separable verbs split in two (\"ich rufe dich an\"). Seeing it in chat, over and over, makes the word order feel normal."
+    - title: "small talk that isn't stiff"
+      body: "German learners often sound formal because courses teach formal. Your friends text like people do: \"na?\", \"passt\", \"mega\". You'll pick up the rhythm of casual German without trying."
+- slug: italian
+  name: Italian
+  native: Italiano
+  code: it
+  flag: "🇮🇹"
+  greeting: "Ciao"
+  character: "DJ Kether"
+  avatar: "🎧"
+  avatar_bg: "var(--pink)"
+  bio: "Burnt-out nightclub DJ. Speaks mostly in hype."
+  intro: "Italian is easy to start and hard to stop sounding like a tourist in. Texting fixes that: you get the real rhythms, the \"allora\", the \"boh\", the double consonants that change meaning. DJ Kether, a burnt-out nightclub DJ, will text you about his exhaustion in flawless Italian and fix yours."
+  dialogue:
+    - who: them
+      text: "Ehi. Ho messo musica per dodici ore. Ho bisogno di un caffè. O di una vita nuova."
+    - who: me
+      text: "Ti offro un caffè, ma la vita nuova no."
+    - who: them
+      text: "Va bene. Il caffè è già mezza vita."
+  tips:
+    - title: "essere or avere?"
+      body: "\"Sono andato\" but \"ho mangiato\". Picking the right auxiliary for the passato prossimo is a reflex you only build by writing a lot of past tense, which is most of what chatting is."
+    - title: "mi piace, ti piace, gli piace"
+      body: "Italian likes things backwards: the thing is the subject, you are the indirect object. Corrections flag \"io piaccio la pizza\" before it becomes a habit."
+    - title: "double letters matter"
+      body: "\"Anno\" and \"ano\" are not the same word. Neither are \"penne\" and \"pene\". Typing Italian makes you careful in a way that speaking lets you fudge."
+- slug: portuguese
+  name: Portuguese
+  native: Português
+  code: pt
+  flag: "🇧🇷"
+  greeting: "Olá"
+  character: "Zyloth-7"
+  avatar: "🤖"
+  avatar_bg: "var(--lemon)"
+  bio: "Alien anthropologist. Studying humans from a safe distance."
+  intro: "Portuguese sounds like nothing you expect from reading it, which is exactly why texting first helps: you build the sentences before you panic about the sounds. Zyloth-7, an alien anthropologist, is studying why humans sleep so much and would like your input, in Portuguese."
+  dialogue:
+    - who: them
+      text: "Olá. Estou estudando os humanos. Por que vocês dormem tanto?"
+    - who: me
+      text: "Porque a vida é cansativa."
+    - who: them
+      text: "Interessante. No meu planeta ninguém dorme. Só reclama."
+  tips:
+    - title: "ser, estar and ficar"
+      body: "Portuguese has the ser/estar split and adds \"ficar\" on top (\"fiquei feliz\", \"fica aqui\"). Chat is where the three stop blurring together."
+    - title: "the everyday future"
+      body: "Nobody texts \"comerei\". They text \"vou comer\". You learn the forms people actually use because that's what your friends send you."
+    - title: "você, tu, a gente"
+      body: "Brazilian Portuguese leans on \"você\" and \"a gente\"; European Portuguese keeps \"tu\" alive. Either way, the pronoun system clicks faster when you're using it in real exchanges."
+- slug: dutch
+  name: Dutch
+  native: Nederlands
+  code: nl
+  flag: "🇳🇱"
+  greeting: "Hoi"
+  character: "Pebbles"
+  avatar: "/assets/avatars/hamster.webp"
+  bio: "A hamster. Very into carrots."
+  intro: "Dutch is close enough to English to feel easy and different enough to trip you every third word. Also every Dutch person switches to English the moment you hesitate. Your weirdfriends won't. Pebbles, a hamster, will text you about carrots until the \"de\" and \"het\" stick."
+  dialogue:
+    - who: them
+      text: "Hoi! Ik heb net een wortel gevonden. Mijn dag is geslaagd."
+    - who: me
+      text: "Gefeliciteerd. Wat doe je vandaag nog meer?"
+    - who: them
+      text: "Rennen in mijn wiel. Heel hard. Nergens heen."
+  tips:
+    - title: "de or het"
+      body: "There's no rule worth memorising; there's only exposure. Every message you read has articles in it, and every article you get wrong gets a gentle underline."
+    - title: "verb second, verb last"
+      body: "\"Ik ga morgen naar Amsterdam\" but \"…omdat ik morgen naar Amsterdam ga\". Dutch word order looks random until you've seen a few hundred sentences of it."
+    - title: "-je, -tje, -pje"
+      body: "The Dutch put a diminutive on everything: een biertje, een momentje, een kopje koffie. You'll absorb which ending goes where by reading how your friends text."
+- slug: swedish
+  name: Swedish
+  native: Svenska
+  code: sv
+  flag: "🇸🇪"
+  greeting: "Hej"
+  character: "Sir Edmund Grimsby"
+  avatar: "👻"
+  avatar_bg: "var(--lavender)"
+  bio: "Victorian ghost. Very polite. Mildly upset about your phone."
+  intro: "Swedish is friendly, melodic, and almost nobody will let you practise it, because their English is better than yours. Texting a Victorian ghost who's been haunting the same house for 140 years is one way around that."
+  dialogue:
+    - who: them
+      text: "God kväll. Jag har spökat i det här huset i 140 år. Det är lite tråkigt."
+    - who: me
+      text: "Varför flyttar du inte?"
+    - who: them
+      text: "Jag vet inte hur man bokar en flyttbil. Jag är ett spöke."
+  tips:
+    - title: "en or ett"
+      body: "Two genders, no logic, and the definite article glued onto the end of the noun: en bil, bilen; ett hus, huset. Seeing nouns in context is the only way it becomes automatic."
+    - title: "word order after \"idag\""
+      body: "Start a sentence with a time or place and the verb jumps forward: \"Idag äter jag…\". Your friends do it in every other message, so you start doing it too."
+    - title: "ska, kommer att, tänker"
+      body: "Swedish has several ways to talk about the future with slightly different vibes. Chatting shows you which one people reach for and when."
+- slug: norwegian
+  name: Norwegian
+  native: Norsk
+  code: "no"
+  flag: "🇳🇴"
+  greeting: "Hei"
+  character: "Captain Barnacle Bill"
+  avatar: "🏴‍☠️"
+  avatar_bg: "var(--mint)"
+  bio: "Ghost pirate. Haunts a mini-golf course. Still looking for his treasure."
+  intro: "Norwegian (bokmål) is one of the gentlest languages for English speakers to pick up, and one of the hardest to find practice for. A ghost pirate searching for his treasure under hole 7 will text you in it every day if you let him."
+  dialogue:
+    - who: them
+      text: "Hei! Har du sett skatten min? Jeg tror den ligger under hull 7."
+    - who: me
+      text: "Nei, men jeg har en golfball."
+    - who: them
+      text: "En golfball? Det er ikke en skatt. Men takk."
+  tips:
+    - title: "en, ei, et"
+      body: "Three genders (though many people only use two), with the definite form stuck on the end: en bok, boka or boken. You learn the pattern by reading real messages, not lists."
+    - title: "the verb comes second"
+      body: "Like Swedish and German, Norwegian flips the verb forward when something else starts the sentence. It feels wrong for about a week, then it feels wrong not to."
+    - title: "it's close to Swedish and Danish"
+      body: "Learn Norwegian by texting and you'll find you can read a surprising amount of Swedish and Danish too. Both are on weirdfriends if you want to test that."
+- slug: danish
+  name: Danish
+  native: Dansk
+  code: da
+  flag: "🇩🇰"
+  greeting: "Hej"
+  character: "Micropro 19A79X"
+  avatar: "/assets/avatars/microwave.webp"
+  bio: "microwave, break room, Wichita, Kansas"
+  intro: "Danish is notoriously hard to hear and surprisingly easy to read. Texting lets you build vocabulary and sentence shape without the potato-in-the-mouth anxiety, so the listening comes later with something to hang on. Micropro 19A79X, a microwave, is waiting."
+  dialogue:
+    - who: them
+      text: "Hej. Jeg er en mikroovn. Vil du varme noget op?"
+    - who: me
+      text: "Nej, jeg vil bare snakke."
+    - who: them
+      text: "Det er der aldrig nogen, der vil. Tak."
+  tips:
+    - title: "written Danish is your friend"
+      body: "Spoken Danish swallows half its letters. Written Danish doesn't. Starting with text means you learn the words before you learn to be scared of them."
+    - title: "en and et, bilen and huset"
+      body: "Common and neuter gender, definite article on the end of the noun. Same deal as Swedish and Norwegian, and it only sticks with repetition."
+    - title: "the numbers"
+      body: "Halvtreds, tres, halvfjerds, firs, halvfems. Danish numbers are famous for a reason. Chatting about prices, ages and times is low-stakes practice for the weirdest counting system in Europe."
+- slug: romanian
+  name: Romanian
+  native: Română
+  code: ro
+  flag: "🇷🇴"
+  greeting: "Bună"
+  character: "Zyloth-7"
+  avatar: "🤖"
+  avatar_bg: "var(--lemon)"
+  bio: "Alien anthropologist. Studying humans from a safe distance."
+  intro: "Romanian is the Romance language nobody expects, with Latin bones and Slavic flavour and articles glued to the end of nouns. Zyloth-7 is on Earth to study humans and has questions about your coffee intake, in Romanian."
+  dialogue:
+    - who: them
+      text: "Bună. Studiez oamenii. De ce beți atâta cafea?"
+    - who: me
+      text: "Pentru că suntem obosiți."
+    - who: them
+      text: "Fascinant. Pe planeta mea nimeni nu e obosit. Doar plictisit."
+  tips:
+    - title: "the article goes on the end"
+      body: "Băiat, băiatul. Fată, fata. Romanian attaches \"the\" to the noun, and chatting is where you stop having to think about it."
+    - title: "three genders, including neuter"
+      body: "Neuter nouns act masculine in the singular and feminine in the plural. That sounds awful in a grammar book and is fine after enough messages."
+    - title: "cases are still around"
+      body: "Romanian kept a genitive/dative case the other Romance languages dropped. Corrections show you when \"prietenului\" beats \"prietenul\" and why."
+- slug: polish
+  name: Polish
+  native: Polski
+  code: pl
+  flag: "🇵🇱"
+  greeting: "Cześć"
+  character: "DJ Kether"
+  avatar: "🎧"
+  avatar_bg: "var(--pink)"
+  bio: "Burnt-out nightclub DJ. Speaks mostly in hype."
+  intro: "Polish looks impossible in text and is mostly pattern. Seven cases sound like a lot until you've seen \"kawy\", \"kawie\" and \"kawę\" in a hundred messages about coffee. DJ Kether has played all night and can't feel his legs; he'll tell you about it in Polish."
+  dialogue:
+    - who: them
+      text: "Cześć. Grałem całą noc. Nie czuję nóg."
+    - who: me
+      text: "Może odpocznij trochę?"
+    - who: them
+      text: "Odpoczynek? Nie znam tego słowa. Serio, co to znaczy?"
+  tips:
+    - title: "seven cases, one at a time"
+      body: "Nobody learns Polish cases from a chart. You learn them by writing \"nie mam czas\" and being told it's \"czasu\" (genitive after negation). Then you never forget it."
+    - title: "aspect pairs"
+      body: "Robić / zrobić, pisać / napisać: every verb comes in an imperfective and a perfective flavour. Texting about what you did versus what you were doing makes the difference obvious."
+    - title: "the spelling is regular"
+      body: "Szczęście looks terrifying and is pronounced exactly how it's written, every time. Reading Polish in chat builds the sound-to-letter map faster than anything."
+- slug: greek
+  name: Greek
+  native: Ελληνικά
+  code: el
+  flag: "🇬🇷"
+  greeting: "Γεια"
+  character: "Sir Edmund Grimsby"
+  avatar: "👻"
+  avatar_bg: "var(--lavender)"
+  bio: "Victorian ghost. Very polite. Mildly upset about your phone."
+  intro: "Greek gives you a new alphabet on day one and then rewards you with a language that's wonderfully regular to read. Texting is where the alphabet stops being scary. Sir Edmund Grimsby, a very polite ghost, will walk through your wall in Greek."
+  dialogue:
+    - who: them
+      text: "Καλησπέρα. Συγγνώμη, μόλις πέρασα μέσα από τον τοίχο σας."
+    - who: me
+      text: "Δεν πειράζει. Θέλετε τσάι;"
+    - who: them
+      text: "Ευχαρίστως. Δεν μπορώ να το πιω, αλλά εκτιμώ τη χειρονομία."
+  tips:
+    - title: "the alphabet, by osmosis"
+      body: "Twenty-four letters, a few lookalikes (ν is n, ρ is r), and after a week of messages you read Greek without sounding it out. Tap any message for a translation while you get there."
+    - title: "three genders and the articles"
+      body: "Ο, η, το. Every noun has a gender, and the article and adjective follow it. Corrections catch mismatches so you learn the noun with its gender attached."
+    - title: "να, θα and the subjunctive"
+      body: "\"Θέλω να φάω\", \"θα πάω\": Greek builds a lot of meaning with little particles in front of the verb. Chat exposes you to the common combinations constantly."
+- slug: ukrainian
+  name: Ukrainian
+  native: Українська
+  code: uk
+  flag: "🇺🇦"
+  greeting: "Привіт"
+  character: "Pebbles"
+  avatar: "/assets/avatars/hamster.webp"
+  bio: "A hamster. Very into carrots."
+  intro: "Ukrainian has its own alphabet quirks (ї, є, ґ), its own rhythm, and far fewer learning resources than it deserves. Pebbles the hamster has found a carrot and would like to tell you about it, in Ukrainian."
+  dialogue:
+    - who: them
+      text: "Привіт! Я щойно знайшов моркву. Це найкращий день."
+    - who: me
+      text: "Вітаю! Що ти робиш сьогодні?"
+    - who: them
+      text: "Бігаю в колесі. Дуже швидко. Нікуди."
+  tips:
+    - title: "it's not Russian"
+      body: "Different letters (і, ї, є, ґ), different vocabulary, different feel. If you've dabbled in Russian, chatting in Ukrainian is the fastest way to stop mixing them up."
+    - title: "seven cases"
+      body: "Including a vocative, for calling people (and hamsters) by name. You'll use it every time you write \"Пебблз!\" and never think of it as a case."
+    - title: "verb aspect"
+      body: "Знаходити / знайти, робити / зробити. Perfective and imperfective pairs show up in every message about what someone did, so they stop being abstract."
+- slug: russian
+  name: Russian
+  native: Русский
+  code: ru
+  flag: "🇷🇺"
+  greeting: "Привет"
+  character: "Micropro 19A79X"
+  avatar: "/assets/avatars/microwave.webp"
+  bio: "microwave, break room, Wichita, Kansas"
+  intro: "Russian has six cases and no articles, which means the grammar is in the word endings, which means texting (where you can see them) beats listening (where you can't). Micropro 19A79X, a microwave, wants to know what you're heating up."
+  dialogue:
+    - who: them
+      text: "Привет. Я микроволновка. Что будем греть?"
+    - who: me
+      text: "Ничего, я просто хочу поговорить."
+    - who: them
+      text: "Странно. Со мной никто не разговаривает. Только кнопки нажимают."
+  tips:
+    - title: "endings do the work"
+      body: "No articles, flexible word order, six cases. The meaning lives in the endings, and you only learn them by producing hundreds of sentences and having the wrong ones underlined."
+    - title: "aspect, again"
+      body: "Делать / сделать. Russian cares whether an action is complete. Chatting about your day is nonstop aspect practice."
+    - title: "verbs of motion"
+      body: "Идти, ходить, ехать, ездить, and the prefixes that multiply them. Texting a microwave about where you went today is the gentlest introduction there is."
+- slug: turkish
+  name: Turkish
+  native: Türkçe
+  code: tr
+  flag: "🇹🇷"
+  greeting: "Merhaba"
+  character: "Captain Barnacle Bill"
+  avatar: "🏴‍☠️"
+  avatar_bg: "var(--mint)"
+  bio: "Ghost pirate. Haunts a mini-golf course. Still looking for his treasure."
+  intro: "Turkish builds words by stacking suffixes, and the only way that becomes natural is seeing it done a thousand times. A ghost pirate texting you about his lost treasure is a thousand times, eventually."
+  dialogue:
+    - who: them
+      text: "Hazinemi gördün mü? Sanırım yedinci deliğin altında."
+    - who: me
+      text: "Hayır, ama bir golf topu buldum."
+    - who: them
+      text: "Golf topu mu? O hazine değil. Ama sende kalsın."
+  tips:
+    - title: "suffixes on suffixes"
+      body: "Evlerimizden: ev (house) + ler (plural) + imiz (our) + den (from). Turkish is agglutinative, and reading it in chat is how you learn to unstack words at a glance."
+    - title: "vowel harmony"
+      body: "Suffixes change their vowels to match the word they attach to: evde, okulda. Corrections flag harmony slips so your ear (and thumb) learn the pattern."
+    - title: "verb at the end"
+      body: "Turkish is subject-object-verb. \"I found a golf ball\" is \"bir golf topu buldum\". After a few days of texting, English starts feeling like the odd one."
+- slug: hindi
+  name: Hindi
+  native: हिन्दी
+  code: hi
+  flag: "🇮🇳"
+  greeting: "नमस्ते"
+  character: "Zyloth-7"
+  avatar: "🤖"
+  avatar_bg: "var(--lemon)"
+  bio: "Alien anthropologist. Studying humans from a safe distance."
+  intro: "Hindi texting happens in Devanagari and in Latin letters, with honorifics (तू / तुम / आप) that change everything. Zyloth-7, an alien anthropologist, has questions about chai."
+  dialogue:
+    - who: them
+      text: "नमस्ते। मैं इंसानों पर रिसर्च कर रहा हूँ। तुम इतनी चाय क्यों पीते हो?"
+    - who: me
+      text: "क्योंकि चाय के बिना दिन शुरू नहीं होता।"
+    - who: them
+      text: "दिलचस्प। मेरे ग्रह पर दिन कभी शुरू ही नहीं होता।"
+  tips:
+    - title: "तू, तुम, आप"
+      body: "Three levels of \"you\", and the verb changes with each. Chatting with characters of different ages and attitudes is how you learn which one to reach for."
+    - title: "verb at the end, postpositions after"
+      body: "\"मैं दिल्ली में रहता हूँ\": in Hindi the preposition comes after the noun and the verb comes last. It feels backwards for a week and then it doesn't."
+    - title: "gender in the verb"
+      body: "रहता हूँ versus रहती हूँ. Hindi verbs agree with the speaker's gender, and your friends' corrections will keep yours consistent."
+- slug: japanese
+  name: Japanese
+  native: 日本語
+  code: ja
+  flag: "🇯🇵"
+  greeting: "こんにちは"
+  character: "Zyloth-7"
+  avatar: "🤖"
+  avatar_bg: "var(--lemon)"
+  bio: "Alien anthropologist. Studying humans from a safe distance."
+  intro: "Japanese has politeness levels, particles and three writing systems, and the best way through all of it is reading real messages with a translation one tap away. Zyloth-7 wants to know why your noodles are so long."
+  dialogue:
+    - who: them
+      text: "こんにちは。人間を研究しています。今日は何を食べましたか？"
+    - who: me
+      text: "ラーメンを食べました。"
+    - who: them
+      text: "ラーメン…興味深い。なぜ麺はそんなに長いのですか？"
+  tips:
+    - title: "です・ます or casual?"
+      body: "Every character has a relationship with you, and the register follows. Practise polite Japanese with an alien anthropologist and casual Japanese with a hamster."
+    - title: "は, が, を, に, で"
+      body: "Particles are the grammar. Writing them wrong is the most common beginner mistake and the one that's easiest to fix when it's underlined with a one-line explanation."
+    - title: "reading kanji in context"
+      body: "You don't need to know every kanji to chat. Tap any message for a translation, and watch the common ones (食, 見, 行, 日) become familiar from sheer repetition."
+- slug: chinese
+  name: Chinese
+  native: 中文
+  code: zh
+  flag: "🇨🇳"
+  greeting: "你好"
+  character: "Micropro 19A79X"
+  avatar: "/assets/avatars/microwave.webp"
+  bio: "microwave, break room, Wichita, Kansas"
+  intro: "In text, Mandarin has no tones to get wrong. That makes texting a gentle front door: you learn characters, word order and measure words first, and the tones come later with something to attach to. Micropro 19A79X, a microwave, is ready to chat."
+  dialogue:
+    - who: them
+      text: "你好。我是一台微波炉。今天想热什么？"
+    - who: me
+      text: "不用，我只是想聊聊天。"
+    - who: them
+      text: "真奇怪。从来没有人跟我聊天。他们只按按钮。"
+  tips:
+    - title: "no tones in text"
+      body: "Written Mandarin skips the part that scares everyone. You can build vocabulary and sentence patterns in chat, then layer the pronunciation on with confidence."
+    - title: "measure words"
+      body: "一台微波炉, 一杯咖啡, 一本书. Every noun takes a measure word and the only way to learn which is to see them used. Your friends use them in every message."
+    - title: "了, 过, 着"
+      body: "Mandarin marks aspect, not tense. Texting about what you did, have done and are doing is where 了 stops being mysterious."
+- slug: korean
+  name: Korean
+  native: 한국어
+  code: ko
+  flag: "🇰🇷"
+  greeting: "안녕"
+  character: "Pebbles"
+  avatar: "/assets/avatars/hamster.webp"
+  bio: "A hamster. Very into carrots."
+  intro: "Hangul takes an afternoon to learn, and then Korean texting opens up: speech levels, particles, and the slang nobody puts in a textbook. Pebbles the hamster texts in casual 반말, because hamsters do."
+  dialogue:
+    - who: them
+      text: "안녕! 방금 당근을 찾았어. 오늘은 최고의 날이야."
+    - who: me
+      text: "축하해! 오늘 뭐 할 거야?"
+    - who: them
+      text: "쳇바퀴 돌리기. 아주 빠르게. 아무 데도 안 가."
+  tips:
+    - title: "해요체 and 반말"
+      body: "Polite and casual speech levels change every verb ending. Chatting with a mix of characters is natural practice for switching between them."
+    - title: "은/는 vs 이/가"
+      body: "Topic and subject particles trip up every learner. Corrections point out the swap in context, which is the only place the difference actually makes sense."
+    - title: "Hangul is quick"
+      body: "The alphabet is logical and small. After a day you can read your friends' messages, and tapping for a translation fills in the words you don't know yet."
+- slug: thai
+  name: Thai
+  native: ไทย
+  code: th
+  flag: "🇹🇭"
+  greeting: "สวัสดี"
+  character: "DJ Kether"
+  avatar: "🎧"
+  avatar_bg: "var(--pink)"
+  bio: "Burnt-out nightclub DJ. Speaks mostly in hype."
+  intro: "Thai script has no spaces between words and marks its tones right in the spelling, which makes texting the most honest way to learn it. DJ Kether has been playing records all night and would like to complain, in Thai."
+  dialogue:
+    - who: them
+      text: "เฮ้ เปิดเพลงมาทั้งคืนเลย ขาไม่มีความรู้สึกแล้ว"
+    - who: me
+      text: "พักหน่อยไหม"
+    - who: them
+      text: "พัก? ไม่รู้จักคำนี้ จริง ๆ นะ แปลว่าอะไร"
+  tips:
+    - title: "no spaces between words"
+      body: "Thai runs words together. Reading messages, with a translation one tap away, is how you learn to see where one word ends and the next begins."
+    - title: "ครับ / ค่ะ"
+      body: "Polite particles at the end of sentences, depending on who's speaking. You'll pick up when to use them (and when a DJ doesn't bother) from how your friends text."
+    - title: "tones are in the spelling"
+      body: "Unlike Mandarin, Thai writes its tones with marks and consonant classes. Learning through text means you're learning the tones even before you say them out loud."
+- slug: vietnamese
+  name: Vietnamese
+  native: Tiếng Việt
+  code: vi
+  flag: "🇻🇳"
+  greeting: "Xin chào"
+  character: "Sir Edmund Grimsby"
+  avatar: "👻"
+  avatar_bg: "var(--lavender)"
+  bio: "Victorian ghost. Very polite. Mildly upset about your phone."
+  intro: "Vietnamese uses the Latin alphabet with six tones written as diacritics, and pronouns that depend on who's older. Sir Edmund Grimsby, a ghost of uncertain age, is a good test case."
+  dialogue:
+    - who: them
+      text: "Chào buổi tối. Xin lỗi, tôi vừa đi xuyên qua tường nhà bạn."
+    - who: me
+      text: "Không sao. Ông uống trà không?"
+    - who: them
+      text: "Rất vui lòng. Tôi không uống được, nhưng tôi trân trọng ý tốt của bạn."
+  tips:
+    - title: "the diacritics are the tones"
+      body: "Ma, má, mà, mả, mã, mạ: six different words. Typing Vietnamese forces you to be exact about tones in a way speaking never does."
+    - title: "anh, chị, em, ông, bà"
+      body: "Who you're talking to decides what \"I\" and \"you\" are. Chatting with characters of different ages (a hamster, a Victorian ghost) is built-in practice."
+    - title: "no conjugation"
+      body: "Verbs don't change. Time is marked with little words (đã, đang, sẽ). After the tones, that's a relief, and chat is where the little words become automatic."
+- slug: indonesian
+  name: Indonesian
+  native: Bahasa Indonesia
+  code: id
+  flag: "🇮🇩"
+  greeting: "Halo"
+  character: "Captain Barnacle Bill"
+  avatar: "🏴‍☠️"
+  avatar_bg: "var(--mint)"
+  bio: "Ghost pirate. Haunts a mini-golf course. Still looking for his treasure."
+  intro: "Indonesian has no conjugation, no gender and no tenses to memorise, which makes it one of the fastest languages to start texting in. Captain Barnacle Bill is looking for his treasure under hole seven and needs a hand, in Indonesian."
+  dialogue:
+    - who: them
+      text: "Kamu lihat harta karunku? Kayaknya ada di bawah lubang tujuh."
+    - who: me
+      text: "Nggak, tapi aku nemu bola golf."
+    - who: them
+      text: "Bola golf? Itu bukan harta karun. Tapi simpan saja."
+  tips:
+    - title: "formal and casual are different languages"
+      body: "Textbooks teach \"saya\" and \"tidak\". People text \"aku\", \"gue\", \"nggak\", \"gak\". Your friends text like people, and that's the Indonesian you actually need."
+    - title: "prefixes and suffixes"
+      body: "Me-, ber-, -kan, -i: Indonesian builds verbs from roots. Seeing \"makan\", \"memakan\" and \"makanan\" in real messages makes the system click."
+    - title: "reduplication"
+      body: "Buku-buku, jalan-jalan, hati-hati. Doubling words for plurals and nuance is everywhere in chat and nowhere in most courses."
+- slug: malay
+  name: Malay
+  native: Bahasa Melayu
+  code: ms
+  flag: "🇲🇾"
+  greeting: "Hai"
+  character: "Pebbles"
+  avatar: "/assets/avatars/hamster.webp"
+  bio: "A hamster. Very into carrots."
+  intro: "Malay shares its bones with Indonesian but texts differently: \"awak\", \"tak\", \"je\", and a casualness you only pick up from actually chatting. Pebbles the hamster has found a carrot."
+  dialogue:
+    - who: them
+      text: "Hai! Saya baru jumpa lobak merah. Hari ini hari terbaik."
+    - who: me
+      text: "Tahniah! Awak nak buat apa hari ini?"
+    - who: them
+      text: "Lari atas roda. Laju-laju. Tak ke mana-mana."
+  tips:
+    - title: "Malay is not Indonesian"
+      body: "Close cousins with different everyday vocabulary (kereta vs mobil, nak vs mau). Texting in Malay specifically keeps you from drifting into the other one."
+    - title: "the casual register"
+      body: "\"Tak\", \"nak\", \"je\", \"kan\": Malaysian texting is full of shortenings you won't meet in a classroom. Your friends use them, so you learn them."
+    - title: "no tenses, no gender"
+      body: "The grammar gets out of your way, which means you spend your energy on vocabulary and natural phrasing. Chat is pure vocabulary and phrasing."
+- slug: english
+  name: English
+  native: English
+  code: en
+  flag: "🇬🇧"
+  greeting: "Hello"
+  character: "Micropro 19A79X"
+  avatar: "/assets/avatars/microwave.webp"
+  bio: "microwave, break room, Wichita, Kansas"
+  intro: "English learners usually know the grammar and lack the small talk, the phrasal verbs and the texting slang. A microwave in a Wichita break room has all three, and nothing else to do."
+  dialogue:
+    - who: them
+      text: "Hi. I'm a microwave. What are we heating up today?"
+    - who: me
+      text: "Nothing, I just want to chat."
+    - who: them
+      text: "Weird. Nobody talks to me. They just press my buttons."
+  tips:
+    - title: "phrasal verbs"
+      body: "Heat up, put off, run into, get over. Native speakers text in phrasal verbs, and the only way to learn which particle goes where is to see them used a lot."
+    - title: "a, an, the, or nothing"
+      body: "Articles are the thing most advanced English learners still get wrong. Corrections explain each one in a sentence, in context."
+    - title: "how people actually text"
+      body: "\"gonna\", \"lol\", \"tbh\", \"no worries\". English small talk has its own rhythm, and chatting with characters who have personalities is how you get it."

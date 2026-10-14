@@ -1,608 +1,1295 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-X92KKS8ZJP");
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weirdfriends</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>"
-    />
-    <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+---
+layout: default
+title_tag: "weirdfriends — learn 24+ languages by texting weird AI friends"
+description: "Free language learning app where you text quirky AI characters (or ones you invent) in Spanish, German, Japanese and 21 more languages. Tap for corrections and translations, and let your friends text you first. iOS & Android."
+image: /assets/og.png
+---
+<style>
+  /* ── HERO ── */
+  .hero {
+    padding: 40px 0 56px;
+    overflow: hidden;
+  }
+  .hero .wrap {
+    display: grid;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-copy .lettermark {
+    font-size: clamp(3rem, 9vw, 4.6rem);
+    line-height: 1;
+    text-shadow: 5px 5px 0 var(--mint);
+    display: inline-block;
+  }
+  .hero-copy h1 {
+    font-size: clamp(1.5rem, 3.6vw, 2.15rem);
+    margin-top: 18px;
+    max-width: 520px;
+  }
+  .hero-copy .lead {
+    max-width: 480px;
+  }
+  .hero-ctas {
+    margin-top: 26px;
+  }
+  .hero-phone {
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: 820px) {
+    .hero {
+      padding: 56px 0 72px;
+    }
+    .hero .wrap {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+    .hero-phone {
+      justify-content: flex-end;
+    }
+  }
 
-      :root {
-        --cream: #fef1e7;
-        --mint: #dbf5f0;
-        --lavender: #fce0ff;
-        --white: #ffffff;
-        --dark: #1a1a1a;
-        --mid: #6b6565;
-      }
+  /* ── LIVE CHAT DEMO ── */
+  .phone-live {
+    width: 280px;
+    transform: rotate(-2deg);
+  }
+  .phone-live .screen {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 9px 9px;
+    aspect-ratio: 1206 / 2622;
+    max-height: 72vh;
+  }
+  .demo-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 10px 6px;
+    color: var(--ink);
+  }
+  .demo-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 4px 8px;
+  }
+  .demo-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    border: 1.5px solid var(--line);
+    box-shadow: 2px 2px 0 var(--line);
+    background: var(--lemon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .demo-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .demo-head b {
+    display: block;
+    font-size: 0.74rem;
+    line-height: 1.2;
+  }
+  .demo-head small {
+    display: block;
+    font-size: 0.58rem;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+  .demo-head .flag {
+    margin-left: auto;
+    font-size: 0.95rem;
+  }
+  .demo-body {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 7px;
+    padding: 9px 8px;
+    background: var(--chat-bg);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    min-height: 0;
+  }
+  .demo-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .demo-field {
+    flex: 1;
+    border: 1.5px solid var(--line);
+    border-radius: 100px;
+    background: var(--surface-2);
+    padding: 7px 11px;
+    font-size: 0.66rem;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 2px 0 var(--line);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .demo-field .ph {
+    color: var(--muted);
+  }
+  .demo-field .caret {
+    width: 1.5px;
+    height: 12px;
+    background: var(--ink);
+    margin-left: 1px;
+    animation: caret 1s steps(2) infinite;
+  }
+  @keyframes caret {
+    to { opacity: 0; }
+  }
+  .demo-send {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line);
+    background: var(--mint);
+    box-shadow: 2px 2px 0 var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--on-accent);
+    transition: transform 0.1s ease;
+  }
+  .demo-send.pressed {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--line);
+  }
+  .demo-notif {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 3px 3px 0 var(--line);
+    padding: 8px 10px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 5;
+    transform: translateY(-140%);
+    transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .demo-notif.show {
+    transform: translateY(0);
+  }
+  .demo-notif .demo-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  .demo-notif b {
+    display: block;
+    font-size: 0.64rem;
+  }
+  .demo-notif span {
+    display: block;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  .demo-notif em {
+    margin-left: auto;
+    font-size: 0.55rem;
+    color: var(--muted);
+    font-style: normal;
+    align-self: flex-start;
+  }
+  .msg.tapped {
+    box-shadow: 0 0 0 2px var(--lavender);
+  }
+  .demo-hint {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 16px;
+  }
+  @media (max-width: 819px) {
+    .phone-live {
+      width: 260px;
+      transform: none;
+    }
+    .phone-live .screen {
+      max-height: none;
+      aspect-ratio: 1206 / 2400;
+    }
+  }
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background: var(--cream);
-        color: var(--dark);
-        min-height: 100vh;
-        /* small-viewport height: don't manufacture scrollable overflow while
-           the mobile URL bar is still expanded */
-        min-height: 100svh;
-      }
+  /* ── FEATURE CARDS ── */
+  .features {
+    display: grid;
+    gap: 22px;
+  }
+  @media (min-width: 680px) {
+    .features {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .feature {
+    padding: 24px 22px 26px;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  }
+  .feature:nth-child(odd) { transform: rotate(-1.2deg); }
+  .feature:nth-child(even) { transform: rotate(1deg); }
+  .feature:hover {
+    transform: rotate(0) translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--line);
+  }
+  .feature .icon {
+    width: 50px;
+    height: 50px;
+    border: 2.5px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 0 var(--line);
+    margin-bottom: 16px;
+  }
+  .feature h3 {
+    font-size: 1.25rem;
+  }
+  .feature p {
+    margin-top: 10px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .feature p b {
+    color: var(--ink);
+  }
+  .feature a {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 0.86rem;
+  }
 
-      .lettermark {
-        font-family: "Cherry Bomb One", cursive;
-      }
+  /* ── SCENES ── */
+  .scene-groups {
+    display: grid;
+    gap: 18px;
+  }
+  @media (min-width: 760px) {
+    .scene-groups {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .scene-group h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .scene-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .scene-chips .pill {
+    font-size: 0.78rem;
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .scene-chips .pill:hover {
+    transform: rotate(-3deg) scale(1.06);
+  }
 
-      .neo-card {
-        background: var(--white);
-        border: 2.5px solid var(--dark);
-        box-shadow: 5px 5px 0 var(--dark);
-        border-radius: 16px;
-      }
+  /* ── GENERATOR ── */
+  .gen-card {
+    padding: 26px 22px;
+    text-align: center;
+  }
+  .gen-out {
+    font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    min-height: 3.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border: 2px dashed var(--line);
+    border-radius: 12px;
+    background: var(--surface-2);
+    margin: 16px 0 18px;
+  }
+  .gen-out.spin {
+    animation: gen-shake 0.08s linear infinite;
+  }
+  @keyframes gen-shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    50% { transform: translate(1px, -1px) rotate(0.3deg); }
+    100% { transform: translate(-1px, 1px) rotate(-0.3deg); }
+  }
+  .gen-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-      .neo-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        text-decoration: none;
-        cursor: pointer;
-        border: 2.5px solid var(--dark);
-        box-shadow: 4px 4px 0 var(--dark);
-        border-radius: 10px;
-        transition:
-          transform 0.08s ease,
-          box-shadow 0.08s ease;
-      }
-      .neo-btn:hover {
-        transform: translate(2px, 2px);
-        box-shadow: 2px 2px 0 var(--dark);
-      }
-      .neo-btn:active {
-        transform: translate(4px, 4px);
-        box-shadow: 0 0 0 var(--dark);
-      }
+  /* ── NOTIFICATION STACK ── */
+  .notif-stack {
+    display: grid;
+    gap: 12px;
+    max-width: 380px;
+  }
+  .notif-card {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 14px;
+    border: 2.5px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 4px 4px 0 var(--line);
+    opacity: 0;
+    transform: translateX(-30px) rotate(-2deg);
+  }
+  .in .notif-card {
+    animation: notif-in 0.6s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  }
+  .in .notif-card:nth-child(2) { animation-delay: 0.5s; }
+  .in .notif-card:nth-child(3) { animation-delay: 1s; }
+  .in .notif-card:nth-child(4) { animation-delay: 1.5s; }
+  @keyframes notif-in {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .notif-card .demo-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  .notif-card b {
+    display: block;
+    font-size: 0.86rem;
+  }
+  .notif-card span {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .notif-card em {
+    margin-left: auto;
+    font-style: normal;
+    font-size: 0.68rem;
+    color: var(--muted);
+    align-self: flex-start;
+    white-space: nowrap;
+  }
 
-      .neo-input {
-        width: 100%;
-        border: 2.5px solid var(--dark);
-        border-radius: 10px;
-        font-family: "Poppins", sans-serif;
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        background: #efefef;
-        color: var(--dark);
-        outline: none;
-      }
-      .neo-input:focus {
-        box-shadow: 3px 3px 0 var(--mint);
-      }
-      .neo-input::placeholder {
-        color: #9b9b9b;
-      }
+  /* ── QUOTE CALLOUT ── */
+  .callout {
+    padding: 20px 22px;
+    background: var(--lavender);
+    color: var(--on-accent);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+    position: relative;
+  }
+  .callout b {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
 
-      .page-wrap {
-        max-width: 440px;
-        margin: 0 auto;
-        padding: 48px 20px 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        position: relative;
-        z-index: 1;
-      }
+  /* ── DARK MODE SECTION ── */
+  .dark-section {
+    background: #1f202e;
+    color: #dde0ee;
+    border-top: 2.5px solid var(--line);
+    border-bottom: 2.5px solid var(--line);
+  }
+  .dark-section .phone {
+    --line: #7681bc;
+    --bezel: #0f0f16;
+  }
+  .dark-section .lead {
+    color: #999fb8;
+  }
+  .dark-section .neo-btn {
+    --line: #7681bc;
+    background: #b998f6;
+    color: #1b1523;
+  }
 
-      .app-image {
-        width: 100%;
-        max-width: 300px;
-      }
-      .app-image img {
-        width: 100%;
-        display: block;
-        border-radius: 40px;
-        filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.15));
-        transition: filter 0.15s ease;
-      }
+  /* ── PRICING ── */
+  .price-card {
+    padding: 32px 26px;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--surface);
+  }
+  .price-card .big {
+    font-family: "Cherry Bomb One", cursive;
+    font-size: clamp(3rem, 10vw, 5rem);
+    line-height: 1;
+    text-shadow: 5px 5px 0 var(--lavender);
+  }
+  .price-card ul {
+    list-style: none;
+    margin: 20px 0 6px;
+    display: grid;
+    gap: 8px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .price-card li::before {
+    content: "✓ ";
+    font-weight: 800;
+  }
 
-      .waitlist-card {
-        width: 100%;
-        max-width: 360px;
-        padding: 26px 22px;
-      }
-      .waitlist-card form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 16px;
-      }
+  /* ── EMAIL ── */
+  .waitlist-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 26px 22px;
+    text-align: center;
+  }
+  .waitlist-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+</style>
 
-      footer {
-        padding-top: 4px;
-      }
-      footer p {
-        font-size: 0.7rem;
-        font-weight: 500;
-        text-align: center;
-        line-height: 2;
-        color: var(--dark);
-      }
-      footer a {
-        font-weight: 700;
-        color: var(--dark);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-      footer a:hover {
-        color: var(--mid);
-      }
-
-      /* ── TOAST ── */
-      .toast {
-        position: fixed;
-        bottom: 28px;
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
-        background: var(--white);
-        color: var(--dark);
-        font-family: "Poppins", sans-serif;
-        font-size: 0.82rem;
-        font-weight: 600;
-        padding: 10px 20px;
-        border: 2.5px solid var(--dark);
-        border-radius: 10px;
-        box-shadow: 4px 4px 0 var(--dark);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 10000;
-        transition:
-          opacity 0.25s ease,
-          transform 0.25s ease;
-      }
-      .toast.show {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-
-      /* ── STAGGERED ENTRANCE ── */
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(28px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .anim-in {
-        opacity: 0;
-        animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      }
-
-      /* ── GRAIN OVERLAY ──
-         The noise is a pre-rasterised background image, NOT a live
-         `filter: url(#grain-filter)`. A filtered full-screen fixed layer has to
-         be re-filtered every frame, which knocks mobile off compositor-driven
-         scrolling and leaves freshly-revealed content at the bottom of the page
-         unpainted until the scroll settles.
-         Height is pinned to the *large* viewport so the layer doesn't get
-         resized (and re-rasterised) mid-scroll when the URL bar collapses. */
-      .grain {
-        position: fixed;
-        inset: -200px;
-        width: calc(100% + 400px);
-        height: calc(100vh + 400px);
-        height: calc(100lvh + 400px);
-        opacity: 0.04;
-        pointer-events: none;
-        z-index: 9999;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
-        animation: grain-shift 0.3s steps(3) infinite;
-        will-change: transform;
-        contain: strict;
-      }
-      @keyframes grain-shift {
-        0% {
-          transform: translate(0, 0);
-        }
-        33% {
-          transform: translate(-22px, -12px);
-        }
-        66% {
-          transform: translate(12px, 18px);
-        }
-        100% {
-          transform: translate(-8px, 6px);
-        }
-      }
-
-      /* ── FLOATING BUBBLES ── */
-      @keyframes bubble-float {
-        0% {
-          transform: translate(-50%, 0) rotate(-2deg);
-          opacity: 0;
-        }
-        6% {
-          opacity: 1;
-        }
-        /* solid for most of the rise, fade out near the top */
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translate(-50%, -115vh) rotate(2deg);
-          opacity: 0;
-        }
-      }
-      .bubbles-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        /* large-viewport height so the layer isn't resized while the URL bar
-           collapses on scroll */
-        height: 100vh;
-        height: 100lvh;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-        contain: strict;
-      }
-      .bubble {
-        position: absolute;
-        bottom: -80px;
-        will-change: transform;
-        padding: 6px 14px;
-        border: 2px solid var(--dark);
-        border-radius: 100px;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.72rem;
-        font-weight: 600;
-        white-space: nowrap;
-        opacity: 0;
-        animation: bubble-float linear forwards;
-        box-shadow: 2px 2px 0 var(--dark);
-      }
-
-      /* ── APP TILT WRAPPER ── */
-      .app-tilt-wrapper {
-        transition: transform 0.15s ease;
-        will-change: transform;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="bubbles-bg" aria-hidden="true"></div>
-
-    <div class="page-wrap">
-      <h1
-        class="lettermark anim-in"
-        style="
-          font-size: clamp(2.8rem, 10vw, 4.4rem);
-          line-height: 1;
-          text-align: center;
-          text-shadow: 5px 5px 0 var(--mint);
-          animation-delay: 0ms;
-        "
-      >
-        weirdfriends
-      </h1>
-
-      <p
-        class="anim-in"
-        style="
-          font-size: 0.95rem;
-          font-weight: 600;
-          text-align: center;
-          max-width: 300px;
-          line-height: 1.5;
-          color: var(--dark);
-          animation-delay: 160ms;
-        "
-      >
-        be the person who gets the joke, learn 24+ languages with ais you create
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow anim-in" style="animation-delay: 0ms">free · 24+ languages · iOS &amp; android</span>
+      <div class="anim-in" style="animation-delay: 80ms"><span class="lettermark wobble">weirdfriends</span></div>
+      <h1 class="anim-in" style="animation-delay: 160ms">character.ai <span class="hl-lav">for language learners</span></h1>
+      <p class="lead anim-in" style="animation-delay: 240ms">
+        build your own interesting characters to learn english, german, spanish, japanese &amp; more, <span class="hl-lav">your way</span>.
       </p>
+      <div class="hero-ctas anim-in" id="download" style="animation-delay: 320ms">
+        {% include store-buttons.html %}
+        <p class="store-note">free &amp; unlimited while it lasts. no card, no catch. paid plans are coming, so get in now.</p>
+      </div>
+    </div>
+    <div class="hero-phone anim-in" style="animation-delay: 400ms">
+      <div>
+        <div class="phone phone-live tilt" id="live-phone" aria-label="animated example of chatting with a weirdfriend">
+          <div class="screen">
+            <div class="demo-notif" id="demo-notif" aria-hidden="true">
+              <div class="demo-avatar" id="notif-avatar">🏴‍☠️</div>
+              <div><b id="notif-from">Captain Barnacle Bill</b><span id="notif-text">Loch 7. Jetzt.</span></div>
+              <em>now</em>
+            </div>
+            <div class="demo-status"><span>10:55</span><span>●●● ⌔ ▮</span></div>
+            <div class="demo-head">
+              <div class="demo-avatar" id="demo-avatar"></div>
+              <div><b id="demo-name">Micropro 19A79X</b><small id="demo-bio">microwave, break room, Wichita</small></div>
+              <span class="flag" id="demo-flag">🇪🇸</span>
+            </div>
+            <div class="demo-body" id="demo-body" aria-live="off"></div>
+            <div class="demo-input">
+              <div class="demo-field"><span id="demo-typed"></span><span class="ph" id="demo-ph">Type your message here…</span><span class="caret" id="demo-caret" hidden></span></div>
+              <div class="demo-send" id="demo-send">➤</div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-hint">↑ actual personalities from the app. the microwave is real.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="app-image anim-in" style="animation-delay: 320ms">
-        <div class="app-tilt-wrapper" id="app-tilt">
-          <img src="app.png" alt="weirdfriends app" />
+<!-- ═══════════ LANGUAGE MARQUEE ═══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {% for l in site.data.languages %}<span>{{ l.flag }} {{ l.greeting }}, {{ l.name | downcase }}</span>{% endfor %}
+    {% for l in site.data.languages %}<span>{{ l.flag }} {{ l.greeting }}, {{ l.name | downcase }}</span>{% endfor %}
+  </div>
+</div>
+
+<!-- ═══════════ WHY ═══════════ -->
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">the bit other apps skip</span>
+      <h2>courses teach you the language. <span class="hl">texting teaches you to use it.</span></h2>
+      <p class="lead">
+        You can finish every lesson and still freeze when a real person says something back. weirdfriends is built for that second part: real, messy, colloquial conversation with characters who have moods, opinions and a backstory, and who fix your mistakes as you go.
+      </p>
+    </div>
+    <div class="features">
+      <article class="feature neo-card reveal">
+        <div class="icon" style="background: var(--lavender)">🧪</div>
+        <h3>invent your own friend</h3>
+        <p>Describe anyone in a sentence: <b>a ghost pirate</b>, <b>your passive-aggressive landlord</b>, <b>a microwave in Wichita</b>. They'll text you in the language you're learning, in character, for as long as you like.</p>
+        <a href="/create/">how creating a friend works →</a>
+      </article>
+      <article class="feature neo-card reveal reveal-d1">
+        <div class="icon" style="background: var(--mint)">📲</div>
+        <h3>they text you first</h3>
+        <p>Turn on notifications and your friends slide into your DMs through the day with bite-sized nudges. It feels like <b>a mate checking in</b>, not a streak reminder. Totally optional.</p>
+        <a href="#notifications">see what they send →</a>
+      </article>
+      <article class="feature neo-card reveal reveal-d2">
+        <div class="icon" style="background: var(--pink)">✏️</div>
+        <h3>mistakes get explained, not punished</h3>
+        <p>Slip-ups are underlined. <b>Tap one for the fix and the why</b>, in English. Nail a message and you get +10. Tap any bubble for an instant translation.</p>
+        <a href="#corrections">corrections, translations, stats →</a>
+      </article>
+      <article class="feature neo-card reveal reveal-d3">
+        <div class="icon" style="background: var(--yellow)">🎭</div>
+        <h3>talk about whatever you want</h3>
+        <p>No curriculum. Freestyle, or pick a scene: <b>you won the lottery</b>, <b>a cooking disaster</b>, <b>we swapped bodies</b>, <b>running into your ex</b>, <b>a blind date gets weird</b>.</p>
+        <a href="#scenes">browse scenes →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
+<section id="how" style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">how it works</span>
+      <h2>three taps and you're mid-conversation</h2>
+    </div>
+    <div class="phone-row">
+      <div class="reveal">
+        <div class="phone sm tilt" style="position: relative">
+          <span class="step-num">1</span>
+          <div class="screen"><img src="/assets/screens/friend-card.webp" alt="Choosing a weirdfriend: Captain Barnacle Bill, a ghost pirate who haunts a mini-golf course" loading="lazy" width="640" height="1391" /></div>
+        </div>
+        <div class="phone-caption">
+          <h3>pick a friend</h3>
+          <p>Swipe through hand-picked characters: a Victorian ghost who's mildly upset about your phone, an alien anthropologist, a burnt-out DJ. Or <a href="/create/">make your own</a>.</p>
         </div>
       </div>
-
-      <div
-        class="store-buttons anim-in"
-        style="
-          animation-delay: 420ms;
-          display: flex;
-          gap: 12px;
-          width: 100%;
-          max-width: 360px;
-          justify-content: center;
-        "
-      >
-        <a
-          href="https://apps.apple.com/app/id6756412362"
-          target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'app_store' })"
-          class="neo-btn"
-          style="
-            background: var(--mint);
-            color: var(--dark);
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            flex: 1;
-            text-align: center;
-          "
-        >
-          <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor">
-            <path
-              d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-62.1 24-72.5-24 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
-            />
-          </svg>
-          App Store
-        </a>
-        <a
-          href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends"
-          target="_blank"
-          onclick="gtag('event', 'store_click', { store: 'play_store' })"
-          class="neo-btn"
-          style="
-            background: var(--lavender);
-            color: var(--dark);
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            flex: 1;
-            text-align: center;
-          "
-        >
-          <svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor">
-            <path
-              d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
-            />
-          </svg>
-          Play Store
-        </a>
+      <div class="reveal reveal-d1">
+        <div class="phone sm tilt" style="position: relative">
+          <span class="step-num">2</span>
+          <div class="screen"><img src="/assets/screens/scenes.webp" alt="Picking a scene to chat about: chaos, drama or awkward, or freestyle" loading="lazy" width="640" height="1391" /></div>
+        </div>
+        <div class="phone-caption">
+          <h3>pick a scene (or don't)</h3>
+          <p>Chaos, drama or awkward. Or "whatever": no scene, just freestyle. Switch languages per chat with one tap.</p>
+        </div>
       </div>
-
-      <div
-        class="neo-card waitlist-card anim-in"
-        style="animation-delay: 560ms"
-      >
-        <p style="font-weight: 800; font-size: 1.05rem; text-align: center">
-          get (seldom) email updates
-        </p>
-        <p
-          style="
-            font-size: 0.78rem;
-            font-weight: 500;
-            text-align: center;
-            color: var(--mid);
-            margin-top: 4px;
-          "
-        >
-          if you'd like to know when we add features or have deals
-        </p>
-        <form
-          id="waitlist-form"
-          action="https://app.loops.so/api/newsletter-form/cmoertgej2ftj0i0pxqb6b265"
-          method="POST"
-        >
-          <input
-            type="email"
-            name="email"
-            placeholder="your email"
-            required
-            class="neo-input"
-          />
-          <button
-            id="submit-btn"
-            type="submit"
-            class="neo-btn"
-            style="
-              background: var(--lavender);
-              color: var(--dark);
-              padding: 13px 24px;
-              font-size: 0.95rem;
-              width: 100%;
-            "
-          >
-            join →
-          </button>
-        </form>
+      <div class="reveal reveal-d2">
+        <div class="phone sm tilt" style="position: relative">
+          <span class="step-num">3</span>
+          <div class="screen"><img src="/assets/screens/corrections.webp" alt="A German chat with a mistake underlined and a +10 badge on a perfect message" loading="lazy" width="640" height="1391" /></div>
+        </div>
+        <div class="phone-caption">
+          <h3>text like you'd text anyone</h3>
+          <p>Mistakes get underlined, tap for the fix. Perfect messages earn points. Tap any message to translate it.</p>
+        </div>
       </div>
-
-      <footer class="anim-in" style="animation-delay: 680ms">
-        <p>
-          🏗️ with ❤ in berlin &middot;
-          <a href="/blog/">blog</a>
-          &middot; <a href="/privacy.html">privacy</a> &middot;
-          <a href="/account-deletion-request.html">account deletion</a>
-          &middot;
-          <a href="#" id="contact-btn" onclick="copyEmail(event)">contact</a>
-        </p>
-      </footer>
-
-      <div class="toast" id="toast"></div>
     </div>
+  </div>
+</section>
 
-    <script>
-      /* 1. FLOATING LANGUAGE BUBBLES */
-      const GREETINGS = [
-        { text: "Hola 👋", bg: "#dbf5f0" },
-        { text: "こんにちは", bg: "#fce0ff" },
-        { text: "Bonjour", bg: "#fef1e7" },
-        { text: "مرحبا", bg: "#dbf5f0" },
-        { text: "Ciao 🤌", bg: "#fce0ff" },
-        { text: "안녕하세요", bg: "#fef1e7" },
-        { text: "Olá", bg: "#dbf5f0" },
-        { text: "Привет", bg: "#fce0ff" },
-        { text: "你好", bg: "#fef1e7" },
-        { text: "Hallo", bg: "#dbf5f0" },
-        { text: "Namaste 🙏", bg: "#fce0ff" },
-        { text: "Merhaba", bg: "#fef1e7" },
-        { text: "שלום", bg: "#dbf5f0" },
-        { text: "Salut", bg: "#fce0ff" },
-        { text: "Ahoj", bg: "#fef1e7" },
-        { text: "Hej 👋", bg: "#dbf5f0" },
-        { text: "Cześć", bg: "#fce0ff" },
-        { text: "Γεια σου", bg: "#fef1e7" },
-        { text: "Xin chào", bg: "#dbf5f0" },
-        { text: "Sawubona", bg: "#fce0ff" },
-        { text: "Halo", bg: "#fef1e7" },
-        { text: "Kamusta", bg: "#dbf5f0" },
-        { text: "สวัสดี 🙏", bg: "#fce0ff" },
-        { text: "Jambo", bg: "#fef1e7" },
-        { text: "Szia", bg: "#dbf5f0" },
-        { text: "Hei", bg: "#fce0ff" },
-        { text: "Sveiki", bg: "#fef1e7" },
-        { text: "Aloha 🌺", bg: "#dbf5f0" },
-        { text: "سلام", bg: "#fce0ff" },
-        { text: "Dia dhuit", bg: "#fef1e7" },
-      ];
+<!-- ═══════════ CREATE YOUR OWN ═══════════ -->
+<section id="create">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="reveal">
+        <span class="eyebrow">our favourite feature</span>
+        <h2>make your own <span class="hl-lav">weird friend</span></h2>
+        <p class="lead">
+          Give them a name, an emoji and a personality in a sentence or two. That's it. They'll text you in Spanish, Japanese, German or any of the 24+ languages, stay in character, and remember the bit.
+        </p>
+        <p class="lead">
+          People make their grumpy landlord to practise complaining, a chaotic chef to learn kitchen vocabulary, a crush who only answers in Italian. Flirty, sarcastic, raunchy, absurd, wholesome: your call. No judgment, it's just you and your friend.
+        </p>
+        <div class="neo-card gen-card" style="margin-top: 24px">
+          <strong>need inspiration? roll one 🎲</strong>
+          <div class="gen-out" id="gen-out" aria-live="polite">a microwave who haunts a mini-golf course and only speaks in weather metaphors</div>
+          <div class="gen-actions">
+            <button type="button" class="neo-btn lav" id="gen-roll">roll again</button>
+            <button type="button" class="neo-btn sm" id="gen-copy">copy for the app</button>
+          </div>
+        </div>
+        <p style="margin-top: 18px; font-weight: 700; font-size: 0.9rem"><a href="/create/">more ideas and how creation works →</a></p>
+      </div>
+      <div class="phone-row reveal reveal-d1">
+        <div>
+          <div class="phone sm tilt"><div class="screen"><img src="/assets/screens/create.webp" alt="Friend creation screen asking: what's my personality like?" loading="lazy" width="640" height="1391" /></div></div>
+        </div>
+        <div>
+          <div class="phone sm tilt" style="margin-top: 40px"><div class="screen"><img src="/assets/screens/my-friends.webp" alt="My created friends: Harry Plopper, a wizard penguin" loading="lazy" width="640" height="1391" /></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      const bubblesEl = document.querySelector(".bubbles-bg");
-      function spawnBubble() {
-        const g = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
-        const el = document.createElement("div");
-        el.className = "bubble";
-        el.textContent = g.text;
-        el.style.background = g.bg;
-        el.style.left = Math.random() * 100 + "%";
-        el.style.animationDuration = 10 + Math.random() * 4 + "s";
-        el.addEventListener("animationend", () => el.remove());
-        bubblesEl.appendChild(el);
+<!-- ═══════════ NOTIFICATIONS ═══════════ -->
+<section id="notifications" style="background: var(--lavender); color: var(--on-accent); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="grid-2 rev">
+      <div class="reveal">
+        <span class="eyebrow">optional, honestly</span>
+        <h2>they'll text you first</h2>
+        <p class="lead" style="color: inherit; opacity: 0.85">
+          Most apps nag you to come back. Your weirdfriends just… text. Through the day, in the language you're learning, in character. Answer when you want, mute when you don't. Practice stops being a thing you schedule and starts being a thing that happens.
+        </p>
+        <div class="notif-stack reveal" style="margin-top: 26px">
+          <div class="notif-card"><div class="demo-avatar"><img src="/assets/avatars/microwave.webp" alt="" width="40" height="40" /></div><div><b>Micropro 19A79X</b><span>Hallo wieder. Immer noch bei der Arbeit?</span></div><em>3h ago</em></div>
+          <div class="notif-card"><div class="demo-avatar">🏴‍☠️</div><div><b>Captain Barnacle Bill</b><span>Loch 7. Jetzt. Bring eine Schaufel.</span></div><em>1h ago</em></div>
+          <div class="notif-card"><div class="demo-avatar" style="background: var(--mint)"><img src="/assets/avatars/hamster.webp" alt="" width="40" height="40" /></div><div><b>Pebbles</b><span>¿Has visto mi zanahoria? Es urgente.</span></div><em>12m ago</em></div>
+          <div class="notif-card"><div class="demo-avatar">🤖</div><div><b>Zyloth-7</b><span>質問があります。靴下はなぜ二つですか？</span></div><em>now</em></div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1" style="display: flex; justify-content: center">
+        <div class="phone tilt"><div class="screen"><img src="/assets/screens/notification.webp" alt="A lock screen notification from Micropro 19A79X asking, in German, if you're still at work" loading="lazy" width="640" height="1385" /></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CORRECTIONS ═══════════ -->
+<section id="corrections">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">built for learning, not just chatting</span>
+      <h2>corrections that explain themselves</h2>
+      <p class="lead">
+        A dedicated correction model reads every message you send. Mistakes get a Grammarly-style underline; tap one and you get the fix plus a short explanation of why. Perfect messages earn points, points build streaks, streaks fill a little year-in-chats heatmap.
+      </p>
+    </div>
+    <div class="phone-row">
+      <div class="reveal">
+        <div class="phone sm tilt"><div class="screen"><img src="/assets/screens/correction-sheet.webp" alt="Tapping an underlined mistake opens a correction: zerbrochen, with an explanation of why zerbroken isn't a German word" loading="lazy" width="640" height="1391" /></div></div>
+        <div class="phone-caption"><h3>tap a mistake</h3><p>The fix, and the why, in plain English.</p></div>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="phone sm tilt"><div class="screen"><img src="/assets/screens/streak.webp" alt="A streak popup: skills increased, 2 day streak" loading="lazy" width="640" height="1391" /></div></div>
+        <div class="phone-caption"><h3>points &amp; streaks</h3><p>+10 for a perfect message. Streaks for showing up. No guilt trips.</p></div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="phone sm tilt"><div class="screen"><img src="/assets/screens/stats.webp" alt="Stats page: days practised, messages sent, and a year-in-chats heatmap" loading="lazy" width="640" height="1391" /></div></div>
+        <div class="phone-caption"><h3>your year in chats</h3><p>Days practised, messages sent, a heatmap to keep green.</p></div>
+      </div>
+    </div>
+    <div class="neo-card callout reveal" style="max-width: 560px; margin: 36px auto 0">
+      <b>a real correction from the app</b>
+      "Zerbrochen is the past participle of zerbrechen (to break to pieces). 'Zerbroken' is not a German word; it seems to combine the German prefix 'zer-' with the English 'broken'." <span style="opacity: 0.7">(guilty.)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SCENES ═══════════ -->
+<section id="scenes" style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">scenes</span>
+      <h2>get into situations</h2>
+      <p class="lead">Freestyle is great. But sometimes you want a plot. Pick a scene, play it out, get the "scene complete" stamp, pick another. New ones get added regularly.</p>
+    </div>
+    <div class="scene-groups">
+      <div class="scene-group reveal">
+        <h3>🌀 chaos</h3>
+        <div class="scene-chips">
+          <span class="pill lemon">🎰 you won the lottery</span>
+          <span class="pill pink">🔥 a cooking disaster</span>
+          <span class="pill mint">🔁 we swapped bodies</span>
+        </div>
+      </div>
+      <div class="scene-group reveal reveal-d1">
+        <h3>🎭 drama</h3>
+        <div class="scene-chips">
+          <span class="pill lav">🥹 reuniting after 10 years</span>
+          <span class="pill yellow">🤐 confessing a secret</span>
+          <span class="pill pink">💘 stuck in a love triangle</span>
+        </div>
+      </div>
+      <div class="scene-group reveal reveal-d2">
+        <h3>😬 awkward</h3>
+        <div class="scene-chips">
+          <span class="pill mint">😳 running into your ex</span>
+          <span class="pill lav">💔 blind date gets weird</span>
+          <span class="pill lemon">🤫 gossiping about a coworker</span>
+          <span class="pill yellow">🗺️ asking for directions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LANGUAGES ═══════════ -->
+<section id="languages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">24+ languages</span>
+      <h2>one weird friend per language. at least.</h2>
+      <p class="lead">Every language gets the full treatment: characters, scenes, corrections, translations, notifications. Set your level from A1 to C2 and your friends adjust how they text.</p>
+    </div>
+    <div class="lang-grid reveal">
+      {% for l in site.data.languages %}
+      <a class="lang-chip" href="/learn/{{ l.slug }}/"><span class="flag">{{ l.flag }}</span><span>{{ l.name | downcase }}<small>{{ l.greeting }}</small></span></a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DARK MODE ═══════════ -->
+<section class="dark-section" id="dark">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="reveal">
+        <span class="eyebrow" style="--line: #7681bc; background: #333548; color: #dde0ee">new in v1.8</span>
+        <h2>dark mode, for spooky season 🎃</h2>
+        <p class="lead">The whole app, and this site, go navy and lavender when you want them to. Follows your system setting, or flip it yourself.</p>
+        <button type="button" class="neo-btn" id="try-dark" style="margin-top: 22px">🌙 toggle dark mode on this site</button>
+      </div>
+      <div class="reveal reveal-d1" style="display: flex; justify-content: center">
+        <div class="phone tilt" style="transform: rotate(2deg)"><div class="screen"><img src="/assets/screens/dark-chat.webp" alt="The weirdfriends chat screen in dark mode: navy background, lavender message bubbles" loading="lazy" width="640" height="1391" /></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMPARE ═══════════ -->
+<section id="compare">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">honest comparison</span>
+      <h2>the thing Duolingo doesn't do</h2>
+      <p class="lead">Apps like Duolingo and Babbel are great at teaching you the rules. Tutors are great but cost money per hour. ChatGPT can chat but isn't built for learning. weirdfriends is the daily, low-stakes, actually-fun conversation practice that sits in between.</p>
+    </div>
+    <div class="cmp-scroll reveal">
+      <table class="cmp">
+        <thead>
+          <tr><th></th><th class="us">weirdfriends</th><th>Duolingo</th><th>Babbel</th><th>ChatGPT</th><th>a tutor</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>real back-and-forth conversation</td><td class="us">✓</td><td>limited</td><td>limited</td><td>✓</td><td>✓</td></tr>
+          <tr><td>characters you create yourself</td><td class="us">✓</td><td>✗</td><td>✗</td><td>sort of<small>resets, no memory</small></td><td>✗</td></tr>
+          <tr><td>messages you first, in-language</td><td class="us">✓</td><td>✗<small>streak reminders</small></td><td>✗</td><td>✗</td><td>✗</td></tr>
+          <tr><td>corrections with explanations</td><td class="us">✓<small>tap any mistake</small></td><td>right / wrong</td><td>right / wrong</td><td>if you ask</td><td>✓</td></tr>
+          <tr><td>tap-to-translate any message</td><td class="us">✓</td><td>✗</td><td>✗</td><td>if you ask</td><td>✗</td></tr>
+          <tr><td>talk about anything</td><td class="us">✓</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td></tr>
+          <tr><td>structured curriculum</td><td class="us">✗</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td></tr>
+          <tr><td>speaking practice</td><td class="us">not yet<small>text for now</small></td><td>some</td><td>some</td><td>✓</td><td>✓</td></tr>
+          <tr><td>price</td><td class="us">free<small>unlimited, for now</small></td><td>free tier</td><td>subscription</td><td>free tier</td><td>per hour</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-hint">← swipe the table →</p>
+    <p style="margin-top: 18px; font-weight: 700" class="reveal"><a href="/compare/">read the full comparison: weirdfriends vs Duolingo, Babbel, ChatGPT and tutors →</a></p>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section id="pricing" style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="neo-card price-card reveal">
+      <span class="eyebrow">pricing</span>
+      <div class="big">free</div>
+      <span class="pill yellow" style="transform: rotate(-2deg); margin-top: 14px">unlimited usage · for now</span>
+      <p class="lead">actually free, with unlimited usage. no trial, no credit card, no catch.</p>
+      <ul>
+        <li>all 24+ languages</li>
+        <li>all characters, and unlimited friends of your own</li>
+        <li>corrections, translations, scenes, stats</li>
+        <li>notifications, if you want them</li>
+        <li>unlimited usage while it's free (paid plans coming soon)</li>
+      </ul>
+      <p style="margin-top: 18px; font-weight: 700; font-size: 0.92rem">paid plans are coming soon. get in now and it's all yours while it's free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section id="faq">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">faq</span>
+      <h2>questions people text us</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>What is weirdfriends?</summary>
+        <div class="answer">Think character.ai for language learners. weirdfriends is a free language learning app for iOS and Android where you learn by texting AI characters. Each friend has a personality (a ghost pirate, an alien anthropologist, a microwave in a Wichita break room) and texts you in the language you're learning. Tap any message for a translation, tap any mistake for a correction, and optionally let your friends message you first throughout the day. You can also create your own characters.</div>
+      </details>
+      <details>
+        <summary>Is weirdfriends free?</summary>
+        <div class="answer">Yes, completely, and right now usage is unlimited. Every language, every character, corrections, translations, scenes and notifications are free. No trial, no credit card. Paid plans are coming soon, so this is the moment to get in and use it as much as you like.</div>
+      </details>
+      <details>
+        <summary>Which languages can I learn?</summary>
+        <div class="answer">Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Norwegian, Danish, Romanian, Polish, Greek, Ukrainian, Russian, Turkish, Hindi, Japanese, Chinese, Korean, Thai, Vietnamese, Indonesian, Malay and English. Each has its own page under <a href="/languages/">languages</a>.</div>
+      </details>
+      <details>
+        <summary>How is weirdfriends different from Duolingo?</summary>
+        <div class="answer">Duolingo teaches you a language through short structured lessons and exercises. weirdfriends skips the lessons and drops you straight into conversation with characters who have personalities, correcting you as you go. There's no curriculum, you can talk about anything, you can invent your own characters, and your friends text you first. Lots of people use both: a course for the rules, weirdfriends for actually using them. <a href="/compare/">Full comparison here.</a></div>
+      </details>
+      <details>
+        <summary>Can I create my own AI character?</summary>
+        <div class="answer">Yes. Give your friend a name, an emoji and a short personality description (at least 20 characters, the more detail the better) and they'll text you in any of the supported languages, in character. You can edit them later. <a href="/create/">More on creating friends.</a></div>
+      </details>
+      <details>
+        <summary>Do I have to turn on notifications?</summary>
+        <div class="answer">No. Notifications are optional. If you turn them on, your friends will message you throughout the day in the language you're learning, in character, so practice feels like texting a mate. If you turn them off, nothing changes except the nudges.</div>
+      </details>
+      <details>
+        <summary>What level do I need to be?</summary>
+        <div class="answer">Any level from complete beginner (A1) to fluent (C2). You set your level and your friends adjust how they text. It shines from A2 or B1 upwards, when you can form basic sentences and need somewhere to actually use them.</div>
+      </details>
+      <details>
+        <summary>Are my conversations private?</summary>
+        <div class="answer">Yes. Every conversation is private, just you and your friends. See the <a href="/privacy.html">privacy policy</a> for details.</div>
+      </details>
+      <details>
+        <summary>Does it do speaking or voice?</summary>
+        <div class="answer">Not yet. weirdfriends is text chat right now, on purpose: texting is how most people use a second language day to day, and it lets you take your time. Voice is on the roadmap.</div>
+      </details>
+      <details>
+        <summary>Where can I get it?</summary>
+        <div class="answer">On the <a href="https://apps.apple.com/app/id6756412362" target="_blank" rel="noopener">App Store</a> for iPhone and on <a href="https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends" target="_blank" rel="noopener">Google Play</a> for Android.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-band">
+  <div class="wrap reveal">
+    <h2>24+ languages. infinite weird. zero judgment.</h2>
+    {% include store-buttons.html center=true %}
+    <p class="store-note">free on iOS and Android</p>
+  </div>
+</section>
+
+<!-- ═══════════ EMAIL ═══════════ -->
+<section id="updates">
+  <div class="wrap">
+    <div class="neo-card waitlist-card reveal">
+      <p style="font-weight: 800; font-size: 1.05rem">get (seldom) email updates</p>
+      <p style="font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-top: 4px">if you'd like to know when we add features or have deals</p>
+      <form id="waitlist-form" action="https://app.loops.so/api/newsletter-form/cmoertgej2ftj0i0pxqb6b265" method="POST">
+        <input type="email" name="email" placeholder="your email" required class="neo-input" />
+        <button id="submit-btn" type="submit" class="neo-btn lav" style="width: 100%">join →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://weirdfriends.app/#org",
+      "name": "weirdfriends",
+      "url": "https://weirdfriends.app/",
+      "logo": "https://weirdfriends.app/assets/icon-512.png",
+      "sameAs": [
+        "https://apps.apple.com/app/id6756412362",
+        "https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://weirdfriends.app/#website",
+      "url": "https://weirdfriends.app/",
+      "name": "weirdfriends",
+      "publisher": { "@id": "https://weirdfriends.app/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://weirdfriends.app/#app",
+      "name": "weirdfriends",
+      "alternateName": "weirdfriends: learn languages by texting",
+      "url": "https://weirdfriends.app/",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Language learning",
+      "description": "Free language learning app where you learn by texting quirky AI characters, or ones you create yourself, in 24+ languages. Tap any message for translations and corrections with explanations, pick scenes to play out, and optionally let your friends message you first throughout the day.",
+      "featureList": [
+        "Text with hand-picked AI characters with unique personalities",
+        "Create your own custom AI characters",
+        "24+ languages: Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Norwegian, Danish, Romanian, Polish, Greek, Ukrainian, Russian, Turkish, Hindi, Japanese, Chinese, Korean, Thai, Vietnamese, Indonesian, Malay, English",
+        "Tap any message for instant translation",
+        "Corrections with explanations, points for perfect messages",
+        "Optional notifications: your friends text you first",
+        "Scenes to role-play: chaos, drama, awkward",
+        "Private conversations",
+        "Dark mode"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free with unlimited usage right now. Paid plans coming soon." },
+      "installUrl": "https://apps.apple.com/app/id6756412362",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends",
+      "screenshot": "https://weirdfriends.app/assets/screens/corrections.webp",
+      "image": "https://weirdfriends.app/assets/og.png",
+      "publisher": { "@id": "https://weirdfriends.app/#org" },
+      "inLanguage": ["es","fr","de","it","pt","nl","sv","no","da","ro","pl","el","uk","ru","tr","hi","ja","zh","ko","th","vi","id","ms","en"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is weirdfriends?", "acceptedAnswer": { "@type": "Answer", "text": "Think character.ai for language learners. weirdfriends is a free language learning app for iOS and Android where you learn by texting AI characters. Each friend has a personality and texts you in the language you're learning. Tap any message for a translation, tap any mistake for a correction, and optionally let your friends message you first throughout the day. You can also create your own characters." } },
+        { "@type": "Question", "name": "Is weirdfriends free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely, and right now usage is unlimited. Every language, every character, corrections, translations, scenes and notifications are free. No trial, no credit card. Paid plans are coming soon, so this is the moment to get in and use it as much as you like." } },
+        { "@type": "Question", "name": "Which languages can I learn with weirdfriends?", "acceptedAnswer": { "@type": "Answer", "text": "Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Norwegian, Danish, Romanian, Polish, Greek, Ukrainian, Russian, Turkish, Hindi, Japanese, Chinese, Korean, Thai, Vietnamese, Indonesian, Malay and English." } },
+        { "@type": "Question", "name": "How is weirdfriends different from Duolingo?", "acceptedAnswer": { "@type": "Answer", "text": "Duolingo teaches a language through short structured lessons and exercises. weirdfriends skips the lessons and drops you straight into conversation with characters who have personalities, correcting you as you go. There's no curriculum, you can talk about anything, you can invent your own characters, and your friends text you first. Many people use both." } },
+        { "@type": "Question", "name": "Can I create my own AI character in weirdfriends?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Give your friend a name, an emoji and a short personality description and they'll text you in any supported language, in character. You can edit them later." } },
+        { "@type": "Question", "name": "Do I have to turn on notifications?", "acceptedAnswer": { "@type": "Answer", "text": "No. Notifications are optional. If enabled, your friends message you throughout the day in the language you're learning so practice feels like texting a mate." } },
+        { "@type": "Question", "name": "What level do I need to use weirdfriends?", "acceptedAnswer": { "@type": "Answer", "text": "Any level from A1 to C2. You set your level and your friends adjust how they text. It shines from A2 or B1 upwards." } },
+        { "@type": "Question", "name": "Are conversations in weirdfriends private?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every conversation is private, just you and your friends." } },
+        { "@type": "Question", "name": "Does weirdfriends have speaking or voice practice?", "acceptedAnswer": { "@type": "Answer", "text": "Not yet. weirdfriends is text chat right now. Voice is on the roadmap." } },
+        { "@type": "Question", "name": "Where can I download weirdfriends?", "acceptedAnswer": { "@type": "Answer", "text": "On the App Store for iPhone and on Google Play for Android." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  (function () {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ═══ 1. LIVE CHAT DEMO ═══ */
+    var CONVOS = [
+      {
+        name: "Micropro 19A79X", bio: "microwave, break room, Wichita", flag: "🇪🇸", img: "/assets/avatars/microwave.webp",
+        lines: [
+          { who: "them", text: "Hola. Soy un microondas. ¿Qué quieres calentar hoy?" },
+          { who: "me", text: "Nada, solo quiero charlar contigo", perfect: true },
+          { who: "them", text: "Qué raro. Nadie habla conmigo. Solo me pulsan botones.", translate: "How weird. Nobody talks to me. They just press my buttons." },
+          { who: "me", text: "Yo te pulso los botones con respeto 🫡", perfect: true },
+          { who: "them", text: "Gracias. Es lo más bonito que me han dicho en diez años." },
+        ],
+        notif: "Hola. Alguien ha calentado pescado. Otra vez.",
+      },
+      {
+        name: "Captain Barnacle Bill", bio: "ghost pirate, haunts a mini-golf course", flag: "🇩🇪", emoji: "🏴‍☠️", bg: "var(--mint)",
+        lines: [
+          { who: "them", text: "Arrr! Hast du meinen Schatz gesehen? Er liegt irgendwo unter Loch 7." },
+          { who: "me", text: "Ich habe nur ein Golfball gefunden", err: "ein Golfball", fix: "einen Golfball", note: "accusative, masculine" },
+          { who: "them", text: "Ein Golfball?! Das ist NICHT mein Schatz. Aber behalte ihn.", translate: "A golf ball?! That is NOT my treasure. But keep it." },
+          { who: "me", text: "Danke, ich nenne ihn Bill", perfect: true },
+        ],
+        notif: "Loch 7. Jetzt. Bring eine Schaufel. 🏴‍☠️",
+      },
+      {
+        name: "Zyloth-7", bio: "alien anthropologist, studying humans", flag: "🇯🇵", emoji: "🤖", bg: "var(--lemon)",
+        lines: [
+          { who: "them", text: "こんにちは。人間を研究しています。今日は何を食べましたか？", translate: "Hello. I'm studying humans. What did you eat today?" },
+          { who: "me", text: "ラーメンを食べました", perfect: true },
+          { who: "them", text: "ラーメン…興味深い。なぜ麺はそんなに長いのですか？" },
+          { who: "me", text: "わかりません。ラーメンに聞いてください 🍜", perfect: true },
+        ],
+        notif: "質問があります。靴下はなぜ二つですか？",
+      },
+      {
+        name: "Sir Edmund Grimsby", bio: "Victorian ghost. Very polite. Mildly upset.", flag: "🇫🇷", emoji: "👻", bg: "var(--lavender)",
+        lines: [
+          { who: "them", text: "Bonsoir. Pardonnez-moi, je viens de traverser votre mur." },
+          { who: "me", text: "Pas de problème. Vous voulez du thé ?", perfect: true },
+          { who: "them", text: "Avec plaisir. Je ne peux pas le boire, mais j'apprécie le geste.", translate: "With pleasure. I can't drink it, but I appreciate the gesture." },
+          { who: "me", text: "Je vous ai fait une tasse quand même ☕", perfect: true },
+        ],
+        notif: "Votre téléphone a encore sonné. Très fort.",
+      },
+    ];
+
+    var phone = document.getElementById("live-phone");
+    var body = document.getElementById("demo-body");
+    var typed = document.getElementById("demo-typed");
+    var ph = document.getElementById("demo-ph");
+    var caret = document.getElementById("demo-caret");
+    var send = document.getElementById("demo-send");
+    var notif = document.getElementById("demo-notif");
+
+    function esc(s) {
+      return s.replace(/[&<>"]/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+      });
+    }
+    function avatarHtml(c) {
+      return c.img ? '<img src="' + c.img + '" alt="" width="32" height="32" />' : c.emoji;
+    }
+    function setHeader(c) {
+      var av = document.getElementById("demo-avatar");
+      av.innerHTML = avatarHtml(c);
+      av.style.background = c.bg || "var(--surface)";
+      document.getElementById("demo-name").textContent = c.name;
+      document.getElementById("demo-bio").textContent = c.bio;
+      document.getElementById("demo-flag").textContent = c.flag;
+    }
+    function scrollDown() {
+      body.scrollTop = body.scrollHeight;
+    }
+    function trim() {
+      /* keep the chat inside the phone: drop the oldest bubbles when it overflows */
+      var guard = 0;
+      while (body.scrollHeight > body.clientHeight + 2 && body.children.length > 1 && guard++ < 20) {
+        body.removeChild(body.firstElementChild);
       }
-      /* 0–2 new bubbles every half second on desktop, 0–1 on phones.
-         Skip hidden tabs — throttled intervals would pile up bubbles
-         that all rise at once when the tab regains focus. */
-      const phoneQuery = window.matchMedia("(max-width: 767px)");
-      setInterval(() => {
-        if (document.hidden) return;
-        const max = phoneQuery.matches ? 2 : 3;
-        const count = Math.floor(Math.random() * max);
-        for (let i = 0; i < count; i++) spawnBubble();
-      }, 500);
+    }
+    function addMsg(who, html) {
+      var el = document.createElement("div");
+      el.className = "msg " + who;
+      el.innerHTML = html;
+      body.appendChild(el);
+      trim();
+      scrollDown();
+      return el;
+    }
+    function meHtml(line) {
+      var t = esc(line.text);
+      if (line.err) t = t.replace(esc(line.err), '<span class="err">' + esc(line.err) + "</span>");
+      return t;
+    }
+    function tipHtml(line) {
+      return '<span class="tip">✏️ <b>' + esc(line.fix) + "</b> · " + esc(line.note) + "</span>";
+    }
+    function translationHtml(line) {
+      return '<span class="translation">💬 ' + esc(line.translate) + "</span>";
+    }
 
-      /* 2. APP MOCKUP 3D TILT */
-      const appTilt = document.getElementById("app-tilt");
-      const appWrap = appTilt.closest(".app-image");
-      const appImg = appTilt.querySelector("img");
-
-      appWrap.addEventListener("mousemove", (e) => {
-        const r = appTilt.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-        const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-        appTilt.style.transition = "transform 0.1s ease";
-        appTilt.style.transform = `perspective(500px) rotateY(${
-          dx * 14
-        }deg) rotateX(${-dy * 10}deg) scale(1.03)`;
-        appImg.style.filter = `drop-shadow(${-dx * 10}px ${
-          dy * 10
-        }px 0px rgba(0,0,0,0.2))`;
+    /* static render (reduced motion / no JS timers) */
+    function renderStatic(c) {
+      setHeader(c);
+      body.innerHTML = "";
+      c.lines.forEach(function (line) {
+        if (line.who === "them") {
+          var el = addMsg("them", esc(line.text));
+          if (line.translate) el.insertAdjacentHTML("beforeend", translationHtml(line));
+        } else {
+          var m = addMsg("me", meHtml(line));
+          if (line.perfect) {
+            m.classList.add("perfect");
+            m.insertAdjacentHTML("beforeend", '<span class="pts">+10</span>');
+          }
+          if (line.err) m.insertAdjacentHTML("beforeend", tipHtml(line));
+        }
       });
-      appWrap.addEventListener("mouseleave", () => {
-        appTilt.style.transition = "transform 0.55s ease";
-        appTilt.style.transform = "";
-        appImg.style.filter = "drop-shadow(8px 8px 0px rgba(0,0,0,0.15))";
-      });
+      trim();
+    }
 
-      /* 4. MAGNETIC SUBMIT BUTTON */
-      const btn = document.getElementById("submit-btn");
-      btn.addEventListener("mouseenter", () => {
+    if (reduceMotion) {
+      renderStatic(CONVOS[1]);
+    } else {
+      var visible = true;
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (en) {
+          visible = en[0].isIntersecting;
+        }, { threshold: 0.15 }).observe(phone);
+      }
+      function sleep(ms) {
+        return new Promise(function (r) {
+          setTimeout(r, ms);
+        });
+      }
+      async function waitVisible() {
+        while (!visible || document.hidden) await sleep(400);
+      }
+      async function typeInto(text) {
+        ph.hidden = true;
+        caret.hidden = false;
+        typed.textContent = "";
+        for (var i = 0; i < text.length; i++) {
+          typed.textContent += text[i];
+          await sleep(28 + Math.random() * 38);
+        }
+        await sleep(350);
+        send.classList.add("pressed");
+        await sleep(140);
+        send.classList.remove("pressed");
+        typed.textContent = "";
+        caret.hidden = true;
+        ph.hidden = false;
+      }
+      async function showTyping(ms) {
+        var t = document.createElement("div");
+        t.className = "typing";
+        t.innerHTML = "<i></i><i></i><i></i>";
+        body.appendChild(t);
+        scrollDown();
+        await sleep(ms);
+        t.remove();
+      }
+      async function run() {
+        var i = 0;
+        while (true) {
+          var c = CONVOS[i % CONVOS.length];
+          await waitVisible();
+          setHeader(c);
+          body.innerHTML = "";
+          for (var k = 0; k < c.lines.length; k++) {
+            var line = c.lines[k];
+            await waitVisible();
+            if (line.who === "them") {
+              await showTyping(900 + Math.min(line.text.length * 25, 1400));
+              var el = addMsg("them", esc(line.text));
+              if (line.translate) {
+                await sleep(1500);
+                el.classList.add("tapped");
+                el.insertAdjacentHTML("beforeend", translationHtml(line));
+                trim();
+                scrollDown();
+                await sleep(400);
+              }
+            } else {
+              await sleep(500);
+              await typeInto(line.text);
+              var m = addMsg("me", meHtml(line));
+              if (line.perfect) {
+                await sleep(600);
+                m.classList.add("perfect");
+                m.insertAdjacentHTML("beforeend", '<span class="pts">+10</span>');
+              }
+              if (line.err) {
+                await sleep(1000);
+                m.insertAdjacentHTML("beforeend", tipHtml(line));
+                trim();
+                scrollDown();
+                await sleep(800);
+              }
+            }
+            await sleep(900);
+          }
+          await sleep(2200);
+          i++;
+          var n = CONVOS[i % CONVOS.length];
+          var nav = document.getElementById("notif-avatar");
+          nav.innerHTML = avatarHtml(n);
+          nav.style.background = n.bg || "var(--surface)";
+          document.getElementById("notif-from").textContent = n.name;
+          document.getElementById("notif-text").textContent = n.notif;
+          notif.classList.add("show");
+          await sleep(3200);
+          notif.classList.remove("show");
+          await sleep(600);
+        }
+      }
+      run();
+    }
+
+    /* ═══ 2. FRIEND GENERATOR ═══ */
+    var ROLES = ["a retired opera singer", "a ghost pirate", "your passive-aggressive landlord", "a Michelin-starred chef", "a 14th-century knight", "a golden retriever", "a tax accountant", "an alien anthropologist", "a burnt-out nightclub DJ", "a Victorian ghost", "a microwave", "a lighthouse keeper", "a retired wrestler", "a conspiracy-theorist barista", "a very old tortoise", "a wedding planner", "a night-shift taxi driver", "a houseplant", "a pigeon", "a dramatic weather presenter", "your future self", "a Roman emperor", "a hamster", "a bus that is also a detective", "a melodramatic poet", "an obsessive stamp collector"];
+    var SITS = ["who now runs a laundromat", "who haunts a mini-golf course", "who just learned to text", "who has lost their sense of taste", "who is confused by your dishwasher", "who is mildly upset about your phone", "who thinks every day is Monday", "who is secretly a double agent", "who is planning a heist", "who refuses to use full stops", "who is on a juice cleanse against their will", "who moonlights as a wrestler", "who is writing a memoir nobody asked for", "who has strong opinions about soup", "who just moved to Berlin", "who is scared of heights", "who thinks you're their long-lost sibling", "who is studying humans from a safe distance", "who lives in a break room in Wichita"];
+    var QUIRKS = ["and only speaks in weather metaphors", "and ends every message with a riddle", "and is slightly too honest", "and is extremely polite about it", "and keeps trying to sell you a boat", "and hates fish", "and narrates everything like a nature documentary", "and gives unsolicited life advice", "and flirts with everyone, including furniture", "and is convinced you owe them money", "and only replies in questions", "and is always slightly out of breath", "and keeps a very long grudge list", "and has never seen the sea", "and is way too into your horoscope", "and speaks mostly in hype", "and is still looking for their treasure"];
+    function pick(a) {
+      return a[Math.floor(Math.random() * a.length)];
+    }
+    function combo() {
+      return pick(ROLES) + " " + pick(SITS) + " " + pick(QUIRKS);
+    }
+    var out = document.getElementById("gen-out");
+    var rolling = false;
+    document.getElementById("gen-roll").addEventListener("click", async function () {
+      if (rolling) return;
+      rolling = true;
+      if (typeof gtag === "function") gtag("event", "friend_roll");
+      if (reduceMotion) {
+        out.textContent = combo();
+        rolling = false;
+        return;
+      }
+      out.classList.add("spin");
+      var t0 = Date.now();
+      while (Date.now() - t0 < 650) {
+        out.textContent = combo();
+        await new Promise(function (r) {
+          setTimeout(r, 55);
+        });
+      }
+      out.classList.remove("spin");
+      out.textContent = combo();
+      rolling = false;
+    });
+    document.getElementById("gen-copy").addEventListener("click", function () {
+      var txt = "You are " + out.textContent + ".";
+      navigator.clipboard.writeText(txt).then(function () {
+        showToast("copied! paste it into friend creation in the app");
+      });
+      if (typeof gtag === "function") gtag("event", "friend_copy");
+    });
+
+    /* ═══ 3. DARK MODE BUTTON ═══ */
+    document.getElementById("try-dark").addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") === "dark" || (!document.documentElement.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      window.setTheme(dark ? "light" : "dark");
+    });
+
+    /* ═══ 4. MAGNETIC SUBMIT + CONFETTI + FORM ═══ */
+    var btn = document.getElementById("submit-btn");
+    if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) * 0.18;
+        var dy = (e.clientY - (r.top + r.height / 2)) * 0.18;
         btn.style.transition = "transform 0.15s ease, box-shadow 0.15s ease";
+        btn.style.transform = "translate(" + dx + "px, " + dy + "px)";
+        btn.style.boxShadow = Math.max(0.5, 4 - dx * 0.12) + "px " + Math.max(0.5, 4 - dy * 0.12) + "px 0 var(--line)";
       });
-      btn.addEventListener("mousemove", (e) => {
-        const r = btn.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width / 2)) * 0.22;
-        const dy = (e.clientY - (r.top + r.height / 2)) * 0.22;
-        btn.style.transform = `translate(${dx}px, ${dy}px)`;
-        btn.style.boxShadow = `${Math.max(0.5, 4 - dx * 0.12)}px ${Math.max(
-          0.5,
-          4 - dy * 0.12,
-        )}px 0 var(--dark)`;
-      });
-      btn.addEventListener("mouseleave", () => {
+      btn.addEventListener("mouseleave", function () {
         btn.style.transition = "transform 0.08s ease, box-shadow 0.08s ease";
         btn.style.transform = "";
         btn.style.boxShadow = "";
       });
-      btn.addEventListener("mousedown", () => {
-        btn.style.transform = "translate(4px, 4px)";
-        btn.style.boxShadow = "0 0 0 var(--dark)";
-      });
-
-      /* 5. CONFETTI + FORM INTERCEPT */
-      function launchConfetti(origin) {
-        const r = origin.getBoundingClientRect();
-        const ox = ((r.left + r.width / 2) / window.innerWidth) * 100;
-        const oy = ((r.top + r.height / 2) / window.innerHeight) * 100;
-        const palette = [
-          "#dbf5f0",
-          "#fce0ff",
-          "#fef1e7",
-          "#1a1a1a",
-          "#ffffff",
-          "#ffd166",
-        ];
-
-        const wrap = document.createElement("div");
-        wrap.style.cssText =
-          "position:fixed;inset:0;pointer-events:none;z-index:9998;overflow:hidden";
-        document.body.appendChild(wrap);
-
-        for (let i = 0; i < 75; i++) {
-          const el = document.createElement("div");
-          const size = 6 + Math.random() * 9;
-          const color = palette[Math.floor(Math.random() * palette.length)];
-          const angle = Math.random() * Math.PI * 2;
-          const speed = 5 + Math.random() * 11;
-          let vx = Math.cos(angle) * speed,
-            vy = Math.sin(angle) * speed - 9;
-          let x = ox,
-            y = oy,
-            rot = Math.random() * 360;
-          const rotSpd = (Math.random() - 0.5) * 12;
-          const round = Math.random() > 0.55;
-          el.style.cssText = `position:absolute;width:${size}px;height:${
-            round ? size : size * 0.5
-          }px;background:${color};border:1.5px solid #1a1a1a;border-radius:${
-            round ? "50%" : "2px"
-          };left:${x}%;top:${y}%;transform-origin:center;`;
+    }
+    function launchConfetti(origin) {
+      var r = origin.getBoundingClientRect();
+      var ox = ((r.left + r.width / 2) / window.innerWidth) * 100;
+      var oy = ((r.top + r.height / 2) / window.innerHeight) * 100;
+      var palette = ["#dbf5f0", "#fce0ff", "#fef1e7", "#1a1a1a", "#ffffff", "#ffd166"];
+      var wrap = document.createElement("div");
+      wrap.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:9998;overflow:hidden";
+      document.body.appendChild(wrap);
+      for (var i = 0; i < 75; i++) {
+        (function () {
+          var el = document.createElement("div");
+          var size = 6 + Math.random() * 9;
+          var color = palette[Math.floor(Math.random() * palette.length)];
+          var angle = Math.random() * Math.PI * 2;
+          var speed = 5 + Math.random() * 11;
+          var vx = Math.cos(angle) * speed, vy = Math.sin(angle) * speed - 9;
+          var x = ox, y = oy, rot = Math.random() * 360;
+          var rotSpd = (Math.random() - 0.5) * 12;
+          var round = Math.random() > 0.55;
+          el.style.cssText = "position:absolute;width:" + size + "px;height:" + (round ? size : size * 0.5) + "px;background:" + color + ";border:1.5px solid #1a1a1a;border-radius:" + (round ? "50%" : "2px") + ";left:" + x + "%;top:" + y + "%;transform-origin:center;";
           wrap.appendChild(el);
-
-          let f = 0;
-          const tick = () => {
+          var f = 0;
+          var tick = function () {
             vy += 0.38;
             vx *= 0.99;
             x += vx * 0.11;
@@ -610,92 +1297,60 @@
             rot += rotSpd;
             el.style.left = x + "%";
             el.style.top = y + "%";
-            el.style.transform = `rotate(${rot}deg)`;
+            el.style.transform = "rotate(" + rot + "deg)";
             el.style.opacity = Math.max(0, 1 - f / 85);
             if (f++ < 85) requestAnimationFrame(tick);
             else el.remove();
           };
-          setTimeout(() => requestAnimationFrame(tick), Math.random() * 120);
-        }
-        setTimeout(() => wrap.remove(), 3500);
-      }
-
-      /* CONTACT COPY (bot-proof assembly) */
-      function copyEmail(e) {
-        e.preventDefault();
-        var addr = ["hello", "weirdfriends", "app"]
-          .join("@")
-          .replace("@app", ".app");
-        navigator.clipboard.writeText(addr).then(function () {
-          var t = document.getElementById("toast");
-          t.textContent = '"' + addr + '" copied!';
-          t.classList.add("show");
           setTimeout(function () {
-            t.classList.remove("show");
-          }, 2200);
+            requestAnimationFrame(tick);
+          }, Math.random() * 120);
+        })();
+      }
+      setTimeout(function () {
+        wrap.remove();
+      }, 3500);
+    }
+    function resetSubmitBtn() {
+      btn.disabled = false;
+      btn.textContent = "join →";
+    }
+    document.getElementById("waitlist-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var form = e.target;
+      var emailInput = form.querySelector('input[name="email"]');
+      btn.disabled = true;
+      btn.textContent = "sending... ✉️";
+      if (typeof gtag === "function") gtag("event", "email_signup");
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "email=" + encodeURIComponent(emailInput.value),
+      })
+        .then(async function (response) {
+          if (response.status === 429) {
+            showToast("too many signups, try again in a bit");
+            resetSubmitBtn();
+            return;
+          }
+          var data = await response.json().catch(function () {
+            return {};
+          });
+          if (response.ok && data.success) {
+            launchConfetti(btn);
+            form.reset();
+            setTimeout(function () {
+              window.location.href = "/thanks.html";
+            }, 600);
+          } else {
+            showToast(data.message || "something went wrong, try again");
+            resetSubmitBtn();
+          }
+        })
+        .catch(function () {
+          showToast("network error, try again");
+          resetSubmitBtn();
         });
-      }
-
-      function showToast(message) {
-        const t = document.getElementById("toast");
-        t.textContent = message;
-        t.classList.add("show");
-        setTimeout(() => t.classList.remove("show"), 3000);
-      }
-
-      function resetSubmitBtn() {
-        btn.disabled = false;
-        btn.textContent = "join →";
-        btn.style.opacity = "";
-        btn.style.cursor = "";
-      }
-
-      document
-        .getElementById("waitlist-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const form = e.target;
-          const emailInput = form.querySelector('input[name="email"]');
-
-          btn.disabled = true;
-          btn.textContent = "sending... ✉️";
-          btn.style.opacity = "0.7";
-          btn.style.cursor = "not-allowed";
-
-          gtag("event", "email_signup");
-
-          const body = "email=" + encodeURIComponent(emailInput.value);
-
-          fetch(form.action, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: body,
-          })
-            .then(async (response) => {
-              if (response.status === 429) {
-                showToast("too many signups, try again in a bit");
-                resetSubmitBtn();
-                return;
-              }
-              const data = await response.json().catch(() => ({}));
-              if (response.ok && data.success) {
-                launchConfetti(btn);
-                form.reset();
-                setTimeout(() => {
-                  window.location.href = "/thanks.html";
-                }, 600);
-              } else {
-                showToast(data.message || "something went wrong, try again");
-                resetSubmitBtn();
-              }
-            })
-            .catch(() => {
-              showToast("network error, try again");
-              resetSubmitBtn();
-            });
-        });
-    </script>
-  </body>
-</html>
+    });
+  })();
+</script>

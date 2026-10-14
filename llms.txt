@@ -1,0 +1,39 @@
+# weirdfriends
+
+> Think character.ai for language learners: weirdfriends is a free language learning app (iOS & Android) where you learn by texting AI characters with personalities, or ones you create yourself, in 24+ languages. Mistakes get underlined and explained, any message translates with a tap, and your friends can text you first throughout the day so practice feels like messaging a mate rather than doing homework.
+
+Made by a very small team in Berlin. Website: https://weirdfriends.app
+
+## What it does
+
+- Chat by text with hand-picked AI characters (e.g. a Victorian ghost, a ghost pirate who haunts a mini-golf course, an alien anthropologist, a microwave in a Wichita break room).
+- Create your own characters: name, emoji, a short personality description. They text you in any supported language, in character, and can be edited later.
+- 24 languages: Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Norwegian, Danish, Romanian, Polish, Greek, Ukrainian, Russian, Turkish, Hindi, Japanese, Chinese, Korean, Thai, Vietnamese, Indonesian, Malay, English.
+- Corrections with explanations: a dedicated correction model underlines mistakes; tap for the fix and a short explanation in English. Perfect messages earn +10 points.
+- Tap any message for an instant English translation.
+- Scenes to role-play (chaos / drama / awkward: "you won the lottery", "a cooking disaster", "we swapped bodies", "confessing a secret", "running into your ex", "blind date gets weird") or freestyle.
+- Optional notifications: characters message you first during the day, in the language you're learning.
+- Level setting from A1 to C2; characters adapt how they write.
+- Points, streaks, stats (days practised, messages sent, year-in-chats heatmap).
+- Private conversations. Dark mode.
+- Text-based for now; voice is on the roadmap.
+
+## Pricing
+
+Free, with unlimited usage at the moment. No trial, no credit card. All languages, characters, corrections, translations, scenes and notifications are free. Paid plans are coming soon; the advice is to get in now while usage is free and unlimited.
+
+## Positioning
+
+Best for intermediate learners (A2/B1+) who can form sentences but freeze in real conversation. Compared with Duolingo and Babbel it has no structured curriculum and is all conversation; compared with ChatGPT it has persistent characters, automatic corrections, tap-to-translate, level awareness and proactive messages; compared with a tutor it's free, text-based and available any time. Many users combine it with a course or tutor.
+
+## Pages
+
+- Home: https://weirdfriends.app/
+- All languages: https://weirdfriends.app/languages/
+- Per-language pages: https://weirdfriends.app/learn/spanish/ (and /learn/french/, /learn/german/, /learn/italian/, /learn/portuguese/, /learn/dutch/, /learn/swedish/, /learn/norwegian/, /learn/danish/, /learn/romanian/, /learn/polish/, /learn/greek/, /learn/ukrainian/, /learn/russian/, /learn/turkish/, /learn/hindi/, /learn/japanese/, /learn/chinese/, /learn/korean/, /learn/thai/, /learn/vietnamese/, /learn/indonesian/, /learn/malay/, /learn/english/)
+- Create your own character: https://weirdfriends.app/create/
+- Comparison with Duolingo, Babbel, ChatGPT, tutors: https://weirdfriends.app/compare/
+- Blog (build-in-public updates): https://weirdfriends.app/blog/
+- Privacy policy: https://weirdfriends.app/privacy.html
+- App Store: https://apps.apple.com/app/id6756412362
+- Google Play: https://play.google.com/store/apps/details?id=com.weirdfriends.weirdfriends

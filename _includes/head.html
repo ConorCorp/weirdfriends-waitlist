@@ -1,0 +1,59 @@
+{%- assign clean_url = page.url | replace: "index.html", "" -%}
+{%- if page.image and page.image != "" -%}
+  {%- assign first = page.image | slice: 0 -%}
+  {%- if first == "/" or page.image contains "://" -%}{%- assign og_img = page.image -%}{%- else -%}{%- assign og_img = clean_url | append: page.image | replace: "/./", "/" -%}{%- endif -%}
+{%- else -%}
+  {%- assign og_img = "/assets/og.png" -%}
+{%- endif -%}
+{%- if page.title_tag -%}{%- assign full_title = page.title_tag -%}{%- elsif page.title -%}{%- assign full_title = page.title | append: " — weirdfriends" -%}{%- else -%}{%- assign full_title = "weirdfriends" -%}{%- endif -%}
+{%- assign meta_desc = page.description | default: site.description | strip_newlines | strip -%}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ meta_desc }}" />
+<link rel="canonical" href="{{ clean_url | absolute_url }}" />
+<meta property="og:site_name" content="weirdfriends" />
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+<meta property="og:title" content="{{ full_title }}" />
+<meta property="og:description" content="{{ meta_desc }}" />
+<meta property="og:url" content="{{ clean_url | absolute_url }}" />
+<meta property="og:image" content="{{ og_img | absolute_url }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ full_title }}" />
+<meta name="twitter:description" content="{{ meta_desc }}" />
+<meta name="twitter:image" content="{{ og_img | absolute_url }}" />
+{%- if page.noindex %}
+<meta name="robots" content="noindex" />
+{%- endif %}
+<meta name="theme-color" content="#fef1e7" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1f202e" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png" />
+<link rel="apple-touch-icon" href="/assets/icon-512.png" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X92KKS8ZJP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-X92KKS8ZJP");
+</script>
+<script>
+  /* theme: apply the saved choice before first paint to avoid a flash */
+  (function () {
+    try {
+      var t = localStorage.getItem("wf-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Poppins:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+<style>
+{% include base.css %}
+</style>

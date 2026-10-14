@@ -1,5 +1,9 @@
 .PHONY: serve build install new-post clean
 
+# jekyll-sass needs a UTF-8 locale; some shells (and CI) don't set one
+export LANG ?= en_US.UTF-8
+export LC_ALL ?= en_US.UTF-8
+
 # Run the dev server with live reload at http://localhost:4000
 serve:
 	bundle exec jekyll serve --livereload --future

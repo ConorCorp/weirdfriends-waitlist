@@ -1,12 +1,24 @@
 title: weirdfriends
+description: >-
+  Learn 24+ languages by texting weird AI friends. Pick a quirky character or create your own,
+  chat about anything, get corrections and translations, and let them text you first. Free on iOS & Android.
 url: https://weirdfriends.app
+lang: en
+
+plugins:
+  - jekyll-sitemap
 
 # Each post is a folder: _blog/<slug>/index.md plus any images next to it.
 # Served at /blog/<slug>/ with images at /blog/<slug>/<file>.
+# Each language is a one-line file in _languages/<slug>.md, served at /learn/<slug>/,
+# with its content in _data/languages.yml.
 collections:
   blog:
     output: true
     permalink: /blog/:path:output_ext
+  languages:
+    output: true
+    permalink: /learn/:path/
 
 markdown: kramdown
 kramdown:
@@ -19,11 +31,33 @@ exclude:
   - Gemfile.lock
   - vendor
   - .claude
+  - Makefile
 
-# Every post uses the post layout unless it says otherwise
 defaults:
   - scope:
       path: ""
       type: blog
     values:
       layout: post
+  - scope:
+      path: ""
+      type: languages
+    values:
+      layout: language
+  # keep helper pages and raw assets out of the sitemap
+  - scope:
+      path: "onelink"
+    values:
+      sitemap: false
+  - scope:
+      path: "thanks.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+  - scope:
+      path: "berlin"
+    values:
+      sitemap: false

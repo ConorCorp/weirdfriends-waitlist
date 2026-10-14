@@ -1,0 +1,39 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <div class="lettermark">weirdfriends</div>
+      <p>learn 24+ languages by texting weird AI friends. free on iOS and Android. 🏗️ with ❤ in berlin.</p>
+      <div style="margin-top: 16px">{% include store-buttons.html %}</div>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>learn</h4>
+        <a href="/languages/">all 24 languages</a>
+        <a href="/learn/spanish/">spanish</a>
+        <a href="/learn/german/">german</a>
+        <a href="/learn/japanese/">japanese</a>
+        <a href="/learn/french/">french</a>
+      </div>
+      <div>
+        <h4>weirdfriends</h4>
+        <a href="/create/">create your own friend</a>
+        <a href="/compare/">vs duolingo, babbel, chatgpt</a>
+        <a href="/#faq">faq</a>
+        <a href="/blog/">blog</a>
+        <a href="#" onclick="copyEmail(event)">contact</a>
+      </div>
+      <div>
+        <h4>boring stuff</h4>
+        <a href="/privacy.html">privacy</a>
+        <a href="/account-deletion-request.html">account deletion</a>
+        <a href="/llms.txt">llms.txt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} weirdfriends</span>
+      <span>·</span>
+      <span>24+ languages. infinite weird. zero judgment.</span>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>

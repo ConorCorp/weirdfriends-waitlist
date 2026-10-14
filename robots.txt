@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /onelink/
+Disallow: /thanks.html
+
+# AI crawlers are welcome. Summary for them at /llms.txt
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://weirdfriends.app/sitemap.xml

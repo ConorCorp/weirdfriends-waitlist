@@ -1,0 +1,411 @@
+---
+layout: default
+title: "create your own AI language partner"
+title_tag: "Create your own AI character to practise a language with — weirdfriends"
+description: "Invent your own AI friend in weirdfriends: describe anyone (a ghost pirate, your grumpy landlord, a microwave) and they'll text you in Spanish, German, Japanese or 21 other languages, in character, with corrections. Free."
+---
+<style>
+  .create-hero {
+    padding: 40px 0 48px;
+  }
+  .create-hero .wrap {
+    display: grid;
+    gap: 36px;
+    align-items: center;
+  }
+  @media (min-width: 820px) {
+    .create-hero .wrap {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+  .create-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    margin-top: 10px;
+  }
+  .steps-2 {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 760px) {
+    .steps-2 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .stepc {
+    padding: 20px 18px;
+  }
+  .stepc .n {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--line);
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--on-accent);
+    font-weight: 800;
+    box-shadow: 2px 2px 0 var(--line);
+    margin-bottom: 10px;
+  }
+  .stepc h3 {
+    font-size: 1.05rem;
+  }
+  .stepc p {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .ideas {
+    display: grid;
+    gap: 12px;
+  }
+  @media (min-width: 640px) {
+    .ideas {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 980px) {
+    .ideas {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .idea {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 14px;
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--line);
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+  }
+  .idea:hover {
+    transform: translate(-2px, -2px) rotate(-0.8deg);
+    box-shadow: 5px 5px 0 var(--line);
+  }
+  .idea:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--line);
+  }
+  .idea .em {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .idea b {
+    display: block;
+    font-size: 0.92rem;
+  }
+  .idea span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+  .idea small {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    margin-top: 6px;
+    color: var(--ink);
+  }
+  .gen-card {
+    padding: 26px 22px;
+    text-align: center;
+  }
+  .gen-out {
+    font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    min-height: 3.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border: 2px dashed var(--line);
+    border-radius: 12px;
+    background: var(--surface-2);
+    margin: 16px 0 18px;
+  }
+  .gen-out.spin {
+    animation: gen-shake 0.08s linear infinite;
+  }
+  @keyframes gen-shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    50% { transform: translate(1px, -1px) rotate(0.3deg); }
+    100% { transform: translate(-1px, 1px) rotate(-0.3deg); }
+  }
+  .gen-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .why-grid {
+    display: grid;
+    gap: 18px;
+  }
+  @media (min-width: 760px) {
+    .why-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .why-card {
+    padding: 22px 20px;
+  }
+  .why-card .icon {
+    width: 46px;
+    height: 46px;
+    border: 2.5px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 3px 3px 0 var(--line);
+    margin-bottom: 14px;
+  }
+  .why-card h3 {
+    font-size: 1.05rem;
+  }
+  .why-card p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+</style>
+
+<section class="create-hero">
+  <div class="wrap">
+    <div>
+      <nav aria-label="breadcrumb" class="anim-in" style="font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 14px"><a href="/" style="color: var(--ink); text-decoration: none">weirdfriends</a> › create a friend</nav>
+      <span class="eyebrow anim-in" style="animation-delay: 60ms">our favourite feature</span>
+      <h1 class="anim-in" style="animation-delay: 120ms">make your own <span class="hl-lav">weird friend</span> to text in any language</h1>
+      <p class="lead anim-in" style="animation-delay: 200ms">
+        The hand-picked characters are great. But the friend you'll text the most is the one you made up at 1am: your landlord, your crush, a tortoise with opinions. Describe them in a sentence or two and they'll text you in Spanish, German, Japanese or any of 24+ languages, stay in character, and correct your mistakes while they're at it.
+      </p>
+      <div class="anim-in" style="animation-delay: 280ms; margin-top: 24px">
+        {% include store-buttons.html %}
+        <p class="store-note">creating friends is free. unlimited friends, too.</p>
+      </div>
+    </div>
+    <div class="phone-row anim-in" style="animation-delay: 360ms">
+      <div><div class="phone sm tilt"><div class="screen"><img src="/assets/screens/create.webp" alt="Friend creation screen: what's my personality like? With example text: a witty space explorer who speaks in riddles" width="640" height="1391" /></div></div></div>
+      <div><div class="phone sm tilt" style="margin-top: 36px"><div class="screen"><img src="/assets/screens/my-friends.webp" alt="My created friends list showing Harry Plopper, a wizard penguin" width="640" height="1391" /></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">how it works</span>
+      <h2>about forty seconds, start to first text</h2>
+    </div>
+    <div class="steps-2">
+      <div class="neo-card stepc reveal"><span class="n">1</span><h3>name &amp; emoji</h3><p>Tap "create" in the friends list. Give them a name and pick an emoji for their avatar. Harry Plopper the wizard penguin is 🐧, obviously.</p></div>
+      <div class="neo-card stepc reveal reveal-d1"><span class="n">2</span><h3>personality</h3><p>Write who they are in a sentence or two (at least 20 characters; the more detail the better). Backstory, mood, what they want, how they talk. You can edit this later.</p></div>
+      <div class="neo-card stepc reveal reveal-d2"><span class="n">3</span><h3>pick a language &amp; chat</h3><p>Your friend speaks every language weirdfriends does. Pick one per chat, pick a scene or freestyle, and they'll text you in character. Turn on notifications and they'll text you first.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">need a nudge?</span>
+      <h2>roll a weird friend 🎲</h2>
+      <p class="lead">Tap "copy" and paste it straight into the personality box in the app. Edit as much as you like.</p>
+    </div>
+    <div class="neo-card gen-card reveal" style="max-width: 640px">
+      <div class="gen-out" id="gen-out" aria-live="polite">a very old tortoise who is planning a heist and gives unsolicited life advice</div>
+      <div class="gen-actions">
+        <button type="button" class="neo-btn lav" id="gen-roll">roll again</button>
+        <button type="button" class="neo-btn" id="gen-copy">copy for the app</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ideas people actually use</span>
+      <h2>friends worth making</h2>
+      <p class="lead">Tap any card to copy its personality. Every one of these works in every language.</p>
+    </div>
+    <div class="ideas reveal" id="ideas">
+      <button class="idea" data-p="You are my landlord. You are passive-aggressive, communicate mostly through notes taped to doors, and believe every problem in the building is somehow my fault."><span class="em" style="background: var(--pink)">🏢</span><div><b>your passive-aggressive landlord</b><span>Practise complaining, negotiating and apologising. Essential vocabulary nobody teaches.</span><small>good for: Spanish, German, French</small></div></button>
+      <button class="idea" data-p="You are a chaotic chef who runs a tiny restaurant. You are always mid-disaster, shout ingredients, and ask me to help fix whatever just went wrong in the kitchen."><span class="em" style="background: var(--yellow)">🍳</span><div><b>a chaotic chef</b><span>Food vocabulary, imperatives, panic. The app store's favourite example for a reason.</span><small>good for: Italian, French, Thai</small></div></button>
+      <button class="idea" data-p="You are a golden retriever who just learned how to text. You are extremely enthusiastic about everything, get distracted easily, and love me more than anything in the world."><span class="em" style="background: var(--lemon)">🐕</span><div><b>a golden retriever who just learned to text</b><span>Simple sentences, big feelings. Perfect for beginners who want low-pressure practice.</span><small>good for: any language, A1–A2</small></div></button>
+      <button class="idea" data-p="You are a 14th-century knight who has somehow ended up in my flat. You are confused by modern appliances, speak formally, and treat every household task like a quest."><span class="em" style="background: var(--mint)">⚔️</span><div><b>a medieval knight in your flat</b><span>Explain the dishwasher. Learn household words and the formal register at the same time.</span><small>good for: German, Japanese, Korean</small></div></button>
+      <button class="idea" data-p="You are my coworker at a small office. You love gossip, always know something before everyone else, and want to hear about my day in return."><span class="em" style="background: var(--lavender)">☕</span><div><b>the office gossip</b><span>Workplace vocabulary and small talk. The actual language you'll need at a job abroad.</span><small>good for: Dutch, Swedish, English</small></div></button>
+      <button class="idea" data-p="You are a melodramatic poet who sees tragedy in everything, especially the weather and my grocery choices. You speak beautifully and sigh a lot."><span class="em" style="background: var(--pink)">🌹</span><div><b>a melodramatic poet</b><span>Adjectives, emotions, flourish. Sounds ridiculous, teaches a lot.</span><small>good for: French, Portuguese, Italian</small></div></button>
+      <button class="idea" data-p="You are a market vendor in a busy street market. You are friendly but drive a hard bargain, and you always try to sell me one more thing."><span class="em" style="background: var(--yellow)">🧺</span><div><b>a market vendor who haggles</b><span>Numbers, prices, polite refusals. Travel practice that actually feels like travel.</span><small>good for: Vietnamese, Turkish, Hindi</small></div></button>
+      <button class="idea" data-p="You are a friendly local I just met at a bar. You are curious about where I'm from, a bit flirty, and keep suggesting places I should visit in your city."><span class="em" style="background: var(--lavender)">🍸</span><div><b>a flirty local at a bar</b><span>Small talk, questions, the odd compliment. Low stakes, high reps.</span><small>good for: Spanish, Portuguese, Greek</small></div></button>
+      <button class="idea" data-p="You are an obsessive collector of something very specific (you decide what). You want to tell me everything about your collection and are suspicious I might want to steal it."><span class="em" style="background: var(--mint)">🗃️</span><div><b>an obsessive collector</b><span>Descriptions, comparisons, a mild sense of threat. Great for intermediate learners.</span><small>good for: Japanese, Polish, Russian</small></div></button>
+      <button class="idea" data-p="You are my future self, ten years from now. You are calm, slightly smug, and drop vague hints about what happens next while refusing to give specifics."><span class="em" style="background: var(--lemon)">🔮</span><div><b>your future self</b><span>Future tense, conditionals, advice. Also mildly unsettling.</span><small>good for: any language, B1+</small></div></button>
+      <button class="idea" data-p="You are a grumpy old tortoise who has seen everything. You give unsolicited life advice, speak slowly and deliberately, and are unimpressed by my problems."><span class="em" style="background: var(--pink)">🐢</span><div><b>a grumpy old tortoise</b><span>Patient replies, simple structures, dry humour. Ideal for a daily check-in.</span><small>good for: Danish, Norwegian, Chinese</small></div></button>
+      <button class="idea" data-p="You are a conspiracy-theorist barista. You make excellent coffee and believe pigeons are government drones. You try to convince me every time I order."><span class="em" style="background: var(--yellow)">☕</span><div><b>a conspiracy-theorist barista</b><span>Ordering, arguing, "that's not true". Surprisingly rich practice.</span><small>good for: English, German, Indonesian</small></div></button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">why it works</span>
+      <h2>a friend you made is a friend you'll text</h2>
+    </div>
+    <div class="why-grid">
+      <article class="neo-card why-card reveal"><div class="icon" style="background: var(--lavender)">🎯</div><h3>vocabulary for your actual life</h3><p>Courses teach "the library is next to the bank". Your made-up coworker teaches you how to say "can we move the meeting" in Dutch. Make the friend match the situation you're learning for.</p></article>
+      <article class="neo-card why-card reveal reveal-d1"><div class="icon" style="background: var(--mint)">😅</div><h3>zero embarrassment</h3><p>Say something stupid to a tortoise. Flirt badly with a poet. Nobody's watching, nobody's grading. The mistakes still get fixed, you just don't have to feel bad about them.</p></article>
+      <article class="neo-card why-card reveal reveal-d2"><div class="icon" style="background: var(--yellow)">🔁</div><h3>the bit keeps you coming back</h3><p>A streak is a chore. A ghost pirate who still hasn't found his treasure is a reason to open the app. Especially when he texts you first.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-top: 2.5px solid var(--line); border-bottom: 2.5px solid var(--line)">
+  <div class="wrap wrap-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">faq</span>
+      <h2>creating friends</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Is creating a character free?</summary>
+        <div class="answer">Yes. Make as many as you like. Creating, editing and chatting with your own friends is all part of the free app.</div>
+      </details>
+      <details>
+        <summary>What should I write in the personality?</summary>
+        <div class="answer">Who they are, what they want, how they talk, and anything they're weird about. At least 20 characters; a few sentences is ideal. "You're a witty space explorer who speaks in riddles and loves obscure trivia" is the in-app example. You can edit it any time.</div>
+      </details>
+      <details>
+        <summary>Which languages can my character speak?</summary>
+        <div class="answer">All of them. Your friend isn't tied to one language; you pick the language per chat. The same tortoise can text you in Danish on Monday and Chinese on Tuesday. <a href="/languages/">See all 24 languages.</a></div>
+      </details>
+      <details>
+        <summary>Can my character be flirty, raunchy or sarcastic?</summary>
+        <div class="answer">They'll match the personality you give them: flirty, raunchy, dramatic, sarcastic, grumpy, absurd, wholesome. Conversations are private, it's just you and your friend. Keep it kind, and have fun.</div>
+      </details>
+      <details>
+        <summary>Will my character still correct my mistakes?</summary>
+        <div class="answer">Yes. Corrections and translations work the same with your own friends as with the hand-picked ones: mistakes underlined, tap for the fix and the explanation, +10 for perfect messages.</div>
+      </details>
+      <details>
+        <summary>Can my created friend message me first?</summary>
+        <div class="answer">Yes, if you have notifications on. They'll text you through the day, in character, in whichever language you've been chatting in.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap reveal">
+    <h2>go on. make someone weird.</h2>
+    {% include store-buttons.html center=true %}
+    <p class="store-note">free on iOS and Android</p>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "weirdfriends", "item": "https://weirdfriends.app/" },
+        { "@type": "ListItem", "position": 2, "name": "create a friend", "item": "https://weirdfriends.app/create/" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to create your own AI language partner in weirdfriends",
+      "description": "Create a custom AI character to practise any of 24+ languages with, in the free weirdfriends app.",
+      "totalTime": "PT1M",
+      "step": [
+        { "@type": "HowToStep", "name": "Name and emoji", "text": "Tap create in the friends list. Give your friend a name and pick an emoji avatar." },
+        { "@type": "HowToStep", "name": "Personality", "text": "Describe who they are in a sentence or two: backstory, mood, how they talk. At least 20 characters. You can edit it later." },
+        { "@type": "HowToStep", "name": "Pick a language and chat", "text": "Choose a language per chat, pick a scene or freestyle, and your friend texts you in character with corrections and translations." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is creating a character in weirdfriends free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Make as many as you like. Creating, editing and chatting with your own friends is part of the free app." } },
+        { "@type": "Question", "name": "Which languages can my custom character speak?", "acceptedAnswer": { "@type": "Answer", "text": "All 24+ supported languages. You pick the language per chat; the same character can text you in different languages on different days." } },
+        { "@type": "Question", "name": "Will my custom character correct my mistakes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Corrections and translations work the same with your own friends: mistakes underlined, tap for the fix and explanation, points for perfect messages." } },
+        { "@type": "Question", "name": "Can my created friend message me first?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with notifications on. They'll text you through the day, in character, in the language you've been chatting in." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+  (function () {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ROLES = ["a retired opera singer", "a ghost pirate", "your passive-aggressive landlord", "a Michelin-starred chef", "a 14th-century knight", "a golden retriever", "a tax accountant", "an alien anthropologist", "a burnt-out nightclub DJ", "a Victorian ghost", "a microwave", "a lighthouse keeper", "a retired wrestler", "a conspiracy-theorist barista", "a very old tortoise", "a wedding planner", "a night-shift taxi driver", "a houseplant", "a pigeon", "a dramatic weather presenter", "your future self", "a Roman emperor", "a hamster", "a bus that is also a detective", "a melodramatic poet", "an obsessive stamp collector"];
+    var SITS = ["who now runs a laundromat", "who haunts a mini-golf course", "who just learned to text", "who has lost their sense of taste", "who is confused by your dishwasher", "who is mildly upset about your phone", "who thinks every day is Monday", "who is secretly a double agent", "who is planning a heist", "who refuses to use full stops", "who is on a juice cleanse against their will", "who moonlights as a wrestler", "who is writing a memoir nobody asked for", "who has strong opinions about soup", "who just moved to Berlin", "who is scared of heights", "who thinks you're their long-lost sibling", "who is studying humans from a safe distance", "who lives in a break room in Wichita"];
+    var QUIRKS = ["and only speaks in weather metaphors", "and ends every message with a riddle", "and is slightly too honest", "and is extremely polite about it", "and keeps trying to sell you a boat", "and hates fish", "and narrates everything like a nature documentary", "and gives unsolicited life advice", "and flirts with everyone, including furniture", "and is convinced you owe them money", "and only replies in questions", "and is always slightly out of breath", "and keeps a very long grudge list", "and has never seen the sea", "and is way too into your horoscope", "and speaks mostly in hype", "and is still looking for their treasure"];
+    function pick(a) {
+      return a[Math.floor(Math.random() * a.length)];
+    }
+    function combo() {
+      return pick(ROLES) + " " + pick(SITS) + " " + pick(QUIRKS);
+    }
+    var out = document.getElementById("gen-out");
+    var rolling = false;
+    document.getElementById("gen-roll").addEventListener("click", async function () {
+      if (rolling) return;
+      rolling = true;
+      if (typeof gtag === "function") gtag("event", "friend_roll", { page: "create" });
+      if (!reduceMotion) {
+        out.classList.add("spin");
+        var t0 = Date.now();
+        while (Date.now() - t0 < 650) {
+          out.textContent = combo();
+          await new Promise(function (r) {
+            setTimeout(r, 55);
+          });
+        }
+        out.classList.remove("spin");
+      }
+      out.textContent = combo();
+      rolling = false;
+    });
+    document.getElementById("gen-copy").addEventListener("click", function () {
+      navigator.clipboard.writeText("You are " + out.textContent + ".").then(function () {
+        showToast("copied! paste it into friend creation in the app");
+      });
+      if (typeof gtag === "function") gtag("event", "friend_copy", { page: "create" });
+    });
+    document.querySelectorAll(".idea").forEach(function (b) {
+      b.addEventListener("click", function () {
+        navigator.clipboard.writeText(b.getAttribute("data-p")).then(function () {
+          showToast("copied! paste it into friend creation in the app");
+        });
+        if (typeof gtag === "function") gtag("event", "friend_idea_copy");
+      });
+    });
+  })();
+</script>

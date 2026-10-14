@@ -1,0 +1,27 @@
+{%- assign cur = page.url | replace: "index.html", "" -%}
+<header class="site-nav" id="site-nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="weirdfriends home">
+      <span class="brand-mark">{% include logo.svg %}</span>
+      <span class="lettermark">weirdfriends</span>
+    </a>
+    <nav class="nav-links" aria-label="main">
+      <a href="/languages/" {% if cur contains "/languages/" or cur contains "/learn/" %}aria-current="page"{% endif %}>languages</a>
+      <a href="/create/" {% if cur contains "/create/" %}aria-current="page"{% endif %}>create a friend</a>
+      <a href="/compare/" {% if cur contains "/compare/" %}aria-current="page"{% endif %}>vs duolingo &amp; co</a>
+      <a href="/blog/" {% if cur contains "/blog/" %}aria-current="page"{% endif %}>blog</a>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="toggle dark mode" title="toggle dark mode"><span>🌙</span></button>
+      <a href="/#download" class="neo-btn sm lav nav-cta" data-app-link>get the app</a>
+      <button type="button" class="icon-btn nav-burger" id="nav-burger" aria-label="menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+    </div>
+  </div>
+  <div class="nav-menu" id="nav-menu">
+    <a href="/languages/">languages</a>
+    <a href="/create/">create a friend</a>
+    <a href="/compare/">vs duolingo &amp; co</a>
+    <a href="/blog/">blog</a>
+    <a href="/#download" data-app-link>get the app →</a>
+  </div>
+</header>
