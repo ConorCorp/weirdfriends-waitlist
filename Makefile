@@ -1,4 +1,4 @@
-.PHONY: serve build install new-post clean
+.PHONY: serve build install new clean
 
 # jekyll-sass needs a UTF-8 locale; some shells (and CI) don't set one
 export LANG ?= en_US.UTF-8
@@ -16,9 +16,9 @@ build:
 install:
 	bundle install
 
-# Create a new post folder for today. Title is optional:
-#   make new-post                     -> _blog/YYYY-MM-DD/index.md, titled with the date
-#   make new-post title="my post"     -> _blog/my-post/index.md
+# Create a new post folder. Title is optional:
+#   make new                     -> _blog/YYYY-MM-DD/index.md, titled with the date
+#   make new title="my post"     -> _blog/my-post/index.md
 # Drop images in the same folder and reference them by filename.
 new:
 	@today=$$(date +%Y-%m-%d); \

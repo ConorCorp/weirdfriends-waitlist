@@ -1,0 +1,50 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Atom feed of the blog, written by hand rather than with jekyll-feed because
+  Jekyll 3 keeps future-dated posts in site.blog and jekyll-feed would list them
+  before their pages exist. Same file in the weirdfriends and skintheory repos.
+{%- endcomment -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang | default: 'en' }}">
+  <title>{{ site.title | xml_escape }} blog</title>
+  <subtitle>{{ site.description | strip_newlines | strip | xml_escape }}</subtitle>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
+  <link href="{{ '/blog/' | absolute_url }}" rel="alternate" type="text/html" />
+  <id>{{ '/blog/' | absolute_url }}</id>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  {%- assign posts = site.blog | sort: "date" | reverse %}
+  {%- for post in posts %}
+  {%- if post.date > site.time and site.future != true %}{% continue %}{% endif %}
+  {%- assign post_url = post.url | replace: "index.html", "" | absolute_url %}
+  {%- comment -%}
+    Many feed readers ignore xml:base, so make image paths absolute:
+    "photo.jpg" -> post_url + "photo.jpg", "/x.png" -> site + "/x.png", "http..." unchanged.
+  {%- endcomment -%}
+  {%- assign src_post = 'src="' | append: post_url %}
+  {%- assign src_post_http = src_post | append: "http" %}
+  {%- assign src_post_root = src_post | append: "/" %}
+  {%- assign src_site_root = "/" | absolute_url | prepend: 'src="' %}
+  {%- assign body = post.content | replace: 'src="', src_post | replace: src_post_http, 'src="http' | replace: src_post_root, src_site_root %}
+  {%- assign cover = "" %}
+  {%- if post.image and post.image != "" %}
+    {%- assign first = post.image | slice: 0 %}
+    {%- if post.image contains "://" %}{% assign cover_src = post.image %}{% elsif first == "/" %}{% assign cover_src = post.image | absolute_url %}{% else %}{% assign cover_src = post_url | append: post.image %}{% endif %}
+    {%- capture cover %}<p><img src="{{ cover_src }}" alt="{{ post.image_alt | default: '' | xml_escape }}" /></p>{% endcapture %}
+  {%- endif %}
+  <entry>
+    <title type="html">{{ post.title | xml_escape }}</title>
+    <link href="{{ post_url }}" rel="alternate" type="text/html" />
+    <id>{{ post_url }}</id>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author><name>{{ post.author | default: site.title | xml_escape }}</name></author>
+    {%- if post.description and post.description != "" %}
+    <summary type="html">{{ post.description | xml_escape }}</summary>
+    {%- endif %}
+    <content type="html" xml:base="{{ post_url }}">{{ cover | append: body | xml_escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

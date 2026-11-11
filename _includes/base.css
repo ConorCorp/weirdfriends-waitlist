@@ -14,6 +14,9 @@
   --cream: #fef1e7;
   --mint: #dbf5f0;
   --lavender: #fce0ff;
+  /* offset shadow under big display titles, and the .hl / .hl-lav highlights */
+  --title-shadow: var(--mint);
+  --title-shadow-alt: var(--lavender);
   --pink: #f9c6cf;
   --yellow: #fbd56b;
   --orange: #f6a25f;
@@ -48,6 +51,9 @@
   --muted: #999fb8;
   --mint: #7ad1ff;
   --lavender: #b998f6;
+  /* darker than --mint / --lavender so light text on top stays readable */
+  --title-shadow: #2f5f8f;
+  --title-shadow-alt: #5b3f99;
   --pink: #e39aae;
   --yellow: #f3c860;
   --orange: #ff9e66;
@@ -73,6 +79,8 @@
     --muted: #999fb8;
     --mint: #7ad1ff;
     --lavender: #b998f6;
+    --title-shadow: #2f5f8f;
+    --title-shadow-alt: #5b3f99;
     --pink: #e39aae;
     --yellow: #f3c860;
     --orange: #ff9e66;
@@ -187,11 +195,11 @@ h3 {
   margin-bottom: 14px;
 }
 .hl {
-  background: linear-gradient(transparent 55%, var(--mint) 55%);
+  background: linear-gradient(transparent 55%, var(--title-shadow) 55%);
   padding: 0 0.1em;
 }
 .hl-lav {
-  background: linear-gradient(transparent 55%, var(--lavender) 55%);
+  background: linear-gradient(transparent 55%, var(--title-shadow-alt) 55%);
   padding: 0 0.1em;
 }
 /* inside muted lead text a half-height block swallows the letters: use a thin
@@ -206,10 +214,10 @@ h3 {
   padding: 0 0.05em;
 }
 .lead .hl {
-  background-image: linear-gradient(var(--mint), var(--mint));
+  background-image: linear-gradient(var(--title-shadow), var(--title-shadow));
 }
 .lead .hl-lav {
-  background-image: linear-gradient(var(--lavender), var(--lavender));
+  background-image: linear-gradient(var(--title-shadow-alt), var(--title-shadow-alt));
 }
 .wobble {
   display: inline-block;
@@ -495,7 +503,7 @@ a.pill:hover {
 .footer-brand .lettermark {
   font-size: 2rem;
   line-height: 1;
-  text-shadow: 3px 3px 0 var(--mint);
+  text-shadow: 3px 3px 0 var(--title-shadow);
 }
 .footer-brand p {
   font-size: 0.82rem;

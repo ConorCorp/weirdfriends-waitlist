@@ -15,7 +15,7 @@ layout: default
     font-size: clamp(2rem, 5vw, 2.6rem);
     line-height: 1.1;
     margin-top: 24px;
-    text-shadow: 4px 4px 0 var(--mint);
+    text-shadow: 4px 4px 0 var(--title-shadow);
   }
   .post-date {
     font-size: 0.78rem;
@@ -92,6 +92,17 @@ layout: default
     border-radius: 10px;
     box-shadow: 4px 4px 0 var(--line);
     display: block;
+  }
+  /* Phone screenshots: ![alt](shot.webp){: .screenshot} shows them at phone size, centred. */
+  .post-body img.screenshot {
+    width: min(300px, 75%);
+    margin-inline: auto;
+    border-radius: 22px;
+  }
+  /* Squarish images such as charts: ![alt](chart.webp){: .narrow} */
+  .post-body img.narrow {
+    width: min(520px, 100%);
+    margin-inline: auto;
   }
   .post-body blockquote {
     border-left: 4px solid var(--line);

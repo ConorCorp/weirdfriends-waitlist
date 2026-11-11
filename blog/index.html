@@ -17,10 +17,31 @@ bubbles: low
     font-size: 2.6rem;
     line-height: 1.1;
     margin: 20px 0 8px;
-    text-shadow: 4px 4px 0 var(--mint);
+    text-shadow: 4px 4px 0 var(--title-shadow);
   }
   .blog-wrap .lead {
-    margin-bottom: 30px;
+    margin-bottom: 6px;
+  }
+  .rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .rss-link svg {
+    width: 15px;
+    height: 15px;
+    color: var(--orange);
+  }
+  .rss-link:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .posts {
     list-style: none;
@@ -75,7 +96,11 @@ bubbles: low
 <div class="blog-wrap">
   <a href="/" class="back-link">← back</a>
   <h1>blog</h1>
-  <p class="lead">building weirdfriends in public. updates, plans, the occasional thank-you.</p>
+  <p class="lead">building weirdfriends in public. updates, plans, the occasional thank you.</p>
+  <a class="rss-link" href="/blog/feed.xml">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3a1 1 0 0 0 0 2 14 14 0 0 1 14 14 1 1 0 1 0 2 0A16 16 0 0 0 5 3Zm0 6a1 1 0 0 0 0 2 8 8 0 0 1 8 8 1 1 0 1 0 2 0A10 10 0 0 0 5 9Zm1 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>
+    rss feed
+  </a>
   {% assign posts = site.blog | sort: "date" | reverse %}
   {% if posts.size > 0 %}
   <ul class="posts">

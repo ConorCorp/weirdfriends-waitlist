@@ -27,6 +27,8 @@ kramdown:
 # Files Jekyll should leave out of the build
 exclude:
   - README.md
+  - AGENTS.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - vendor

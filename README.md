@@ -13,7 +13,7 @@ Static marketing site for [weirdfriends.app](https://weirdfriends.app), deployed
 | `_layouts/language.html` | Template for the language pages |
 | `compare/index.html` | weirdfriends vs Duolingo / Babbel / ChatGPT / tutors |
 | `create/index.html` | Create-your-own-friend page, with the friend generator and idea cards |
-| `blog/`, `_blog/`, `_layouts/post.html` | The blog (see below) |
+| `blog/`, `_blog/`, `_layouts/post.html` | The blog and its feed, `blog/feed.xml` (see below) |
 | `_layouts/default.html` | HTML skeleton every page uses: head, nav, footer, scripts |
 | `_includes/base.css` | Shared styles and the light/dark colour tokens |
 | `_includes/head.html` | Meta tags, Open Graph, favicon, fonts, theme init |
@@ -65,11 +65,14 @@ image: cover.gif               # featured image (optional)
 ---
 ```
 
-`date` is required and sets the publish date and ordering. Posts dated in the future are not published until that date passes.
+`date` is required and sets the publish date and ordering. A post dated in the future is left off the blog page and the feed, but GitHub Pages only rebuilds on a push, so it goes live on the first push after that date, not on the date itself. It also shows up in `sitemap.xml` early (Jekyll 3 keeps future posts in the collection). For a draft, add `published: false` instead and remove it when the post is ready.
 
 - **Featured image**: shown at the top of the post, on the blog index, and as the share preview. Add `image_alt:` for alt text.
 - **Inline images**: `![alt text](screenshot.png)` next to the post.
 
+`AGENTS.md` (with `CLAUDE.md` linked to it) has the same steps written for AI coding agents. For phone screenshots add `{: .screenshot}` after the image so they show at phone size; for charts, `{: .narrow}`.
+
+The blog has an Atom feed at `/blog/feed.xml`, built from `blog/feed.xml`. It is hand-written rather than using `jekyll-feed` so future-dated posts stay out of it; the skintheory site uses the same file.
 ## Previewing locally
 
 One-time setup (Ruby 3.3 via rbenv, then the same gems GitHub Pages uses):
